@@ -1,0 +1,32 @@
+// 정상 작동 체크				
+select sysdate from dual;				
+				
+// DB파일 생성		C:\dev\server\oracle\oracledata\xe		
+CREATE TABLESPACE BBSDB				
+DATAFILE 'C:\dev\server\oracle\oracledata\xe\mydb.dbf' size 1024M;				
+				
+// 세션 설정				
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;				
+				
+// 유저 정보 생성				
+// USER → 계정이름 | IDENTIDIED → 비밀번호 | TABLESPACE → 작업 공간				
+// TEMPORARY TABLESPACE → 임시 작업 공간				
+CREATE USER webuser IDENTIFIED by xptmxm12 DEFAULT TABLESPACE BBSDB				
+TEMPORARY TABLESPACE TEMP;				
+				
+// 접속 및 자원 사용 및 관리자 권한 설정				
+GRANT CONNECT, RESOURCE, DBA TO webuser;				
+				
+// 테이블 생성				
+// 유니코드 사용시 varchar2를 사용해야함				
+CREATE TABLE board(				
+board_no number not null,				
+title VARCHAR2(200) not null,				
+content varchar2(2000) not NULL,				
+writer varchar2(50) not null,				
+reg_date date				
+);				
+				
+ALTER TABLE board ADD CONSTRAINT pk_board PRIMARY KEY (board_no);				
+				
+CREATE SEQUENCE seq_board;				
