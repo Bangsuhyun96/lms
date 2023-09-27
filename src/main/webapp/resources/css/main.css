@@ -1,43 +1,7 @@
-/* common */
-@font-face {
-    font-family: 'SUIT-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* logo */
-@font-face {
-    font-family: 'KCC-Ganpan';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input:autofill,
-input:autofill:hover,
-input:autofill:focus,
-input:autofill:active {
-    -webkit-text-fill-color: #fff;
-    -webkit-box-shadow: 0 0 0px 1000px #2a2a2a inset;
-    box-shadow: 0 0 0px 1000px #2a2a2a inset;
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-input:focus,textarea:focus,select:focus{outline:none; border:none;}
-a,a:active,a:visited,a:hover{text-decoration: none;}
-body{ font-family: 'SUIT-Regular'; height: 100vh; overflow: hidden;}
-input[type="checkbox"]:hover{cursor: pointer;}
-h2,h3,p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 
 
-.header_wrap{display: flex; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid #d8d8d8;}
-.header_left img{width: 192px; filter: hue-rotate(265deg);}
+.header_wrap{display: flex; justify-content: space-between; padding: 0px 20px; border-bottom: 1px solid #d8d8d8;}
+.header_left img{height: 74px;}
 .header_right{display: flex; align-items: center;}
 .header_center{width: 0; height: 0;}
 .header_userinfo{display: flex; align-items: center; position: relative;}
@@ -58,7 +22,7 @@ h2,h3,p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 .active{display: none;}
 .wrap{position: relative; display: flex; height: 100%}
 .main_contents_left{position: relative; max-width: 270px; min-width: 250px; border-right: 1px solid #dcdcdc;}
-.main_contents_right{padding: 10px; background: #f1f8e9; width: calc(100% - 250px);}
+.main_contents_right{padding: 10px; background: #f1f8e9; width: calc(100% - 250px); overflow-x: scroll; overflow-y: scroll;}
 .search_bx{padding: 10px; display: flex; background: #f4f4f4;  border-bottom: 1px solid #dcdcdc;}
 .search_bx input{height: 32px; border: 1px solid #d6d9dc; border-radius: 4px; background: #fff; font-size: 0.9rem; padding: 0 0 0 6px; letter-spacing: -1.4px;}
 .search_bx button{width: 40px; background: #fff; border: 1px solid #d8d8d8; text-align: center; font-size: 1.3rem; border-radius: 5px; margin: 0 0 0 4px;}

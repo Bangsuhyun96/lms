@@ -4,7 +4,7 @@
 <header>
     <div class="header_wrap">
         <div class="header_left">
-            <a href="/"><img src="<%=request.getContextPath()%>/resources/image/logo_klti_default.png" alt=""></a>
+            <a href="/"><img src="<%=request.getContextPath()%>/resources/image/logo_bang_default.png" alt=""></a>
         </div>
         <div class="header_center">
             <ul>

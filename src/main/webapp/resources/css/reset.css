@@ -41,3 +41,36 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+input{
+    padding: 0;
+    margin: 0;
+}
+
+/* common */
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px #2a2a2a inset;
+    box-shadow: 0 0 0px 1000px #2a2a2a inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus,textarea:focus,select:focus{outline:none; border:none;}
+a,a:active,a:visited,a:hover{text-decoration: none;}
+body{ font-family: 'SUIT-Regular'; height: 100vh; overflow: hidden;}
+input[type="checkbox"]:hover{cursor: pointer;}
+h2,h3,p {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}

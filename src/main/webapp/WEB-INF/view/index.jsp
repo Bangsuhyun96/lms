@@ -8,7 +8,8 @@
     <div class="wrap">
         <%@ include file="/WEB-INF/view/common/aside.jsp" %>
         <div class="main_contents_right">
-            <iframe src="/page"  frameborder="0"></iframe>
+            <iframe src="/page" width="1523px" height="900px" frameborder="0"></iframe>
+
         </div>
     </div>
 </body>
