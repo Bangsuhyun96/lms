@@ -1,0 +1,8 @@
+footer{background: #2F3135;}
+footer .footer_wrap{display: flex; flex-direction: column; max-width: 1440px; padding: 25px 100px;}
+.footer_wrap p, .footer_wrapa{ color: #fff; font-size: 1rem; line-height: 16px; height: 20px;}
+footer .footer_wrap div{margin: 0 0 20px 0;}
+.footer_img img{height: 74px; filter: grayscale(1);}
+.footer_privacy ul{display: flex;}
+.footer_privacy ul li{margin: 0 6px 0 0;}
+.footer_line{width: 100%; border-bottom: 1px solid #868686;}

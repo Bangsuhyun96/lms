@@ -1,0 +1,19 @@
+.attendance_wrap{ width: 100%; min-height: 600px; display: flex; flex-direction: column;}
+.attendance_title{position: relative; display: flex; margin: 0 20px; border-bottom: 2px solid #2a2a2a;}
+.attendance_title2{position: relative; display: flex; margin: 0 20px;}
+.attendance_title p, .attendance_title2 p{font-size: 1.4rem; font-weight: 600; height: 60px; line-height: 60px; padding: 0 15px; position: relative;}
+.attendance_title p::before, .attendance_title2 p::before{content: '';position: absolute;top: calc(50% - 15px);left: 0;width: 0; height: 50%; border-left: 3px solid #2F3135;}
+
+.attendance_contents{position: relative; display: flex; justify-content: space-evenly; width: 1400px; border-bottom: 1px solid #2a2a2a; margin: 0 20px 50px; flex-wrap: wrap;}
+.attendance_contents .attendance_contents_1{display: flex; margin: 12px 0; align-items: center;}
+.attendance_contents .attendance_contents_1 p{font-size: 1.2rem; padding: 0 40px; width: 60px;}
+.attendance_contents .attendance_contents_1 input{width: 400px; height: 40px; background: #e8e8e8; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 20px; color:#a1a1a1;}
+
+.attendance_table{margin: 0 auto;}
+.attendance_table table{border: 1px solid #c2c2c2; min-width: 1400px; margin: 0 20px; text-align: center;}
+.attendance_table th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; border: none; background: #149000; color: #fff; border:1px solid #149000;}
+.attendance_table td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; border-bottom: 1px solid #c2c2c2; max-width: 240px;}
+
+.green{color: #149000; font-size: 1.3rem;}
+.orange{color: #ff9900; font-size: 1.3rem;}
+.red{color:#ff0000; font-size: 1.3rem;}
