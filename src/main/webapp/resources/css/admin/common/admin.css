@@ -83,7 +83,7 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .div_title_2 img{width: 16px;}
 .div_title_2 input{border: 1px solid #fff; margin: 0 10px; width: 220px; border-radius: 5px; padding: 0 12px;}
 .div_title_2 input:focus{border: 1px solid #4caf50;}
-.div_title_2 button{border: 1px solid #d6d9dc; background: #fff; font-size: 0.9rem; border-radius: 5px; color: #222; position: relative; z-index: 1;}
+.div_title_2 button{border: 1px solid #d6d9dc; background: #fff; font-size: 0.9rem; line-height: 0; border-radius: 5px; color: #222; position: relative; z-index: 1;}
 .div_title_2 button::before{content: '';position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #4caf50; transition: all 0.3s; z-index: -1; border-radius: 4px;}
 .div_title_2 button:hover::before{width: 100%;}
 .div_title_2 button:hover{color:#fff; cursor: pointer;}
