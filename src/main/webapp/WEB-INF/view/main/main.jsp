@@ -27,7 +27,7 @@
                             var calendarEl = $('#calendar')[0];
                             // full-calendar 생성하기
                             var calendar = new FullCalendar.Calendar(calendarEl, {
-                                height: '100%', // calendar 높이 설정
+                                height: '100%', // calendar 높이 설정 메롱
                                 expandRows: true, // 화면에 맞게 높이 재설정
                                 slotMinTime: '08:00', // Day 캘린더에서 시작 시간
                                 slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
@@ -66,63 +66,6 @@
                                     }
                                     calendar.unselect()
                                 }
-                                // 이벤트
-                                // events: [
-                                //     {
-                                //         title: 'All Day Event',
-                                //         start: '2021-07-01',
-                                //     },
-                                //     {
-                                //         title: 'Long Event',
-                                //         start: '2021-07-07',
-                                //         end: '2021-07-10'
-                                //     },
-                                //     {
-                                //         groupId: 999,
-                                //         title: 'Repeating Event',
-                                //         start: '2021-07-09T16:00:00'
-                                //     },
-                                //     {
-                                //         groupId: 999,
-                                //         title: 'Repeating Event',
-                                //         start: '2021-07-16T16:00:00'
-                                //     },
-                                //     {
-                                //         title: 'Conference',
-                                //         start: '2021-07-11',
-                                //         end: '2021-07-13'
-                                //     },
-                                //     {
-                                //         title: 'Meeting',
-                                //         start: '2021-07-12T10:30:00',
-                                //         end: '2021-07-12T12:30:00'
-                                //     },
-                                //     {
-                                //         title: 'Lunch',
-                                //         start: '2021-07-12T12:00:00'
-                                //     },
-                                //     {
-                                //         title: 'Meeting',
-                                //         start: '2021-07-12T14:30:00'
-                                //     },
-                                //     {
-                                //         title: 'Happy Hour',
-                                //         start: '2021-07-12T17:30:00'
-                                //     },
-                                //     {
-                                //         title: 'Dinner',
-                                //         start: '2021-07-12T20:00:00'
-                                //     },
-                                //     {
-                                //         title: 'Birthday Party',
-                                //         start: '2021-07-13T07:00:00'
-                                //     },
-                                //     {
-                                //         title: 'Click for Google',
-                                //         url: 'http://google.com/', // 클릭시 해당 url로 이동
-                                //         start: '2021-07-28'
-                                //     }
-                                // ]
                             });
                             // 캘린더 랜더링
                             calendar.render();
