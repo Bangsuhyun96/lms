@@ -1,5 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link href="<%=request.getContextPath()%>/resources/css/admin/common/admin.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/admin/common/front_header.jsp" %>
@@ -248,6 +249,23 @@
                     <!-- 출력 끝-->
                     </tbody>
                 </table>
+            </div>
+            <!-- 페이징 1 -->
+            <div class="free_paging">
+                <ul>
+                    <li><a href="">&lt; 이전</a></li>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">6</a></li>
+                    <li><a href="">7</a></li>
+                    <li><a href="">8</a></li>
+                    <li><a href="">9</a></li>
+                    <li><a href="">10</a></li>
+                    <li><a href="">다음 &gt;</a></li>
+                </ul>
             </div>
         </div>
     </div>
