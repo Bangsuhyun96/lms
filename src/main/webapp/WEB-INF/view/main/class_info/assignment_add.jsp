@@ -5,7 +5,7 @@
 <html lang="kor">
 <%@ include file="/WEB-INF/view/main/common/front_header.jsp" %>
 <body>
-<%@ include file="/WEB-INF/view/main/common/prof_header.jsp" %>
+<%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="syllabus_wrap">
         <div class="syllabus_title">
