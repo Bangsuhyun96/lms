@@ -1,5 +1,5 @@
-body::-webkit-scrollbar {display: none;}
-body{overflow-y: scroll !important;}
+
+
 table td label{display: table-cell; width: 200px; text-align: left; padding: 12px;}
 
 .select_table_1{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
@@ -58,6 +58,3 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .select_view_table_1::-webkit-scrollbar {width: 6px; height: 6px;}
 .select_view_table_1::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .select_view_table_1::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
-
-/*  아이프레임 엔드 여백  */
-.page_end_point{padding: 0px 0;}

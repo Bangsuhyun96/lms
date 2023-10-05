@@ -37,3 +37,18 @@
     .body_wrap{flex-wrap: wrap;}
     .main_right .main_schedule{width: 820px;}
 }
+
+#calendar{border-radius: 10px;}
+.fc-button-group button{background: #4caf50 !important;}
+.fc-icon-chevron-right:before{color: #fff;}
+.fc-icon-chevron-left:before{color: #fff;}
+.fc-toolbar-chunk:last-child .fc-button-group{display: none;}
+.fc-toolbar-chunk > .fc-toolbar-title{width: 300px; transform: translateY(10px);}
+.fc .fc-button-group>.fc-button{ border: none; margin: 0 4px 0 12px;}
+.fc .fc-button-group>.fc-button:last-child{ border: none; margin: 0;}
+.fc .fc-button-group{transform: translateY(10px);}
+.fc .fc-button .fc-icon {font-size: 1.2rem;}
+.fc .fc-button{padding: 0.2rem 0.3rem !important;}
+.fc-direction-ltr .fc-toolbar>*>:not(:first-child) {transform: translateY(10px); }
+.fc .fc-button-primary:disabled {background: #d8d8d8}
+.fc .fc-toolbar.fc-header-toolbar {margin-bottom: 0 !important; padding-bottom: 1.5em; border-top-left-radius: 20px;  border-top-right-radius: 20px; background: #e8f5e9;}

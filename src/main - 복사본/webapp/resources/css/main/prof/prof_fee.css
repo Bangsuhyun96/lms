@@ -1,0 +1,18 @@
+.enroll_wrap{ width: 100%; min-height: 600px; display: flex; flex-direction: column;}
+.enroll_title{position: relative; display: flex; margin: 0 20px;}
+.enroll_title2{position: relative; display: flex; margin: 50px 20px 0;}
+
+.enroll_title p, .enroll_title2 p{font-size: 1.4rem; font-weight: 600; height: 60px; line-height: 60px; padding: 0 15px; position: relative;}
+.enroll_title p::before, .enroll_title2 p::before{content: '';position: absolute;top: calc(50% - 15px);left: 0;width: 0; height: 50%; border-left: 3px solid #2F3135;}
+
+.enroll_contents{position: relative;}
+.enroll_contents_1{display: flex; margin: 12px 20px; width: 1400px; justify-content: flex-start; align-items: center; border-bottom: 1px solid #c2c2c2; border-top: 1px solid #c2c2c2;}
+.enroll_contents_1 p{font-size: 1.2rem; padding: 0 40px; }
+.enroll_contents_1 input{width: 300px; height: 40px; background: #e8e8e8; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 20px; color:#a1a1a1; margin: 10px 0 10px 20px;}
+
+.enroll_table{margin: 0 auto;}
+.enroll_table table{border: 1px solid #c2c2c2; min-width: 1400px; margin: 0 20px; text-align: center;}
+.enroll_table th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; background: #149000; color: #fff; border: 1px solid #149000;}
+.enroll_table td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; border-bottom: 1px solid #c2c2c2; max-width: 240px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+}
+.enroll_table button{width: 65px; height: 24px; font-size: 0.9rem; background: #fff; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.2); cursor: pointer;}
