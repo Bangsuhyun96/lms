@@ -208,293 +208,42 @@
                     <tbody>
                     <!-- 헤더 -->
                     <tr>
-                        <td>
-                            <div class="view_title"><p>학번</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>성명</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>생년월일</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>성별</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>이메일</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>주소</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>연락처</p></div>
-                        </td>
-                        <td>
-                            <div class="view_title"><p>기수</p></div>
-                        </td>
+                        <th>학번</th>
+                        <th>성명</th>
+                        <th>생년월일</th>
+                        <th>성별</th>
+                        <th>이메일</th>
+                        <th>주소</th>
+                        <th>연락처</th>
+                        <th>기수</th>
                     </tr>
                     <!-- 헤더 끝-->
 
                     <!--  출력  -->
                     <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
-                        <td>
-                            <div class="view_content">내용</div>
-                        </td>
+                        <td class="table_btn_pos"><button>내용</button></td>
+                        <td>내용</td>
+                        <td>내영</td>
+                        <td>내용</td>
+                        <td>
+                            <div class="table_select_box">
+                                <select name="fruits" class="table_select">
+                                    <option value=" ">(전체)</option>
+                                    <option value="">정규과정</option>
+                                    <option value="">특별과정</option>
+                                    <option value="">야간과정</option>
+                                    <option value="">번역아틀리에</option>
+                                    <option value="">문화콘텐츠 번역실무 고급과정</option>
+                                    <option value="">심화과정</option>
+                                    <option value="">단기과정</option>
+                                    <option value="">한국문학 번역가</option>
+                                </select>
+                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
+                            </div>
+                        </td>
+                        <td>내용</td>
+                        <td>내용</td>
+                        <td>내용</td>
                     </tr>
                     <!-- 출력 끝-->
                     </tbody>
