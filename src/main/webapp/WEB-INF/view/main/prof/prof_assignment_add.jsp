@@ -25,7 +25,7 @@
                 <textarea name="" id="" cols="30" rows="10" placeholder="과제 설명을 입력하세요"></textarea>
             </div>
             <div class="syllabus_contents_3">
-                <p>제출일</p>
+                <p>제출마감일</p>
                 <select name="" id="">
                     <option value="">선택</option>
                     <option value="">2020</option>
@@ -35,10 +35,18 @@
                 </select>
                 <select name="" id="">
                     <option value="">선택</option>
-                    <option value="">2020</option>
-                    <option value="">2021</option>
-                    <option value="">2022</option>
-                    <option value="">2023</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
                 </select>
             </div>
         </div>
