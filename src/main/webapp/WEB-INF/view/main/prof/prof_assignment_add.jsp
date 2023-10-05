@@ -41,9 +41,7 @@
                     <option value="">2023</option>
                 </select>
             </div>
-
         </div>
-
     </div>
 </div>
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>
