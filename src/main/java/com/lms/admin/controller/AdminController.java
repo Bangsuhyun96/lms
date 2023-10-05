@@ -13,8 +13,4 @@ public class AdminController {
         return "admin/admin";
     }
 
-    @GetMapping("/page")
-    public String Page(){
-        return "admin/page";
-    }
 }

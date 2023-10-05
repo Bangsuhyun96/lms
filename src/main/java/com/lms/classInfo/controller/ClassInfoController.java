@@ -23,9 +23,19 @@ public class ClassInfoController {
         return "main/class_info/attendance";
     }
 
-    @GetMapping("subassign")
-    public String subassign(){
-        return "main/class_info/subassign";
+    @GetMapping("assignment")
+    public String assignment(){
+        return "/main/class_info/assignment";
+    }
+
+    @GetMapping("assignmentadd")
+    public String assignmentAdd(){
+        return "/main/class_info/assignment_add";
+    }
+
+    @GetMapping("assignmentview")
+    public String assignmentView(){
+        return "/main/class_info/assignment_view";
     }
 
     @GetMapping("enroll")

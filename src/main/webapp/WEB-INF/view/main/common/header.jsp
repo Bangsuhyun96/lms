@@ -22,7 +22,7 @@
                         <p>수업정보</p>
                         <ul class="header_childmenu">
                             <li><a href="/classinfo/myclass">나의 강의실</a></li>
-                            <li><a href="/classinfo/subassign">과제제출</a></li>
+                            <li><a href="/classinfo/assignment">과제제출</a></li>
                             <li><a href="/classinfo/enroll">수강신청</a></li>
                             <li><a href="/classinfo/gradecheck">성적조회</a></li>
                         </ul>

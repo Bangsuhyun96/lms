@@ -31,7 +31,7 @@
                     <div class="myclass_enroll_btn">
                         <button type="submit" onclick="location.href='/classinfo/syllabus'">강의계획서</button>
                         <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-                        <button type="submit" onclick="location.href='/classinfo/subassign'">과제</button>
+                        <button type="submit" onclick="location.href='/classinfo/assignment'">과제</button>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div class="myclass_enroll_btn">
                         <button type="submit" onclick="location.href='/classinfo/syllabus'">강의계획서</button>
                         <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-                        <button type="submit" onclick="location.href='/classinfo/subassign'">과제</button>
+                        <button type="submit" onclick="location.href='/classinfo/assignment'">과제</button>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <div class="myclass_enroll_btn">
                         <button type="submit" onclick="location.href='/classinfo/syllabus'">강의계획서</button>
                         <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-                        <button type="submit" onclick="location.href='/classinfo/subassign'">과제</button>
+                        <button type="submit" onclick="location.href='/classinfo/assignment'">과제</button>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                     <div class="myclass_enroll_btn">
                         <button type="submit" onclick="location.href='/classinfo/syllabus'">강의계획서</button>
                         <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-                        <button type="submit" onclick="location.href='/classinfo/subassign'">과제</button>
+                        <button type="submit" onclick="location.href='/classinfo/assignment'">과제</button>
                     </div>
                 </div>
             </div>

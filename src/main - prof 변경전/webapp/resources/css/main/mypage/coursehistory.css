@@ -1,0 +1,10 @@
+.coursehistory_wrap{ width: 100%; min-height: 600px; display: flex; flex-direction: column;}
+.coursehistory_title{position: relative; display: flex; margin: 0 20px;}
+.coursehistory_title p{font-size: 1.4rem; font-weight: 600; height: 60px; line-height: 60px; padding: 0 15px; position: relative;}
+.coursehistory_title p::before{content: '';position: absolute;top: calc(50% - 15px);left: 0;width: 0; height: 50%; border-left: 3px solid #2F3135;}
+
+th,td{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.coursehistory_table{margin: 0 auto;}
+.coursehistory_table table{border: 1px solid #c2c2c2; min-width: 1400px;}
+.coursehistory_table th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; border: none; background: #149000; color: #fff; border:1px solid #149000;}
+.coursehistory_table td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; border-bottom: 1px solid #c2c2c2; max-width: 240px;}
