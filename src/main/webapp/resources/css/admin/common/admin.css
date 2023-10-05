@@ -91,8 +91,19 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 /*  출력 테이블 구조 1  */
 .select_view_table_1{overflow: scroll; height: 300px;}
 .select_view_table_1 table{border:1px solid #aaa; width: 100%;}
-.select_view_table_1 .view_title{width: 100%; min-width: 100px; text-align: center; padding: 12px 0; background: #efefef; border: 0.5px solid #d2d5d6;}
-.select_view_table_1 .view_content{width: 100%; min-width: 100px; text-align: center; padding: 12px 0; background: #fefefe; border:0.5px solid #dcdcdc;}
+.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 250px;}
+.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
+.table_btn_pos{text-align: center !important;}
+.select_view_table_1 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
+
+/*  테이블 셀렉트 박스 CSS  */
+.select_view_table_1 .table_select_box { position: relative; width: 250px; height: 27px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff; display: flex;}
+.select_view_table_1 .table_select_box .table_select { width: inherit; height: inherit; background: transparent; border: 0 none; outline: 0 none; padding: 0 5px; position: relative; z-index: 3; appearance: none;}
+.select_view_table_1 .table_select_box .table_select:focus{border: 1px solid #4caf50;}
+.select_view_table_1 .table_select_box .table_select option { background: #fff; color: #222; padding: 3px 0; font-size: 16px;}
+.select_view_table_1 .table_select_box .icoArrow { position: absolute; top: 0; right: 0; z-index: 1; width: 35px; height: inherit; display: flex; justify-content: center; align-items: center;}
+
+/* 테이블 스크롤 바*/
 .select_view_table_1::-webkit-scrollbar {width: 6px; height: 6px;}
 .select_view_table_1::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .select_view_table_1::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
