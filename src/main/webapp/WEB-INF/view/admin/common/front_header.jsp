@@ -6,6 +6,6 @@
     <title>학습자 관리 솔루션</title>
 <%--    <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/image/favicon.ico" id="favicon"/>--%>
     <link href="<%=request.getContextPath()%>/resources/css/admin/common/reset.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/css/admin/common/admin.css" rel="stylesheet">
+<%--    <link href="<%=request.getContextPath()%>/resources/css/admin/common/admin.css" rel="stylesheet">--%>
     <script src="https://kit.fontawesome.com/248df2c230.js" crossorigin="anonymous"></script>
 </head>
