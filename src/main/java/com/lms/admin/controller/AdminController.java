@@ -27,4 +27,9 @@ public class AdminController {
         return "admin/admin_moli";
     }
 
+    @GetMapping("/mlp")
+    public String ManagingLecturePlans(){
+        return "admin/admin_mlp";
+    }
+
 }
