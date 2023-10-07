@@ -1,11 +1,13 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/board/free.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/main/common/front_header.jsp" %>
 <body>
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
+
 <div class="body_wrap">
     <div class="free_wrap">
         <div class="free_title">
@@ -21,76 +23,15 @@
                     <th>날짜</th>
                     <th>조회수</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="w600"><a href="/board/free/view">글쓰기 싫당</a></td>
-                    <td>방수현</td>
-                    <td>2023-10-02</td>
-                    <td>1473748</td>
-                </tr>
+                <c:forEach var="item" items="${freeBoardDtos}">
+                    <tr>
+                        <td>${item.freeId}</td>
+                        <td class="w600"><a href="/free/${item.freeId}">${item.freeTitle}</a></td>
+                        <td>방수현</td>
+                        <td><fmt:formatDate value="${item.freeRdate}" pattern="yyyy-MM-dd"/></td>
+                        <td>1473748</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>

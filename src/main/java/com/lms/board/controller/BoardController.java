@@ -23,19 +23,14 @@ public class BoardController {
         return"main/board/notice_view";
     }
 
-    @GetMapping("/free")
-    public String free(){
-        return "main/board/free";
-    }
+//    @GetMapping("/free")
+//    public String free(){
+//        return "main/board/free";
+//    }
 
     @GetMapping("/free/add")
     public String freeAdd(){
         return "main/board/free_add";
-    }
-
-    @GetMapping("/free/view")
-    public String freeView(){
-        return "main/board/free_view";
     }
 
     @GetMapping("/qna")

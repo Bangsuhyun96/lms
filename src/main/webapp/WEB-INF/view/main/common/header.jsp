@@ -31,7 +31,7 @@
                         <p>커뮤니티</p>
                         <ul class="header_childmenu">
                             <li><a href="/board/notice">공지사항</a></li>
-                            <li><a href="/board/free">자유게시판</a></li>
+                            <li><a href="/freeList">자유게시판</a></li>
                             <li><a href="/board/qna">Q&A</a></li>
                         </ul>
                     </li>

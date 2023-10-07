@@ -8,22 +8,24 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="free_add_wrap">
-        <div class="free_add_title">
-            <p>제목</p>
-        </div>
-        <div class="free_add_text1">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div>
-        <div class="free_add_title">
-            <p>내용</p>
-        </div>
-        <div class="free_add_text2">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div>
-        <div class="free_add_btn">
-            <button type="submit">등록</button>
-            <button type="submit" onclick="location.href='/board/free'">취소</button>
-        </div>
+        <form id="frm" name="frm" method="post" action="/addFree">
+            <div class="free_add_title">
+                <p>제목</p>
+            </div>
+            <div class="free_add_text1">
+                <textarea name="freeTitle" id="free_title" cols="30" rows="10"></textarea>
+            </div>
+            <div class="free_add_title">
+                <p>내용</p>
+            </div>
+            <div class="free_add_text2">
+                <textarea name="freeContent" id="free_content" cols="30" rows="10"></textarea>
+            </div>
+            <div class="free_add_btn">
+                <button type="submit">등록</button>
+                <button type="submit" onclick="location.href='/freeList'">취소</button>
+            </div>
+        </form>
     </div>
 </div>
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>
