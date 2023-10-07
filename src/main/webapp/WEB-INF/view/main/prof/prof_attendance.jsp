@@ -29,7 +29,10 @@
                 <input type="text" value="알고리즘 ( 강의코드 ex) 00087427 )" disabled>
             </div>
         </div>
-
+        <div class="prof_attendance_title4">
+            <p>[00주차] 2023-10-07</p>
+            <p>총 00명 [출석률 %] - 출석 00명 / 지각 00명 / 결석 00명</p>
+        </div>
 
         <div class="prof_attendance_title3">
             <p>전체출결현황</p>

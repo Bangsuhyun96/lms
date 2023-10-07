@@ -2,9 +2,12 @@
 .syllabus_title{position: relative; display: flex; margin: 0 20px; border-bottom: 2px solid #2a2a2a;}
 .syllabus_title2{position: relative; display: flex; margin: 50px 20px 0;}
 .syllabus_title3{position: relative; display: flex; margin: 50px 20px 0;}
+.syllabus_title4{position: relative; display: flex; margin: 50px 20px 0;}
 .syllabus_title p, .syllabus_title2 p, .prof_attendance_title3 p{font-size: 1.4rem; font-weight: 600; height: 60px; line-height: 60px; padding: 0 15px; position: relative;}
+.prof_attendance_title4 p{font-size: 1rem; font-weight: 600; height: 30px; line-height: 30px; padding: 0 15px; position: relative;}
 .syllabus_title p::before, .syllabus_title2 p::before, .prof_attendance_title3 p::before{content: '';position: absolute;top: calc(50% - 15px);left: 0;width: 0; height: 50%; border-left: 3px solid #2F3135;}
-.prof_attendance_title3{position: relative; display: flex; margin: 50px 20px 0; border-bottom: 2px solid #2a2a2a;}
+.prof_attendance_title3{position: relative; display: flex; margin: 0px 20px; border-bottom: 2px solid #2a2a2a;}
+.prof_attendance_title4{margin: 30px 0 0 0; text-align: center;}
 
 .syllabus_contents{position: relative; display: flex; justify-content: space-evenly; width: 1400px; border-bottom: 1px solid #2a2a2a; margin: 0 20px; flex-wrap: wrap;}
 .syllabus_contents .syllabus_contents_1{display: flex; margin: 12px 0; align-items: center;}
