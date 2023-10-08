@@ -1,5 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link href="<%=request.getContextPath()%>/resources/css/admin/common/admin.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/admin/common/front_header.jsp" %>
