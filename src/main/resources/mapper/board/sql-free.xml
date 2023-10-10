@@ -38,8 +38,7 @@
                 free_id as freeId,
                 free_title as freeTitle,
                 free_content as freeContent,
-                free_rdate as freeRdate,
-                free_udate as freeUdate
+                free_rdate as freeRdate
             FROM freeboard
             WHERE free_id = #{freeId}
         ]]>
