@@ -38,7 +38,8 @@
                 free_id as freeId,
                 free_title as freeTitle,
                 free_content as freeContent,
-                free_rdate as freeRdate
+                free_rdate as freeRdate,
+                free_udate as freeUdate
             FROM freeboard
             WHERE free_id = #{freeId}
         ]]>
@@ -62,4 +63,5 @@
                 free_id = #{freeId}
         ]]>
     </update>
+
 </mapper>

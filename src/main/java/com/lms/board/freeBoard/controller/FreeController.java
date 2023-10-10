@@ -17,24 +17,28 @@ public class FreeController {
     @Autowired
     private FreeService freeService; // 서비스와 연결
 
+    // 글 작성 눌렀을 때 작성jsp 연결 컨트롤러
+    @GetMapping("/board/free/add")
+    public String freeAdd(){
+        return "main/board/free_add";
+    }
+
+    // 글 목록 가져오기
     @RequestMapping("/freeList")
     public String freeList(Model model) throws Exception{
         List<FreeBoardDto> freeBoardDtos = freeService.selectBoardList();
         model.addAttribute("freeBoardDtos", freeBoardDtos);
         return "/main/board/free";
-//        ModelAndView mv = new ModelAndView("/main/board/free");
-//        List<FreeBoardDto> list = freeService.selectBoardList();
-//        mv.addObject("list", list);
-//
-//        return mv;
     }
 
+    // 글 작성
     @PostMapping("/addFree")
     public String insertFree(@ModelAttribute FreeBoardDto freeBoard) throws Exception{
         freeService.insertFree(freeBoard);
         return "redirect:/freeList";
     }
 
+    // 글 하나 보기
     @GetMapping("/free/{freeId}")
     public String selectFree(@PathVariable("freeId") int freeId, Model model) throws Exception{
         FreeBoardDto freeBoardDto = freeService.selectBoard(freeId);
@@ -59,12 +63,14 @@ public class FreeController {
     // 수정 컨트롤러
     @PostMapping("/free/update")
     public String updateFree(@ModelAttribute FreeBoardDto freeBoardDto, HttpServletRequest request) throws Exception{
+
+        int freeId = Integer.parseInt(request.getParameter("freeId"));
         freeBoardDto.setFreeId(Integer.parseInt(request.getParameter("freeId")));
         freeBoardDto.setFreeTitle(request.getParameter("freeTitle"));
         freeBoardDto.setFreeContent(request.getParameter("freeContent"));
 
         freeService.updateBoard(freeBoardDto);
 
-        return "/main/board/free_view";
+        return "redirect:/free/" + freeId;
     }
 }
