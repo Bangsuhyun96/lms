@@ -12,8 +12,10 @@
                 free_id as freeId,
                 free_title as freeTitle,
                 free_content as freeContent,
-                DATE_FORMAT(free_rdate, '%Y-%m-%d') as freeRdate
+                DATE_FORMAT(free_rdate, '%Y-%m-%d') as freeRdate,
+                free_hits as freeHits
             FROM freeboard
+            ORDER BY freeId DESC LIMIT #{startRow}, #{pageSize}
         ]]>
     </select>
 
@@ -38,7 +40,9 @@
                 free_id as freeId,
                 free_title as freeTitle,
                 free_content as freeContent,
-                free_rdate as freeRdate
+                free_rdate as freeRdate,
+                free_udate as freeUdate,
+                free_hits as freeHits
             FROM freeboard
             WHERE free_id = #{freeId}
         ]]>
@@ -61,5 +65,18 @@
             WHERE
                 free_id = #{freeId}
         ]]>
+    </update>
+
+    <!-- 게시물 개수 카운트 -->
+    <select id="getTotalFreeCount" resultType = "int">
+        SELECT COUNT(*)
+        FROM freeboard
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id="increaseHitsCount" parameterType="int">
+        UPDATE freeboard
+        SET free_hits = free_hits + 1
+        WHERE free_id = #{freeId}
     </update>
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/board/free_view.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
@@ -11,8 +12,12 @@
         <div>
             <div class="free_view_user">
                 <p>작성자 : 방수현</p>
-                <p>${freeBoardDto.freeRdate}</p>
-                <p>조회수 : 34034</p>
+                <p>작성시간 : <fmt:formatDate value="${freeBoardDto.freeRdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
+                <c:if test="${not empty freeBoardDto.freeUdate}">
+                    <p>수정시간 : <fmt:formatDate value="${freeBoardDto.freeUdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
+                </c:if>
+                <p>조회수 : ${freeBoardDto.freeHits}</p>
+
             </div>
             <div class="free_view_title">
                 <h2><span>${freeBoardDto.freeId}.</span>${freeBoardDto.freeTitle}</h2>
