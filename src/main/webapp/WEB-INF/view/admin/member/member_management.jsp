@@ -16,7 +16,7 @@
     <div class="main_contents_right">
         <!-- 상단 버튼 구조 1 -->
         <div class="div_common_button">
-            <button class="btn_pos">조회</button>
+            <button class="btn_pos" id="searchButton">조회</button>
             <button class="btn-default" id="newButton">신규</button>
             <button class="btn-default" id="saveButton">저장</button>
             <button class="btn-default">삭제</button>
@@ -33,7 +33,7 @@
                     <td><label>성명</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text" />
+                            <input type="text" id="searchInput"/>
                         </div>
                     </td>
 
