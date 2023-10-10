@@ -10,3 +10,10 @@
 .notice_table table{border: 1px solid #c2c2c2; min-width: 1400px; margin: 0 20px; text-align: center;}
 .notice_table th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; background: #149000; color: #fff; border: 1px solid #149000;}
 .notice_table td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; border-bottom: 1px solid #c2c2c2; max-width: 240px;}
+
+.notice_paging{}
+.notice_paging ul{display: flex; justify-content: center; width: 100%;}
+.notice_paging li{margin: 0 6px; display: inline-block;}
+
+/* 선택된 페이지 색깔 */
+#page{color:#149000;}
