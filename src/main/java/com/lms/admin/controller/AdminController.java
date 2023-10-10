@@ -27,4 +27,9 @@ public class AdminController {
         return "admin/admin_moli";
     }
 
+    @GetMapping("/lectureAttend")
+    public String LecAttend(){ return "/admin/lectureAttend"; }
+
+    @GetMapping("/attendance")
+    public String Attendance(){ return "/admin/attendance"; }
 }

@@ -12,12 +12,11 @@
             <div class="free_view_user">
                 <p>작성자 : 방수현</p>
                 <p>${freeBoardDto.freeRdate}</p>
-                <p>${freeBoardDto.freeUdate}</p>
                 <p>조회수 : 34034</p>
             </div>
             <div class="free_view_title">
                 <h2><span>${freeBoardDto.freeId}.</span>${freeBoardDto.freeTitle}</h2>
-                <button type="submit" onclick="location.href='/board/free'">목록으로</button>
+                <button type="submit" onclick="location.href='/freeList'">목록으로</button>
             </div>
         </div>
         <div class="free_view_text">

@@ -22,10 +22,7 @@
                 <textarea name="freeContent" id="free_content" cols="30" rows="10">${freeBoardDto.freeContent}</textarea>
             </div>
             <div class="free_add_btn">
-
                 <input type="hidden" name="freeId" value="${freeId}" />
-                <input type="hidden" name="freeRdate" value="${freeRdate}" />
-                <input type="hidden" name="freeUdate" value="${freeUdate}" />
                 <button type="submit">등록</button>
                 <button type="submit" onclick="location.href='/freeList'">취소</button>
             </div>
