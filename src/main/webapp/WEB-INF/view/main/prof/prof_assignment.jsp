@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>2023-S0056</td>
-                        <td><a href="/prof/assignment/add">알고리즘의 이해</a></td>
+                        <td><a href="/prof/assignment/view">알고리즘의 이해</a></td>
                         <td>진행중 / 종료</td>
                         <td>비공개</td>
                         <td>10</td>
