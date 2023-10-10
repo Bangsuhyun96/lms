@@ -5,7 +5,7 @@
     <!-- 수업주차정보 출력-->
     <select id="searchLwmList" resultType="com.lms.admin.lwm.dto.LwmDto">
         SELECT
-            c.lecture_year as lectureYear,
+            li.lecture_year as lectureYear,
             c.curriculum_semester as curriculumSemester,
             c.curriculum_division as curriculumDivision,
             c.lecture_week as lectureWeek,
@@ -13,10 +13,13 @@
             c.end_date as endDate,
             clw.makeup_week as makeupWeek
         FROM
-            JOIN lecture_info as li,
-            curriculum_subject as cs,
-            curriculum as c,
-            curriculum_lecture_week as clw
+            curriculum c
+                JOIN lecture_info li ON c.curriculum_id = li.curriculum_id
+                JOIN curriculum_lecture_week clw ON c.curriculum_id = clw.curriculum_id
+        WHERE
+            c.curriculum_id = #{curriculumId}
+           OR li.lecture_year = #{lectureYear}
+           OR clw.makeup_week = #{makeupWeek}
     </select>
 
     <!-- 수업주자정보 저장 -->
