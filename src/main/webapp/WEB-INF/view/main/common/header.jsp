@@ -43,7 +43,7 @@
                     <a href=""><p>심민아</p></a>
                 </div>
                 <div class="header_info_right">
-                    <button class="header_logout_btn">로그아웃</button>
+                    <a href="/logout"><button class="header_logout_btn">로그아웃</button></a>
                 </div>
             </div>
 
