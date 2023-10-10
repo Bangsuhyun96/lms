@@ -1,6 +1,9 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/board/notice_view.css" rel="stylesheet">
+<!-- js파일 -->
+<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/main/board/notice.js"></script>
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/main/common/front_header.jsp" %>
@@ -11,20 +14,23 @@
         <div>
             <div class="notice_view_user">
                 <p>작성자 : 방수현</p>
-                <p>2023-10-02 09:07</p>
-                <p>조회수 : 34034</p>
+                <p>작성시간 : <fmt:formatDate value="${noticeDto.noticeRdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
+                <c:if test="${not empty noticeDto.noticeUdate}">
+                    <p>수정시간 : <fmt:formatDate value="${noticeDto.noticeUdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
+                </c:if>
+                <p>조회수 : ${noticeDto.noticeHits}</p>
             </div>
             <div class="notice_view_title">
-                <h2><span>1.</span>글쓰기싫당</h2>
-                <button type="submit" onclick="location.href='/board/notice'">목록으로</button>
+                <h2><span>${noticeDto.noticeId}.</span>${noticeDto.noticeTitle}</h2>
+                <button type="submit" onclick="location.href='/board/noticeList'">목록으로</button>
             </div>
         </div>
         <div class="notice_view_text">
-            <textarea name="" id="" cols="30" rows="10" disabled></textarea>
+            <textarea name="" id="" cols="30" rows="10" disabled>${noticeDto.noticeContent}</textarea>
         </div>
         <div class="notice_view_btn">
-            <button type="submit">수정</button>
-            <button type="submit" onclick="location.href='/board/notice'">삭제</button>
+            <button type="submit" onclick="location.href='/board/updateNotice/${noticeDto.noticeId}'">수정</button>
+            <button id="deleteBtn" type="button" onclick="confirmDelete(${noticeDto.noticeId})">삭제</button>
         </div>
         <div class="notice_view_comments">
             <div class="notice_view_title">

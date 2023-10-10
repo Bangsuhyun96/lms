@@ -2,12 +2,13 @@ package com.lms.board.freeBoard.mapper;
 
 import com.lms.board.freeBoard.dto.FreeBoardDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface FreeMapper {
-    List<FreeBoardDto> selectBoardList();
+    List<FreeBoardDto> selectBoardList(@Param("startRow") int StartRow, @Param("pageSize") int pageSize);
 
     void insertFree(FreeBoardDto freeBoard) throws Exception;
 
@@ -17,4 +18,8 @@ public interface FreeMapper {
     public int deleteBoard(int freeId) throws Exception;
 
     public int updateBoard(FreeBoardDto freeBoardDto) throws Exception;
+
+    public int getTotalFreeCount() throws Exception;
+
+    public void increaseHitsCount(int freeId) throws Exception;
 }

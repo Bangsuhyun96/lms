@@ -1,6 +1,9 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/board/qna_view.css" rel="stylesheet">
+<!-- js파일 -->
+<script type="text/javascript" src="<%= request.getContextPath() %>/resources/js/main/board/qna.js"></script>
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/main/common/front_header.jsp" %>
@@ -10,21 +13,26 @@
     <div class="qna_view_wrap">
         <div>
             <div class="qna_view_user">
+                <input type="hidden" id="qna-qnaNo" value="${qnaDto.qnaId}">
                 <p>작성자 : 방수현</p>
-                <p>2023-10-02 09:07</p>
-                <p>조회수 : 34034</p>
+                <p>작성시간 : <fmt:formatDate value="${qnaDto.qnaRdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
+                <c:if test="${not empty qnaDto.qnaUdate}">
+                    <p>수정시간 : <fmt:formatDate value="${qnaDto.qnaUdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
+                </c:if>
+                <p>조회수 : ${qnaDto.qnaHits}</p>
             </div>
             <div class="qna_view_title">
-                <h2><span>1.</span>글쓰기싫당</h2>
-                <button type="submit" onclick="location.href='/board/qna'">목록으로</button>
+                <h2><span>${qnaDto.qnaId}.</span>${qnaDto.qnaTitle}</h2>
+                <button type="submit" onclick="location.href='/board/qnaList'">목록으로</button>
             </div>
         </div>
         <div class="qna_view_text">
-            <textarea name="" id="" cols="30" rows="10" disabled></textarea>
+            <textarea name="" id="" cols="30" rows="10" disabled>${qnaDto.qnaContent}</textarea>
         </div>
         <div class="qna_view_btn">
-            <button type="submit">수정</button>
-            <button type="submit" onclick="location.href='/board/qna'">삭제</button>
+            <button type="submit" onclick="location.href='/board/updateQna/${qnaDto.qnaId}'">수정</button>
+            <button id="deleteBtn" type="button" onclick="confirmDelete(${qnaDto.qnaId})">삭제</button>
+
         </div>
         <div class="qna_view_comments">
             <div class="qna_view_title">

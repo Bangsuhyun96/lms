@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- resultType은 쿼리를 실행한 뒤 결과가 있을 경우에 사용 -->
+<!-- parameterType 반대로 데이터를 넣을 때 사용 -->
+<mapper namespace="com.lms.board.qna.mapper.QnaMapper">
+    <select id="selectQnaList" resultType="com.lms.board.qna.dto.QnaDto">
+        SELECT
+            qna_id as qnaId,
+            qna_title as qnaTitle,
+            qna_content as qnaContent,
+            DATE_FORMAT(qna_rdate, '%Y-%m-%d') as qnaRdate,
+            qna_hits as qnaHits
+        FROM qna
+        ORDER BY qnaId DESC
+            LIMIT #{startRow}, #{pageSize}
+    </select>
+
+    <select id="insertQna" resultType="com.lms.board.qna.dto.QnaDto">
+        INSERT INTO qna(qna_title, qna_content, qna_rdate)
+        VALUES (#{qnaTitle}, #{qnaContent}, NOW())
+    </select>
+
+    <select id="qnaOne" parameterType="int" resultType="com.lms.board.qna.dto.QnaDto">
+        SELECT
+            qna_id as qnaId,
+            qna_title as qnaTitle,
+            qna_content as qnaContent,
+            qna_rdate as qnaRdate,
+            qna_udate as qnaUdate,
+            qna_hits as qnaHits
+        FROM qna
+        WHERE qna_id = #{qnaId}
+    </select>
+
+    <update id="updateQna" parameterType="com.lms.board.qna.dto.QnaDto">
+        UPDATE qna
+        SET
+            qna_title = #{qnaTitle},
+            qna_content = #{qnaContent},
+            qna_udate = now()
+        WHERE qna_id = #{qnaId}
+    </update>
+
+    <delete id="deleteQna" parameterType="int">
+        DELETE FROM qna WHERE qna_id = #{qnaId}
+    </delete>
+
+    <select id="getTotalQnaCount" resultType="int">
+        SELECT COUNT(*) FROM qna
+    </select>
+
+    <update id="increaseViewCount" parameterType="int">
+        UPDATE qna
+        SET qna_hits = qna_hits + 1
+        WHERE qna_id = #{qnaId}
+    </update>
+</mapper>

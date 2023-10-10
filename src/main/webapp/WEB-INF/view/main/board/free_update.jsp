@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="free_add_wrap">
-        <form id="frm" name="frm" method="post" action="/free/update">
+        <form id="frm" name="frm" method="post" action="/free/update" onsubmit="return validateForm()">
             <div class="free_add_title">
                 <p>제목</p>
             </div>
@@ -29,6 +29,26 @@
         </form>
     </div>
 </div>
+
+<!-- 제목 내용 없을 시 alert 뜨게 하는 script -->
+<script>
+    function validateForm(){
+        var title = document.getElementById("free_title").value;
+        var content = document.getElementById("free_content").value;
+
+        if(title === "" && content === ""){
+            alert("제목과 내용을 입력해주세요.");
+            return false;
+        } else if(title === ""){
+            alert("제목을 입력해주세요.");
+            return false;
+        } else if(content === ""){
+            alert("내용을 입력해주세요.");
+            return false;
+        }
+        return true;
+    }
+</script>
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>
 </body>
 </html>
