@@ -6,6 +6,8 @@ import java.util.Date;
 
 @Data
 public class LwmDto {
+    private int curriculum_id; // 커리큘럼 id 기준 키
+
     private String lectureYear; //lecture_info 테이블 → 수업년도
     private int curriculumSemester; // curriculum 테이블 → 시작학기
     private String  curriculumDivision; // curriculum 테이블 → 과정구분
