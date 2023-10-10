@@ -8,24 +8,32 @@
 .syllabus_contents{position: relative; display: flex; justify-content: space-evenly; width: 100%; border-bottom: 1px solid #2a2a2a; flex-wrap: wrap;}
 .syllabus_contents_1{display: flex; margin: 24px 0 0 0; align-items: center; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid;}
 .syllabus_contents_1 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}
-.syllabus_contents_1 input{width: 1000px; height: 40px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 20px; color:#a1a1a1;}
+.syllabus_contents_1 input{width: 1000px; height: 40px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 10px; color:#a1a1a1;}
 .syllabus_contents_1 input:focus{border: #222;}
 
 .syllabus_contents_2{display: flex; margin: 24px 0 0 0; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid;}
 .syllabus_contents_2 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}
-.syllabus_contents_2 textarea{width: 1000px; height: 120px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 6px 20px; color:#a1a1a1;}
+.syllabus_contents_2 textarea{width: 1000px; height: 120px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 6px 10px; color:#a1a1a1;}
 .syllabus_contents_2 textarea:focus{border: #222;}
 
 .syllabus_contents_3{display: flex; margin: 24px 0 0 0; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid;}
 .syllabus_contents_3 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}
-.syllabus_contents_3 select{    width: 200px;
- height: 40px;
- background: #fff;
- border: 1px solid #a1a1a1;
- border-radius: 10px;
- font-size: 1.2rem;
- padding: 0 20px;
- color: #a1a1a1;}
+.syllabus_contents_3 input[type="date"]{width: 200px; height: 30px; font-size: 1rem; border: 1px solid #a1a1a1; padding: 0 5px; border-radius: 4px;}
+.syllabus_contents_3 .prof_assignment_add_date1{display: flex; align-items: center; margin: 0 110px 0 0;}
+.syllabus_contents_3 .prof_assignment_add_date2{display: flex; align-items: center;}
+
+.prof_assignment_add_contents_4{display: flex; margin: 24px 0 0 0; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid; align-items: center;}
+.prof_assignment_add_contents_4 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}
+.prof_assignment_add_contents_4 .prof_assignment_add_ck{display: flex;}
+.prof_assignment_add_contents_4 .prof_assignment_add_ck label{margin: 0 24px 0 2px; font-size: 1.1rem;}
+.prof_assignment_add_contents_4 .prof_assignment_add_ck input[type=checkbox]{width: 16px; height: 16px;}
+.prof_assignment_add_contents_4 .prof_assignment_add_ck2{display: flex; margin: 0 0 0 149px; align-items: center;}
+.prof_assignment_add_contents_4 .prof_assignment_add_ck2 input{width: 200px; height: 30px; border-radius: 4px; border: 1px solid #a1a1a1; padding: 0 5px;}
+
+.prof_assignment_add_contents_5{display: flex; margin: 24px 0 0 0; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid; align-items: center;}
+.prof_assignment_add_contents_5 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}
+.prof_assignment_add_contents_5 button{width: 90px; height: 30px; background: #2a2a2a; font-size: 0.95rem; color:#fff; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer; margin: 0 0 0 8px;}
+.prof_assignment_add_contents_5 input{width: calc(100% - 370px); height: 30px;}
 
 .syllabus_table{margin: 12px auto 0;}
 .syllabus_table table{border: 1px solid #c2c2c2; min-width: 1400px; margin: 0 20px; text-align: center;}

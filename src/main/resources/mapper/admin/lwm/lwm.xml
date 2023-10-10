@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lms.admin.lwm.mapper.LwmMapper">
+    <!-- 수업주차정보 출력-->
+    <select id="searchLwmList" resultType="com.lms.admin.lwm.dto.LwmDto">
+        SELECT
+            c.lecture_year as lectureYear,
+            c.curriculum_semester as curriculumSemester,
+            c.curriculum_division as curriculumDivision,
+            c.lecture_week as lectureWeek,
+            c.start_date as startDate,
+            c.end_date as endDate,
+            clw.makeup_week as makeupWeek
+        FROM
+            JOIN lecture_info as li,
+            curriculum_subject as cs,
+            curriculum as c,
+            curriculum_lecture_week as clw
+    </select>
+
+    <!-- 수업주자정보 저장 -->
+    <insert id="insertLwmList" parameterType="com.lms.admin.lwm.dto.LwmDto">
+
+    </insert>
+
+    <!-- 수업주차정보 조회-->
+    <!-- 수업주차정보 삭제-->
+    <!-- 수업주차정보 검색결과 조회 카운트-->
+</mapper>
