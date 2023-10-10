@@ -30,9 +30,9 @@
                     <li id="menu_item_3">
                         <p>커뮤니티</p>
                         <ul class="header_childmenu">
-                            <li><a href="/board/notice">공지사항</a></li>
+                            <li><a href="/board/noticeList">공지사항</a></li>
                             <li><a href="/freeList">자유게시판</a></li>
-                            <li><a href="/board/qna">Q&A</a></li>
+                            <li><a href="/board/qnaList">Q&A</a></li>
                         </ul>
                     </li>
                 </ul>

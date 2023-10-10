@@ -15,3 +15,6 @@
 .qna_paging li{margin: 0 6px; display: inline-block;}
 .qna_write{margin: 0 20px; float: right;}
 .qna_write button{width: 90px; height: 30px; background: #fff; font-size: 0.95rem; color:#2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
+
+/* 선택된 페이지 색깔 */
+#page{color:#149000;}
