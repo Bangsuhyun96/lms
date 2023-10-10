@@ -11,20 +11,20 @@
         <div>
             <div class="free_view_user">
                 <p>작성자 : 방수현</p>
-                <p>2023-10-02 09:07</p>
+                <p>${freeBoardDto.freeRdate}</p>
                 <p>조회수 : 34034</p>
             </div>
             <div class="free_view_title">
-                <h2><span>1.</span>글쓰기싫당</h2>
-                <button type="submit" onclick="location.href='/board/free'">목록으로</button>
+                <h2><span>${freeBoardDto.freeId}.</span>${freeBoardDto.freeTitle}</h2>
+                <button type="submit" onclick="location.href='/freeList'">목록으로</button>
             </div>
         </div>
         <div class="free_view_text">
-            <textarea name="" id="" cols="30" rows="10" disabled></textarea>
+            <textarea name="" id="" cols="30" rows="10" disabled>${freeBoardDto.freeContent}</textarea>
         </div>
         <div class="free_view_btn">
-            <button type="submit">수정</button>
-            <button type="submit" onclick="location.href='/board/free'">삭제</button>
+            <button type="submit" onclick="location.href='/free/update/${freeBoardDto.freeId}'">수정</button>
+            <button type="submit" onclick="location.href='/free/delete/${freeBoardDto.freeId}'">삭제</button>
         </div>
         <div class="free_view_comments">
             <div class="free_view_title">

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- xml파일을 사용할 mapper가 있는 경로 -->
+<mapper namespace="com.lms.board.freeBoard.mapper.FreeMapper">
+    <!-- select 태그를 이용하여 select 쿼리임을 나타냄.
+         mapper에서 말했던 메소드 이름은 select 쿼리의 id값과 같아야함 -->
+    <select id="selectBoardList" resultType="com.lms.board.freeBoard.dto.FreeBoardDto">
+        <![CDATA[
+            SELECT
+                free_id as freeId,
+                free_title as freeTitle,
+                free_content as freeContent,
+                DATE_FORMAT(free_rdate, '%Y-%m-%d') as freeRdate
+            FROM freeboard
+        ]]>
+    </select>
+
+    <!-- 글 작성 쿼리 -->
+    <insert id="insertFree" parameterType="com.lms.board.freeBoard.dto.FreeBoardDto">
+        <![CDATA[
+            INSERT INTO freeboard
+                (free_title,
+                 free_content,
+                 free_rdate)
+            VALUES
+                (#{freeTitle},
+                 #{freeContent},
+                 NOW())
+        ]]>
+    </insert>
+
+    <!-- 글 하나 읽어오기 쿼리 -->
+    <select id="selectBoard" parameterType="int" resultType="com.lms.board.freeBoard.dto.FreeBoardDto">
+        <![CDATA[
+            SELECT
+                free_id as freeId,
+                free_title as freeTitle,
+                free_content as freeContent,
+                free_rdate as freeRdate
+            FROM freeboard
+            WHERE free_id = #{freeId}
+        ]]>
+    </select>
+
+    <delete id="deleteBoard" parameterType="int">
+        <![CDATA[
+            DELETE FROM freeboard
+            WHERE free_id = #{freeId}
+        ]]>
+    </delete>
+
+    <update id="updateBoard" parameterType="com.lms.board.freeBoard.dto.FreeBoardDto">
+        <![CDATA[
+            UPDATE freeboard
+            SET
+                free_title = #{freeTitle},
+                free_content = #{freeContent},
+                free_udate = NOW()
+            WHERE
+                free_id = #{freeId}
+        ]]>
+    </update>
+</mapper>
