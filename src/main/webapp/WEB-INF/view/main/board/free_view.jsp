@@ -16,7 +16,7 @@
                 <c:if test="${not empty freeBoardDto.freeUdate}">
                     <p>수정시간 : <fmt:formatDate value="${freeBoardDto.freeUdate}" pattern="yyyy년MM월dd일 hh:mm"/></p>
                 </c:if>
-                <p>조회수 : 34034</p>
+                <p>조회수 : ${freeBoardDto.freeHits}</p>
 
             </div>
             <div class="free_view_title">
