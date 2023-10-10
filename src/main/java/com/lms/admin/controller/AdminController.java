@@ -12,11 +12,6 @@ public class AdminController {
         return "admin/admin";
     }
 
-    @GetMapping("/lwm")
-    public String LectureWeekManagement(){
-        return "admin/admin_lwm";
-    }
-
     @GetMapping("/csm")
     public String ClassScheduleManagement(){
         return "admin/admin_csm";
@@ -27,4 +22,8 @@ public class AdminController {
         return "admin/admin_moli";
     }
 
+    @GetMapping("/mlp")
+    public String ManagingLecturePlan(){
+        return "admin/admin_mlp";
+    }
 }
