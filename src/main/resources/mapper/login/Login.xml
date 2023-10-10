@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.login.mapper.Login">
+
+    <select id="findByLoginId" parameterType="com.lms.login.model.dto.LoginDto"
+    resultType="com.lms.login.model.dto.LoginDto">
+        SELECT
+            login_id as loginId,
+            user_pw as userPw,
+            user_type as userType
+
+        FROM user
+
+        WHERE
+            login_id = #{loginId}
+        AND
+            user_pw = #{userPw}
+
+    </select>
+
+
+    <select id="findByJoinDto" resultType="com.lms.login.model.dto.JoinDto">
+    <![CDATA[
+        SELECT
+            u.user_id as userId,
+            u.user_type as userType,
+            u.login_id as loginId,
+            u.user_pw as userPw,
+            u.fire_yn as fireYn,
+            u.change_pw_yn as changePwYn,
+            u.pw_err_count as pwErrCount,
+            u.last_login_date as lastLoginDate,
+            u.regist_date as registDate,
+            CASE
+                WHEN u.user_type = 1 THEN p.name
+                WHEN u.user_type = 2 THEN s.name
+                ELSE 'Unknown'
+                END AS name
+        FROM
+            user u
+                LEFT JOIN
+            prof p ON u.user_type = 1 AND u.user_id = p.user_id
+                LEFT JOIN
+            student s ON u.user_type = 2 AND u.user_id = s.user_id
+        ]]>
+</select>
+
+
+
+</mapper>
