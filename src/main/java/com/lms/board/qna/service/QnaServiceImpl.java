@@ -1,6 +1,5 @@
 package com.lms.board.qna.service;
 
-import com.lms.board.qna.dto.FileVO;
 import com.lms.board.qna.dto.QnaDto;
 import com.lms.board.qna.mapper.QnaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,13 +51,5 @@ public class QnaServiceImpl implements QnaService{
     public void increaseViewCount(int qnaId) throws Exception{
         qnaMapper.increaseViewCount(qnaId);
     }
-
-    public int fileInsertService(FileVO file) throws Exception{
-        return qnaMapper.fileInsert(file);
-    }
-
-//    public QnaDto getFileByQnaId(int qnaId) {
-//        return qnaMapper.getFileByQnaId(qnaId);
-//    }
 
 }

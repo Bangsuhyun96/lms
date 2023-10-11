@@ -1,8 +1,6 @@
 package com.lms.board.qna.service;
 
-import com.lms.board.qna.dto.FileVO;
 import com.lms.board.qna.dto.QnaDto;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -30,6 +28,4 @@ public interface QnaService {
     public void increaseViewCount(int qnaId) throws Exception;
 
 
-    public int fileInsertService(FileVO file) throws Exception;
-//    QnaDto getFileByQnaId(int qnaId);
 }
