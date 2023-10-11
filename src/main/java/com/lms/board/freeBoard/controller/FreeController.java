@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Controller
 public class FreeController {
@@ -44,7 +48,32 @@ public class FreeController {
 
     // 글 작성
     @PostMapping("/addFree")
-    public String insertFree(@ModelAttribute FreeBoardDto freeBoard) throws Exception{
+    public String insertFree(@ModelAttribute FreeBoardDto freeBoard, @RequestParam("file") MultipartFile file) throws Exception{
+        // 파일 경로를 지정
+        String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
+
+        // 만약 업로드된 파일이 존재하고 비어있지 않다면 실행
+        if(file != null && !file.isEmpty()){
+            // 고유한 파일명을 생성하기 위해 UUID를 사용
+            UUID uuid = UUID.randomUUID();
+            String fileName = uuid + "_" + file.getOriginalFilename();
+            String filePath = uploadFolderPath + fileName;
+
+            // 파일을 실제로 업로드
+            try(OutputStream os = new FileOutputStream(filePath)){
+                os.write(file.getBytes());
+            }
+
+            // 업로드된 파일 정보를 DTO에 저장
+            freeBoard.setFreeFilename(fileName);
+            freeBoard.setFreeFilepath("/resources/files/" + fileName);
+
+        }else{
+            // 업로드된 파일이 없는 경우에는 DTO의 파일 정보를 null로 설정
+            freeBoard.setFreeFilename(null);
+            freeBoard.setFreeFilepath(null);
+        }
+
         freeService.insertFree(freeBoard);
         return "redirect:/freeList";
     }
@@ -95,12 +124,32 @@ public class FreeController {
 
     // 수정 컨트롤러
     @PostMapping("/free/update")
-    public String updateFree(@ModelAttribute FreeBoardDto freeBoardDto, HttpServletRequest request) throws Exception{
+    public String updateFree(@ModelAttribute FreeBoardDto freeBoardDto, HttpServletRequest request, @RequestParam("file") MultipartFile file) throws Exception{
 
         int freeId = Integer.parseInt(request.getParameter("freeId"));
         freeBoardDto.setFreeId(Integer.parseInt(request.getParameter("freeId")));
         freeBoardDto.setFreeTitle(request.getParameter("freeTitle"));
         freeBoardDto.setFreeContent(request.getParameter("freeContent"));
+
+        String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
+
+        if (file != null && !file.isEmpty()) {
+            UUID uuid = UUID.randomUUID();
+            String fileName = uuid + "_" + file.getOriginalFilename();
+            String filePath = uploadFolderPath + fileName;
+
+            try (OutputStream os = new FileOutputStream(filePath)) {
+                os.write(file.getBytes());
+            }
+
+            freeBoardDto.setFreeFilename(fileName);
+            freeBoardDto.setFreeFilepath("/resources/files/" + fileName);
+        } else {
+            // 이미지 파일이 업로드되지 않은 경우, 기존 이미지 정보를 유지
+            FreeBoardDto existingNotice = freeService.selectBoard(freeBoardDto.getFreeId());
+            freeBoardDto.setFreeFilename(existingNotice.getFreeFilename());
+            freeBoardDto.setFreeFilepath(existingNotice.getFreeFilepath());
+        }
 
         freeService.updateBoard(freeBoardDto);
 

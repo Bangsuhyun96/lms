@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.*;
 
 @Controller
 public class NoticeController {
@@ -44,7 +44,33 @@ public class NoticeController {
 
     // notice 작성 컨트롤러
     @PostMapping("/board/insertNotice")
-    public String insertNotice(@ModelAttribute NoticeDto noticeDto) throws Exception {
+    public String insertNotice(@ModelAttribute NoticeDto noticeDto, @RequestParam("file")MultipartFile file) throws Exception {
+        // 파일 경로를 지정
+        String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
+
+        // 만약 업로드된 파일이 존재하고 비어있지 않다면 실행
+        if(file != null && !file.isEmpty()){
+            // 고유한 파일명을 생성하기 위해 UUID를 사용
+            UUID uuid = UUID.randomUUID();
+            String fileName = uuid + "_" + file.getOriginalFilename();
+            String filePath = uploadFolderPath + fileName;
+
+            // 파일을 실제로 업로드
+            try(OutputStream os = new FileOutputStream(filePath)){
+                os.write(file.getBytes());
+            }
+
+            // 업로드된 파일 정보를 DTO에 저장
+            noticeDto.setNoticeFilename(fileName);
+            noticeDto.setNoticeFilepath("/resources/files/" + fileName);
+
+        }else{
+            // 업로드된 파일이 없는 경우에는 DTO의 파일 정보를 null로 설정
+            noticeDto.setNoticeFilename(null);
+            noticeDto.setNoticeFilepath(null);
+        }
+
+        // noticeDto를 데이터베이스 삽입
         noticeService.insertNotice(noticeDto);
         return "redirect:/board/noticeList";
     }
@@ -86,7 +112,7 @@ public class NoticeController {
 
     // notice 수정 컨트롤러
     @PostMapping("/board/updateNotice")
-    public String updateNotice(@ModelAttribute NoticeDto noticeDto, HttpServletRequest request) throws Exception{
+    public String updateNotice(@ModelAttribute NoticeDto noticeDto, HttpServletRequest request, @RequestParam("file") MultipartFile file) throws Exception{
         noticeDto.setNoticeId(Integer.parseInt(request.getParameter("noticeId")));
         noticeDto.setNoticeTitle(request.getParameter("noticeTitle"));
         noticeDto.setNoticeContent(request.getParameter("noticeContent"));
@@ -94,8 +120,27 @@ public class NoticeController {
         // 현재 시간 설정
         noticeDto.setNoticeRdate(new Date());
 
-        noticeService.updateNotice(noticeDto);
+        String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
 
+        if (file != null && !file.isEmpty()) {
+            UUID uuid = UUID.randomUUID();
+            String fileName = uuid + "_" + file.getOriginalFilename();
+            String filePath = uploadFolderPath + fileName;
+
+            try (OutputStream os = new FileOutputStream(filePath)) {
+                os.write(file.getBytes());
+            }
+
+            noticeDto.setNoticeFilename(fileName);
+            noticeDto.setNoticeFilepath("/resources/files/" + fileName);
+        } else {
+            // 이미지 파일이 업로드되지 않은 경우, 기존 이미지 정보를 유지
+            NoticeDto existingNotice = noticeService.noticeOne(noticeDto.getNoticeId());
+            noticeDto.setNoticeFilename(existingNotice.getNoticeFilename());
+            noticeDto.setNoticeFilepath(existingNotice.getNoticeFilepath());
+        }
+
+        noticeService.updateNotice(noticeDto);
         return "redirect:/board/noticeOne?noticeId=" + noticeDto.getNoticeId();
     }
 
