@@ -9,7 +9,7 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="free_add_wrap">
-        <form id="frm" name="frm" method="post" action="/addFree" onsubmit="return addAlert()">
+        <form id="frm" name="frm" method="post" action="/addFree" enctype="multipart/form-data" onsubmit="return addAlert()">
             <div class="free_add_title">
                 <p>제목</p>
             </div>
@@ -27,6 +27,7 @@
             <div class="free_add_text2">
                 <textarea name="freeContent" id="freeContent" cols="30" rows="10" onkeyup="countingLength('freeContent', 'counterWord');"></textarea>
             </div>
+            <input type="file" name="file">
             <div class="free_add_btn">
                 <button type="submit">등록</button>
                 <button type="button" onclick="location.href='/freeList'">취소</button>
