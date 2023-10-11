@@ -112,9 +112,9 @@ $(document).ready(function(){
             // 서버로 값 전송 (이 부분은 실제 서버 URL로 대체해야 합니다)
             $.ajax({
                 type: "POST",
-                url: "/your-server-url",
+                url: "/search/member/name",
                 data: {
-                    searchValue: searchValue
+                    name: searchValue
                 },
                 success: function(response){
                     // 서버 응답 처리 로직

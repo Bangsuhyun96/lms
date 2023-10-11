@@ -23,4 +23,8 @@ public class LoginService {
     }
 
 
+    public List<JoinDto> searchMember(JoinDto joinDto) {
+        return loginDao.searchMember(joinDto);
+
+    }
 }

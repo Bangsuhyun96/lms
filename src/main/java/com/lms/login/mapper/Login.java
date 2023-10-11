@@ -11,4 +11,6 @@ public interface Login {
     LoginDto findByLoginId(LoginDto loginDto);
 
     List<JoinDto> findByJoinDto();
+
+    List<JoinDto> searchMember(JoinDto joinDto);
 }

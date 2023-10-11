@@ -36,5 +36,16 @@ public class AdminMemberController {
     }
 
 
+    // 검색 sql은 만들었는데 서버에서 어떻게 받아올지 정리해야함
+    @PostMapping("/search/member/name")
+    public String searchMember(@ModelAttribute JoinDto joinDto, Model model) {
+
+        System.out.println(joinDto);
+        List<JoinDto> member = loginService.searchMember(joinDto);
+        model.addAttribute("member", member);
+        return "admin/member/member_management";
+
+    }
+
 
 }

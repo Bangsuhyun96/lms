@@ -44,8 +44,22 @@
                 LEFT JOIN
             student s ON u.user_type = 2 AND u.user_id = s.user_id
         ]]>
-</select>
+    </select>
 
+
+    <select id="searchMember" resultType="com.lms.login.model.dto.JoinDto">
+        SELECT *
+        FROM user
+        WHERE user_id IN (
+            SELECT user_id
+            FROM student
+            WHERE name = ${name}
+            UNION
+            SELECT user_id
+            FROM prof
+            WHERE name = ${name}
+        );
+    </select>
 
 
 </mapper>
