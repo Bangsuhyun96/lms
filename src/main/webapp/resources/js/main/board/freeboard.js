@@ -1,9 +1,9 @@
 // 게시글 작성
 function addAlert() {
-    var qnaTitle = document.getElementById("qnaTitle").value;
-    var qnaContent = document.getElementById("qnaContent").value;
+    var freeTitle = document.getElementById("freeTitle").value;
+    var freeContent = document.getElementById("freeContent").value;
 
-    if (qnaTitle === "" || qnaContent === "") {
+    if (freeTitle === "" || freeContent === "") {
         alert('제목 및 내용을 입력해 주세요.');
         return false;
     }else{
@@ -13,10 +13,10 @@ function addAlert() {
 }
 
 function updateAlert() {
-    var qnaTitle = document.getElementById("qnaTitle").value;
-    var qnaContent = document.getElementById("qnaContent").value;
+    var freeTitle = document.getElementById("freeTitle").value;
+    var freeContent = document.getElementById("freeContent").value;
 
-    if (qnaTitle === "" || qnaContent === "") {
+    if (freeTitle === "" || freeContent === "") {
         alert('제목 및 내용을 입력해 주세요.');
         return false;
     }else{
@@ -41,7 +41,7 @@ function countingLength(inputElementId, counterElementId) {
 
 // 제목 길이 제한
 function titleLength(){
-    let titleLength = document.getElementById("qnaTitle");
+    let titleLength = document.getElementById("free_title");
 
     if(titleLength.value.length > 30){
         titleLength.value = titleLength.value.substring(0, 30);
@@ -50,11 +50,11 @@ function titleLength(){
 }
 
 // 게시글 삭제
-function confirmDelete(qnaId) {
+function confirmDelete(freeId) {
     if (confirm("정말로 삭제하시겠습니까?")) {
         alert("게시글 삭제를 완료했습니다.");
         // 삭제 동작 실행
-        location.href = '/board/deleteQna/' + qnaId;
+        location.href = '/free/delete/' + freeId;
     } else {
         // 삭제 취소
         return false;

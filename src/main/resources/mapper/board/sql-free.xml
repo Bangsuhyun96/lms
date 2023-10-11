@@ -86,4 +86,28 @@
         SET free_hits = free_hits + 1
         WHERE free_id = #{freeId}
     </update>
+
+    <!-- 파일 업로드 -->
+    <insert id="insertFile" parameterType="hashmap">
+        <![CDATA[
+            INSERT INTO files
+                (
+                 free_fk_id,
+                 original_name,
+                 save_name,
+                 "size",
+                 delete_yn,
+                 created_date
+                 )
+            VALUES
+            (
+             #{freeId},
+             #{org_file_name},
+             #{save_file_name},
+             #{file_size},
+             #{delete_yn},
+             NOW()
+            )
+]]
+    </insert>
 </mapper>

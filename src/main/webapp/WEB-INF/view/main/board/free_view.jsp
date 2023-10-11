@@ -36,8 +36,12 @@
         </div>
         <div class="free_view_btn">
             <button type="submit" onclick="location.href='/free/update/${freeBoardDto.freeId}'">수정</button>
-            <button type="submit" onclick="location.href='/free/delete/${freeBoardDto.freeId}'">삭제</button>
+            <button type="submit" onclick="confirmDelete(${freeBoardDto.freeId})">삭제</button>
         </div>
+        <!-- 삭제 버튼을 눌렀을 때 정말 삭제할 거냐고 묻는 script -->
+        <script>
+
+        </script>
         <div class="free_view_comments">
             <div class="free_view_title">
                 <h2>댓글</h2>
