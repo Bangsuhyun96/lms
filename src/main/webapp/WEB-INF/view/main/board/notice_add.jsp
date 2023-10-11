@@ -10,12 +10,12 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="notice_add_wrap">
-        <form id="noticeAdd" name="noticeAdd" method="post" action="/board/insertNotice" onsubmit="return addAlert()">
+        <form id="noticeAdd" name="noticeAdd" method="post" action="/board/insertNotice" enctype="multipart/form-data" onsubmit="return addAlert()">
             <div class="notice_add_title">
                 <p>제목</p>
             </div>
             <div class="notice_add_text1">
-                <textarea name="noticeTitle" id="noticeTitle" cols="30" rows="10"></textarea>
+                <textarea name="noticeTitle" id="noticeTitle" cols="30" rows="10" onkeyup="titleLength()"></textarea>
             </div>
             <div class="notice_add_title">
                 <p>내용</p>
@@ -28,6 +28,7 @@
             <div class="notice_add_text2">
                 <textarea name="noticeContent" id="noticeContent" cols="30" rows="10" onkeyup="countingLength('noticeContent', 'counterWord');"></textarea>
             </div>
+            <input type="file" name="file">
             <div class="notice_add_btn">
                 <button type="submit">등록</button>
                 <button type="button" onclick="location.href='/board/noticeList'">취소</button>

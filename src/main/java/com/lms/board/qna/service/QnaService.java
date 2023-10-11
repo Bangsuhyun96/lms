@@ -1,7 +1,6 @@
 package com.lms.board.qna.service;
 
 import com.lms.board.qna.dto.QnaDto;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
