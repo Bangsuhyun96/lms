@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="free_add_wrap">
-        <form id="frm" name="frm" method="post" action="/free/update" onsubmit="return validateForm()">
+        <form id="frm" name="frm" method="post" action="/free/update" onsubmit="return updateAlert()">
             <div class="free_add_title">
                 <p>제목</p>
             </div>
@@ -45,8 +45,10 @@
         } else if(content === ""){
             alert("내용을 입력해주세요.");
             return false;
+        } else{
+            alert("게시글 수정을 완료했습니다.");
+            return true;
         }
-        return true;
     }
 </script>
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>

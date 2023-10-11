@@ -15,7 +15,7 @@
                 <p>제목</p>
             </div>
             <div class="notice_add_text1">
-                <textarea name="noticeTitle" id="noticeTitle" cols="30" rows="10"></textarea>
+                <textarea name="noticeTitle" id="noticeTitle" cols="30" rows="10" onkeyup="titleLength()"></textarea>
             </div>
             <div class="notice_add_title">
                 <p>내용</p>

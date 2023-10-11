@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,21 +55,21 @@ public class FreeController {
     public String selectFree(@PathVariable("freeId") int freeId, HttpSession session, Model model) throws Exception{
 
         // 이미 조회수를 증가한 게시물인지 확인하는 세션 변수 선언
-        Set<Integer> viewedNoticeIds = (Set<Integer>) session.getAttribute("viewedNoticeIds");
+        Set<Integer> viewedFreeIds = (Set<Integer>) session.getAttribute("viewedFreeIds");
 
         // 세션 변수가 null인 경우 초기화
-        if (viewedNoticeIds == null) {
-            viewedNoticeIds = new HashSet<>();
+        if (viewedFreeIds == null) {
+            viewedFreeIds = new HashSet<>();
         }
 
         // 만약 현재 noticeId가 세션 변수에 없다면
-        if (!viewedNoticeIds.contains(freeId)) {
+        if (!viewedFreeIds.contains(freeId)) {
             // 조회수 증가 메서드 호출
             freeService.increaseHitsCount(freeId);
             // 조회한 qnaId를 세션 변수에 추가하여 중복 조회를 막음
-            viewedNoticeIds.add(freeId);
+            viewedFreeIds.add(freeId);
             // 세션 변수 업데이트
-            session.setAttribute("viewedNoticeIds", viewedNoticeIds);
+            session.setAttribute("viewedFreeIds", viewedFreeIds);
         }
 
         // 해당 게시물 조회
