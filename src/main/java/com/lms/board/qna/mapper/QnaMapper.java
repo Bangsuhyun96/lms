@@ -22,5 +22,4 @@ public interface QnaMapper {
 
     public void increaseViewCount(int qnaId) throws Exception;
 
-
 }

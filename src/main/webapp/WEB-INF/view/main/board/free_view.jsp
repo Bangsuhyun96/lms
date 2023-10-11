@@ -26,11 +26,22 @@
         </div>
         <div class="free_view_text">
             <textarea name="" id="" cols="30" rows="10" disabled>${freeBoardDto.freeContent}</textarea>
+            <div class="form-group">
+                <c:choose>
+                    <c:when test="${not empty freeBoardDto.freeFilepath}">
+                        <img src="${freeBoardDto.freeFilepath}" width="200" height="200" />
+                    </c:when>
+                </c:choose>
+            </div>
         </div>
         <div class="free_view_btn">
             <button type="submit" onclick="location.href='/free/update/${freeBoardDto.freeId}'">수정</button>
-            <button type="submit" onclick="location.href='/free/delete/${freeBoardDto.freeId}'">삭제</button>
+            <button type="submit" onclick="confirmDelete(${freeBoardDto.freeId})">삭제</button>
         </div>
+        <!-- 삭제 버튼을 눌렀을 때 정말 삭제할 거냐고 묻는 script -->
+        <script>
+
+        </script>
         <div class="free_view_comments">
             <div class="free_view_title">
                 <h2>댓글</h2>

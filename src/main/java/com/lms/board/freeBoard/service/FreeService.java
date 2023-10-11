@@ -20,4 +20,5 @@ public interface FreeService {
 
     // 조회수 증가
     public void increaseHitsCount(int freeId) throws Exception;
+
 }
