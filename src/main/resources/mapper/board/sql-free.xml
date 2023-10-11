@@ -25,11 +25,15 @@
             INSERT INTO freeboard
                 (free_title,
                  free_content,
-                 free_rdate)
+                 free_rdate,
+                 free_filename,
+                 free_filepath)
             VALUES
                 (#{freeTitle},
                  #{freeContent},
-                 NOW())
+                 NOW(),
+                 #{freeFilename},
+                 #{freeFilepath})
         ]]>
     </insert>
 
@@ -42,7 +46,8 @@
                 free_content as freeContent,
                 free_rdate as freeRdate,
                 free_udate as freeUdate,
-                free_hits as freeHits
+                free_hits as freeHits,
+                free_filepath as freeFilepath
             FROM freeboard
             WHERE free_id = #{freeId}
         ]]>
@@ -61,7 +66,9 @@
             SET
                 free_title = #{freeTitle},
                 free_content = #{freeContent},
-                free_udate = NOW()
+                free_udate = NOW(),
+                free_filename = #{freeFilename},
+                free_filepath = #{freeFilepath}
             WHERE
                 free_id = #{freeId}
         ]]>

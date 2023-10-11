@@ -26,6 +26,13 @@
         </div>
         <div class="free_view_text">
             <textarea name="" id="" cols="30" rows="10" disabled>${freeBoardDto.freeContent}</textarea>
+            <div class="form-group">
+                <c:choose>
+                    <c:when test="${not empty freeBoardDto.freeFilepath}">
+                        <img src="${freeBoardDto.freeFilepath}" width="200" height="200" />
+                    </c:when>
+                </c:choose>
+            </div>
         </div>
         <div class="free_view_btn">
             <button type="submit" onclick="location.href='/free/update/${freeBoardDto.freeId}'">수정</button>

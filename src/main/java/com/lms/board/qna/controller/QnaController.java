@@ -1,18 +1,22 @@
 package com.lms.board.qna.controller;
 
+import com.lms.board.qna.dto.FileVO;
 import com.lms.board.qna.dto.QnaDto;
 import com.lms.board.qna.service.QnaService;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.*;
 
 @Controller
 public class QnaController {
@@ -40,13 +44,35 @@ public class QnaController {
     }
 
     // qna 작성 컨트롤러
-//    @PostMapping("/board/insertQna")
-//    public String insertQna(@ModelAttribute QnaDto qnaDto) throws Exception{
-//        qnaService.insertQna(qnaDto);
-//        return "redirect:/board/qnaList";
-//    }
     @PostMapping("/board/insertQna")
-    public String insertQna(@ModelAttribute QnaDto qnaDto) throws Exception {
+    public String insertQna(@ModelAttribute QnaDto qnaDto, @RequestParam("file") MultipartFile file) throws Exception {
+
+        // 파일 업로드 경로를 지정
+        String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
+
+        // 만약 업로드된 파일이 존재하고 비어있지 않다면 실행
+        if (file != null && !file.isEmpty()) {
+            // 고유한 파일명을 생성하기 위해 UUID를 사용
+            UUID uuid = UUID.randomUUID();
+            String fileName = uuid + "_" + file.getOriginalFilename();
+            String filePath = uploadFolderPath + fileName;
+
+            // 파일을 실제로 업로드
+            try (OutputStream os = new FileOutputStream(filePath)) {
+                os.write(file.getBytes());
+            }
+
+            // 업로드된 파일 정보를 DTO에 저장
+            qnaDto.setQnaFilename(fileName);
+            qnaDto.setQnaFilepath("/resources/files/" + fileName);
+
+        } else {
+            // 업로드된 파일이 없는 경우에는 DTO의 파일 정보를 null로 설정
+            qnaDto.setQnaFilename(null);
+            qnaDto.setQnaFilepath(null);
+        }
+
+        // QnaService를 사용하여 QnaDto를 데이터베이스에 삽입
         qnaService.insertQna(qnaDto);
         return "redirect:/board/qnaList";
     }
@@ -89,7 +115,7 @@ public class QnaController {
 
     // qna 수정 컨트롤러
     @PostMapping("/board/updateQna")
-    public String updateQna(@ModelAttribute QnaDto qnaDto, HttpServletRequest request) throws Exception{
+    public String updateQna(@ModelAttribute QnaDto qnaDto, HttpServletRequest request, @RequestParam("file") MultipartFile file) throws Exception {
         qnaDto.setQnaId(Integer.parseInt(request.getParameter("qnaId")));
         qnaDto.setQnaTitle(request.getParameter("qnaTitle"));
         qnaDto.setQnaContent(request.getParameter("qnaContent"));
@@ -97,10 +123,28 @@ public class QnaController {
         // 현재 시간 설정
         qnaDto.setQnaRdate(new Date());
 
-        qnaService.updateQna(qnaDto);
+        String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
 
-//        return "/main/board/qna_view";
-        // 수정 후에 해당 게시물을 다시 조회하도록 리다이렉션
+        if (file != null && !file.isEmpty()) {
+            UUID uuid = UUID.randomUUID();
+            String fileName = uuid + "_" + file.getOriginalFilename();
+            String filePath = uploadFolderPath + fileName;
+
+            try (OutputStream os = new FileOutputStream(filePath)) {
+                os.write(file.getBytes());
+            }
+
+            qnaDto.setQnaFilename(fileName);
+            qnaDto.setQnaFilepath("/resources/files/" + fileName);
+
+        } else {
+            // 이미지 파일이 업로드되지 않은 경우, 기존 이미지 정보를 유지
+            QnaDto existingQna = qnaService.qnaOne(qnaDto.getQnaId());
+            qnaDto.setQnaFilename(existingQna.getQnaFilename());
+            qnaDto.setQnaFilepath(existingQna.getQnaFilepath());
+        }
+
+        qnaService.updateQna(qnaDto);
         return "redirect:/board/qnaOne?qnaId=" + qnaDto.getQnaId();
     }
 
@@ -110,4 +154,5 @@ public class QnaController {
         qnaService.deleteQna(qnaId);
         return "redirect:/board/qnaList";
     }
+
 }

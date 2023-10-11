@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="qna_add_wrap">
-        <form id="qnaAdd" name="qnaAdd" method="post" action="/board/insertQna" onsubmit="return addAlert()">
+        <form id="qnaAdd" name="qnaAdd" method="post" action="/board/insertQna" enctype="multipart/form-data" onsubmit="return addAlert()">
         <div class="qna_add_title">
             <p>제목</p>
         </div>
@@ -28,6 +28,7 @@
         <div class="qna_add_text2">
             <textarea name="qnaContent" id="qnaContent" cols="30" rows="10" onkeyup="countingLength('qnaContent', 'counterWord');"></textarea>
         </div>
+        <input type="file" name="file">
         <div class="qna_add_btn">
             <button type="submit">등록</button>
             <button type="button" onclick="location.href='/board/qnaList'">취소</button>
