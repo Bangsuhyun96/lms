@@ -1,10 +1,7 @@
 package com.lms.board.qna.controller;
 
-import com.lms.board.qna.dto.FileVO;
 import com.lms.board.qna.dto.QnaDto;
 import com.lms.board.qna.service.QnaService;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.*;
