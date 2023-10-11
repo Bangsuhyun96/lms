@@ -1,5 +1,6 @@
 package com.lms.board.qna.mapper;
 
+import com.lms.board.qna.dto.FileVO;
 import com.lms.board.qna.dto.QnaDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,5 +23,7 @@ public interface QnaMapper {
 
     public void increaseViewCount(int qnaId) throws Exception;
 
+    public int fileInsert(FileVO file) throws Exception;
 
+//    QnaDto getFileByQnaId(int qnaId);
 }
