@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="free_add_wrap">
-        <form id="frm" name="frm" method="post" action="/free/update" onsubmit="return updateAlert()">
+        <form id="frm" name="frm" method="post" action="/free/update" enctype="multipart/form-data" onsubmit="return updateAlert()">
 
             <div class="free_add_title">
                 <p>제목</p>
