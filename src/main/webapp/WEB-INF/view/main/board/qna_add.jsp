@@ -15,7 +15,7 @@
             <p>제목</p>
         </div>
         <div class="qna_add_text1">
-            <textarea name="qnaTitle" id="qnaTitle" cols="30" rows="10"></textarea>
+            <textarea name="qnaTitle" id="qnaTitle" cols="30" rows="10" onkeyup="titleLength()"></textarea>
         </div>
         <div class="qna_add_title">
             <p>내용</p>
