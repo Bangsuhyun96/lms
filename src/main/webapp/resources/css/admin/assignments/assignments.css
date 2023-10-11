@@ -125,3 +125,6 @@ input[type="file"] {
 .select_table_2 input {
     background-color: #d3d3d3;
 }
+.select_table_2 select_box_flex{
+    background-color: #d3d3d3;
+}

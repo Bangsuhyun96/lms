@@ -346,7 +346,7 @@
                 <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>과제정보&nbsp;</span></p>
             </div>
             <div class="div_common_button">
-                <button class="btn_pos" onclick="resetStyles()">신규</button>
+                <button class="btn_pos" onclick="resetStyles()"r>신규</button>
                 <button class="btn-default">저장</button>
             </div>
         </div>
