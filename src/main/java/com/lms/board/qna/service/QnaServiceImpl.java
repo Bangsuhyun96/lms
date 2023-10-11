@@ -16,6 +16,7 @@ public class QnaServiceImpl implements QnaService{
 
     @Override
     public List<QnaDto> selectQnaList(int pageNum, int pageSize) throws Exception{
+        // 인덱스가 0부터 시작하기 때문에 -1을 해줌
         int startRow = (pageNum - 1) * pageSize;
         return qnaMapper.selectQnaList(startRow, pageSize);
     }

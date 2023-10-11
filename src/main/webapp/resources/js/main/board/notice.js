@@ -26,6 +26,16 @@ function countingLength(inputElementId, counterElementId) {
     wordCounter.innerText = wordInputElement.value.length + '/' + maxLength + '자';
 }
 
+// 제목 길이 제한
+function titleLength(){
+    let titleLength = document.getElementById("noticeTitle");
+
+    if(titleLength.value.length > 30){
+        titleLength.value = titleLength.value.substring(0, 30);
+        alert("제목이 너무 길어요!");
+    }
+}
+
 // 게시글 삭제
 function confirmDelete(noticeId) {
     if (confirm("정말로 삭제하시겠습니까?")) {

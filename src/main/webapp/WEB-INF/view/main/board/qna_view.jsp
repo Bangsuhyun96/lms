@@ -26,9 +26,18 @@
                 <button type="submit" onclick="location.href='/board/qnaList'">목록으로</button>
             </div>
         </div>
+
         <div class="qna_view_text">
             <textarea name="" id="" cols="30" rows="10" disabled>${qnaDto.qnaContent}</textarea>
+            <div class="form-group">
+                <c:choose>
+                    <c:when test="${not empty qnaDto.qnaFilepath}">
+                        <img src="${qnaDto.qnaFilepath}" width="200" height="200" />
+                    </c:when>
+                </c:choose>
+            </div>
         </div>
+
         <div class="qna_view_btn">
             <button type="submit" onclick="location.href='/board/updateQna/${qnaDto.qnaId}'">수정</button>
             <button id="deleteBtn" type="button" onclick="confirmDelete(${qnaDto.qnaId})">삭제</button>

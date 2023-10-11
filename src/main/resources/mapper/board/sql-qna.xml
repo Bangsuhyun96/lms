@@ -5,6 +5,8 @@
 <!-- resultType은 쿼리를 실행한 뒤 결과가 있을 경우에 사용 -->
 <!-- parameterType 반대로 데이터를 넣을 때 사용 -->
 <mapper namespace="com.lms.board.qna.mapper.QnaMapper">
+
+    <!-- 게시판 리스트 쿼리 -->
     <select id="selectQnaList" resultType="com.lms.board.qna.dto.QnaDto">
         SELECT
             qna_id as qnaId,
@@ -17,11 +19,13 @@
             LIMIT #{startRow}, #{pageSize}
     </select>
 
+    <!-- 글 작성 쿼리 -->
     <select id="insertQna" resultType="com.lms.board.qna.dto.QnaDto">
-        INSERT INTO qna(qna_title, qna_content, qna_rdate)
-        VALUES (#{qnaTitle}, #{qnaContent}, NOW())
+        INSERT INTO qna(qna_title, qna_content, qna_rdate, qna_filename, qna_filepath)
+        VALUES (#{qnaTitle}, #{qnaContent}, NOW(), #{qnaFilename}, #{qnaFilepath})
     </select>
 
+    <!-- 글 하나 읽어오기 쿼리 -->
     <select id="qnaOne" parameterType="int" resultType="com.lms.board.qna.dto.QnaDto">
         SELECT
             qna_id as qnaId,
@@ -29,31 +33,39 @@
             qna_content as qnaContent,
             qna_rdate as qnaRdate,
             qna_udate as qnaUdate,
-            qna_hits as qnaHits
+            qna_hits as qnaHits,
+            qna_filepath as qnaFilepath
         FROM qna
         WHERE qna_id = #{qnaId}
     </select>
 
+    <!-- 글 수정 쿼리 -->
     <update id="updateQna" parameterType="com.lms.board.qna.dto.QnaDto">
         UPDATE qna
         SET
             qna_title = #{qnaTitle},
             qna_content = #{qnaContent},
-            qna_udate = now()
+            qna_udate = now(),
+            qna_filename = #{qnaFilename},
+            qna_filepath = #{qnaFilepath}
         WHERE qna_id = #{qnaId}
     </update>
 
+    <!-- 글 삭제 쿼리 -->
     <delete id="deleteQna" parameterType="int">
         DELETE FROM qna WHERE qna_id = #{qnaId}
     </delete>
 
+    <!-- 글 전체 개수 쿼리 -->
     <select id="getTotalQnaCount" resultType="int">
         SELECT COUNT(*) FROM qna
     </select>
 
+    <!-- 조회수 증가 쿼리 -->
     <update id="increaseViewCount" parameterType="int">
         UPDATE qna
         SET qna_hits = qna_hits + 1
         WHERE qna_id = #{qnaId}
     </update>
+
 </mapper>

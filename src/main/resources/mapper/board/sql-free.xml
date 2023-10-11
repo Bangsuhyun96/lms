@@ -12,8 +12,10 @@
                 free_id as freeId,
                 free_title as freeTitle,
                 free_content as freeContent,
-                DATE_FORMAT(free_rdate, '%Y-%m-%d') as freeRdate
+                DATE_FORMAT(free_rdate, '%Y-%m-%d') as freeRdate,
+                free_hits as freeHits
             FROM freeboard
+            ORDER BY freeId DESC LIMIT #{startRow}, #{pageSize}
         ]]>
     </select>
 
@@ -23,11 +25,15 @@
             INSERT INTO freeboard
                 (free_title,
                  free_content,
-                 free_rdate)
+                 free_rdate,
+                 free_filename,
+                 free_filepath)
             VALUES
                 (#{freeTitle},
                  #{freeContent},
-                 NOW())
+                 NOW(),
+                 #{freeFilename},
+                 #{freeFilepath})
         ]]>
     </insert>
 
@@ -38,7 +44,10 @@
                 free_id as freeId,
                 free_title as freeTitle,
                 free_content as freeContent,
-                free_rdate as freeRdate
+                free_rdate as freeRdate,
+                free_udate as freeUdate,
+                free_hits as freeHits,
+                free_filepath as freeFilepath
             FROM freeboard
             WHERE free_id = #{freeId}
         ]]>
@@ -57,9 +66,25 @@
             SET
                 free_title = #{freeTitle},
                 free_content = #{freeContent},
-                free_udate = NOW()
+                free_udate = NOW(),
+                free_filename = #{freeFilename},
+                free_filepath = #{freeFilepath}
             WHERE
                 free_id = #{freeId}
         ]]>
     </update>
+
+    <!-- 게시물 개수 카운트 -->
+    <select id="getTotalFreeCount" resultType = "int">
+        SELECT COUNT(*)
+        FROM freeboard
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id="increaseHitsCount" parameterType="int">
+        UPDATE freeboard
+        SET free_hits = free_hits + 1
+        WHERE free_id = #{freeId}
+    </update>
+
 </mapper>

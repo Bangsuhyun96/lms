@@ -6,6 +6,8 @@
 <mapper namespace="com.lms.board.notice.mapper.NoticeMapper">
     <!-- select 태그를 이용하여 select 쿼리임을 나타냄.
          mapper에서 말했던 메소드 이름은 select 쿼리의 id값과 같아야함 -->
+
+    <!-- 게시판 리스트 쿼리 -->
     <select id="selectNoticeList" resultType="com.lms.board.notice.dto.NoticeDto">
         SELECT
             notice_id as noticeId,
@@ -18,11 +20,13 @@
             LIMIT #{startRow}, #{pageSize}
     </select>
 
+    <!-- 글 작성 쿼리 -->
     <select id="insertNotice" resultType="com.lms.board.notice.dto.NoticeDto">
-        INSERT INTO notice(notice_title, notice_content, notice_rdate)
-        VALUES (#{noticeTitle}, #{noticeContent}, NOW())
+        INSERT INTO notice(notice_title, notice_content, notice_rdate, notice_filename, notice_filepath)
+        VALUES (#{noticeTitle}, #{noticeContent}, NOW(), #{noticeFilename}, #{noticeFilepath})
     </select>
 
+    <!-- 글 하나 읽어오기 쿼리 -->
     <select id="noticeOne" parameterType="int" resultType="com.lms.board.notice.dto.NoticeDto">
         SELECT
             notice_id as noticeId,
@@ -30,28 +34,35 @@
             notice_content as noticeContent,
             notice_rdate as noticeRdate,
             notice_udate as noticeUdate,
-            notice_hits as noticeHits
+            notice_hits as noticeHits,
+            notice_filepath as noticeFilepath
         FROM notice
         WHERE notice_id = #{noticeId}
     </select>
 
+    <!-- 글 수정 쿼리 -->
     <update id="updateNotice" parameterType="com.lms.board.notice.dto.NoticeDto">
         UPDATE notice
         SET
             notice_title = #{noticeTitle},
             notice_content = #{noticeContent},
-            notice_rdate = now()
+            notice_udate = now(),
+            notice_filename = #{noticeFilename},
+            notice_filepath = #{noticeFilepath}
         WHERE notice_id = #{noticeId}
     </update>
 
+    <!-- 글 삭제 쿼리 -->
     <delete id="deleteNotice" parameterType="int">
         DELETE FROM notice WHERE notice_id = #{noticeId}
     </delete>
 
+    <!-- 글 전체 개수 쿼리 -->
     <select id="getTotalNoticeCount" resultType="int">
         SELECT COUNT(*) FROM notice
     </select>
 
+    <!-- 조회수 증가 쿼리 -->
     <update id= "increaseViewCount" parameterType="int">
         UPDATE notice
         SET notice_hits = notice_hits + 1

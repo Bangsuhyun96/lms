@@ -27,6 +27,13 @@
         </div>
         <div class="notice_view_text">
             <textarea name="" id="" cols="30" rows="10" disabled>${noticeDto.noticeContent}</textarea>
+            <div class="form-group">
+                <c:choose>
+                    <c:when test="${not empty noticeDto.noticeFilepath}">
+                        <img src="${noticeDto.noticeFilepath}" width="200" height="200"/>
+                    </c:when>
+                </c:choose>
+            </div>
         </div>
         <div class="notice_view_btn">
             <button type="submit" onclick="location.href='/board/updateNotice/${noticeDto.noticeId}'">수정</button>

@@ -8,7 +8,8 @@
 <%@ include file="/WEB-INF/view/main/common/header.jsp" %>
 <div class="body_wrap">
     <div class="free_add_wrap">
-        <form id="frm" name="frm" method="post" action="/free/update">
+        <form id="frm" name="frm" method="post" action="/free/update" enctype="multipart/form-data" onsubmit="return updateAlert()">
+
             <div class="free_add_title">
                 <p>제목</p>
             </div>
@@ -21,6 +22,7 @@
             <div class="free_add_text2">
                 <textarea name="freeContent" id="free_content" cols="30" rows="10">${freeBoardDto.freeContent}</textarea>
             </div>
+            <input type="file" name="file">
             <div class="free_add_btn">
                 <input type="hidden" name="freeId" value="${freeId}" />
                 <button type="submit">등록</button>
@@ -29,6 +31,7 @@
         </form>
     </div>
 </div>
+
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>
 </body>
 </html>
