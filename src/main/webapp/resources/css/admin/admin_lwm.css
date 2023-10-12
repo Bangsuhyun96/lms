@@ -89,7 +89,7 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .div_title_2 button:hover{color:#fff; cursor: pointer;}
 
 /*  출력 테이블 구조 1  */
-.select_view_table_1{overflow: scroll; height: 452px;}
+.select_view_table_1{overflow: scroll; height: 616px;}
 .select_view_table_1 table{border:1px solid #aaa; width: 100%;}
 .select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 200px;}
 .select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: center; height: 40px; line-height: 40px; width: 200px;}
