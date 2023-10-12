@@ -6,6 +6,11 @@ import java.util.List;
 
 public interface LwmService {
 
-    //수업주차정보 조회
-    List<LwmDto> lwmSelect();
+    // 수업주차정보 전체 조회
+    List<LwmDto> lwmSelectAll();
+
+    // 수업주차정보 선택 조회
+    List<LwmDto> searchLwmByYearAndSemester(String lectureYear, int curriculumSemester);
+
+
 }
