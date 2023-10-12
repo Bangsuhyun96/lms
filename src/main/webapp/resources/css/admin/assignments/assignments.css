@@ -116,7 +116,7 @@ input[type="file"] {
 /*  텍스트 박스2 CSS  */
 .text_box_2 input{position: relative; width: 1331px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
 .text_box_2 input:focus{outline:none; border: 1px solid #4caf50;}
-.text_box_2 textarea{position: relative; width: 1331px; height: 100px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;margin: 5px 0 0 0;}
+.text_box_2 textarea{position: relative; width: 1331px; height: 100px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 10px;margin: 5px 0 0 0;}
 .text_box_2 textarea:focus{outline:none; border: 1px solid #4caf50; margin: 5px 0 0 0; padding: 10px;}
 
 .select_table_2{
@@ -125,6 +125,9 @@ input[type="file"] {
 .select_table_2 input {
     background-color: #d3d3d3;
 }
-.select_table_2 select_box_flex{
+.select_table_2 .select_box{
+    background-color: #d3d3d3;
+}
+.select_table_2 .text_box_2 textarea{
     background-color: #d3d3d3;
 }
