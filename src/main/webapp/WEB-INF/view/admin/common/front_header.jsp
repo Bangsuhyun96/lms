@@ -8,4 +8,5 @@
     <link href="<%=request.getContextPath()%>/resources/css/admin/common/reset.css" rel="stylesheet">
 <%--    <link href="<%=request.getContextPath()%>/resources/css/admin/common/admin.css" rel="stylesheet">--%>
     <script src="https://kit.fontawesome.com/248df2c230.js" crossorigin="anonymous"></script>
+
 </head>

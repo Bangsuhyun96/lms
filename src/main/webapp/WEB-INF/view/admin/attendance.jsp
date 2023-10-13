@@ -48,9 +48,13 @@
                 <tr>
                     <td><label>수강학년</label></td>
                     <td>
-                        <div class="input_box">
-                            <input name="prof_name" type="text" class="input">
-                        </div>
+                        <select name="grade" class="select">
+                            <option value=" ">(전체)</option>
+                            <option value="">1학년</option>
+                            <option value="">2학년</option>
+                            <option value="">3학년</option>
+                            <option value="">4학년</option>
+                        </select>
                     </td>
                     <td class="right_element"><label>개설과목명</label></td>
                     <td class="right_element">
@@ -72,12 +76,12 @@
             <table class="tg">
                 <thead>
                 <tr>
-                    <th class="tg-0pky" rowspan="2">개설강좌번호</th>
-                    <th class="tg-0pky" rowspan="2">개설강좌명</th>
-                    <th class="tg-0pky" rowspan="2">분반</th>
-                    <th class="tg-0pky" rowspan="2">교원명</th>
-                    <th class="tg-0pky" rowspan="2">수강학년</th>
-                    <th class="tg-0pky" rowspan="2">수강인원</th>
+                    <th class="tg-0pky" rowspan="2"><p>개설강좌번호</p></th>
+                    <th class="tg-0pky" rowspan="2"><p>개설강좌명</p></th>
+                    <th class="tg-0pky" rowspan="2"><p>분반</p></th>
+                    <th class="tg-0pky" rowspan="2"><p>교원명</p></th>
+                    <th class="tg-0pky" rowspan="2"><p>수강학년</p></th>
+                    <th class="tg-0pky" rowspan="2"><p>수강인원</p></th>
                     <th class="tg-0pky" colspan="4">출결</th>
                 </tr>
                 <tr>
@@ -179,9 +183,7 @@
 
         <!--  타이틀 2  -->
         <div class="div_title_2">
-            <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>개설강좌정보&nbsp;</span></p>
-            <input type="text" />
-            <button>분반생성</button>
+            <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>강좌수강생&nbsp;</span>검색결과:0000건</p>
         </div>
 
         <!--  선택 테이블 구조 2 -->

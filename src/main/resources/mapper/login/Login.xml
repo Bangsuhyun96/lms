@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lms.login.dao.Login">
+
+    <select id="findByLoginId" parameterType="com.lms.login.model.dto.LoginDto"
+    resultType="com.lms.login.model.dto.LoginDto">
+        SELECT
+            user_id as userId,
+            login_id as loginId,
+            user_pw as userPw,
+            user_type as userType
+
+
+        FROM user
+
+        WHERE
+            login_id = #{loginId}
+        AND
+            user_pw = #{userPw}
+
+    </select>
+
+
+    <select id="findByJoinDto" resultType="com.lms.login.model.dto.JoinDto">
+    <![CDATA[
+        SELECT
+            u.user_id as userId,
+            u.user_type as userType,
+            u.login_id as loginId,
+            u.user_pw as userPw,
+            u.fire_yn as fireYn,
+            u.change_pw_yn as changePwYn,
+            u.pw_err_count as pwErrCount,
+            u.last_login_date as lastLoginDate,
+            u.regist_date as registDate,
+            CASE
+                WHEN u.user_type = '교수' THEN p.name
+                WHEN u.user_type = '학생' THEN s.name
+                END AS name
+        FROM
+            user u
+                LEFT JOIN
+            prof p ON u.user_type = '교수' AND u.user_id = p.user_id
+                LEFT JOIN
+            student s ON u.user_type = '학생' AND u.user_id = s.user_id
+        WHERE
+            (u.user_type = '교수' AND p.user_id IS NOT NULL)
+           OR
+            (u.user_type = '학생' AND s.user_id IS NOT NULL);
+        ]]>
+    </select>
+
+
+    <select id="searchMember" resultType="com.lms.login.model.dto.JoinDto">
+        SELECT *
+        FROM user
+        WHERE user_id IN (
+            SELECT user_id
+            FROM student
+            WHERE name = #{name}
+            UNION
+            SELECT user_id
+            FROM prof
+            WHERE name = #{name}
+        );
+    </select>
+
+
+    <select id="findByStudent" parameterType="java.lang.String" resultType="com.lms.login.model.dto.UserDto">
+        select
+            *
+        FROM student
+        where user_id = #{userId}
+    </select>
+
+    <select id="findByProf" parameterType="java.lang.String" resultType="com.lms.login.model.dto.UserDto">
+        select
+            *
+        FROM prof
+        where user_id = #{userId}
+    </select>
+
+
+</mapper>
