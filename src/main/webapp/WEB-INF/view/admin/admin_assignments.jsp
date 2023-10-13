@@ -1,6 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link href="<%=request.getContextPath()%>/resources/css/admin/assignments/assignments.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/admin/admin_assignments.css" rel="stylesheet">
 <script src="/resources/js/admin/assignments/assignments.js"></script>
 <!DOCTYPE html>
 <html lang="kor">
@@ -25,10 +25,8 @@
                         <div class="select_box select_2">
                             <select name="" class="select">
                                 <option value=" ">(전체)</option>
-                                <option value="">2020</option>
-                                <option value="">2021</option>
-                                <option value="">2022</option>
                                 <option value="">2023</option>
+                                <option value="">2024</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
@@ -48,6 +46,7 @@
                         <div class="select_box">
                             <select name="fruits" class="select">
                                 <option value="">정규과정</option>
+                                <option value="">야간과정</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
@@ -83,28 +82,18 @@
                         <!-- 헤더 끝-->
 
                         <!--  출력  -->
-                        <tr>
-                            <c:forEach items="${assignment_name}" var="assignment_name">
-
-                            </c:forEach>
-                        </tr>
+                        <c:forEach items="${assignments}" var="assignment" varStatus="loop">
+                            <tr>
+                                <td>${assignment.lectureId}</td>
+                                <td>${assignment.lectureName}</td>
+                                <td>${assignment.professorName}</td>
+                                <td>${assignment.studentCount}</td>
+                                <td>1</td>
+                            </tr>
+                        </c:forEach>
                         <!-- 출력 끝-->
                         </tbody>
                     </table>
-                </div>
-                <div class="free_paging">
-                    <ul>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                    </ul>
                 </div>
             </div>
             <div>
@@ -136,108 +125,13 @@
                             <td>내용</td>
                             <td>내용</td>
                         </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
                         <!-- 출력 끝-->
                         </tbody>
                     </table>
                 </div>
-                <div class="free_paging2">
-                    <ul>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                    </ul>
-                </div>
-                </div>
-
             </div>
+
+        </div>
 
         <!--  타이틀 2  -->
         <div class="div_title_1">
@@ -321,10 +215,8 @@
                             <div class="select_box">
                                 <select name="" class="select">
                                     <option value="">선택</option>
-                                    <option value="">2020</option>
-                                    <option value="">2021</option>
-                                    <option value="">2022</option>
                                     <option value="">2023</option>
+                                    <option value="">2024</option>
                                 </select>
                                 <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                             </div>
