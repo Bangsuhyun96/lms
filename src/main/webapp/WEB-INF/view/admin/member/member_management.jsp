@@ -30,7 +30,7 @@
                 <tbody>
                 <tr>
                     <!-- 테이블 구조 2 : 텍스트 박스 -->
-                    <td><label>성명</label></td>
+                    <td><label>이름</label></td>
                     <td>
                         <div class="text_box">
                             <input type="text" id="searchInput"/>
@@ -43,9 +43,9 @@
                     <td>
                         <div class="select_box">
                             <select name="fruits" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">학생</option>
-                                <option value="">교수</option>
+                                <option value="전체" >(전체)</option>
+                                <option value="학생">학생</option>
+                                <option value="교수">교수</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
@@ -72,17 +72,6 @@
                     <th>등록일자</th>
                 </tr>
                 <!-- 헤더 끝-->
-                <tr>
-                    <td><input type="checkbox" class="checkbox" name="selectedItems"></td>
-                    <td>내용</td>
-                    <td>내용</td>
-                    <td>내용</td>
-                    <td>내용</td>
-                    <td>내용</td>
-                    <td>내용</td>
-                    <td>내용</td>
-                    <td>내용</td>
-                </tr>
                 <c:forEach var="item" items="${member}">
                     <tr>
                         <td><input type="checkbox" class="checkbox" name="selectedItems"></td>
@@ -97,12 +86,6 @@
                     </tr>
                 </c:forEach>
             </tbody>
-        </table>
-    </div>
-
-    <div>
-        <table>
-
         </table>
     </div>
 

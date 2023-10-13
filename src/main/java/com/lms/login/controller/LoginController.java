@@ -1,7 +1,7 @@
 package com.lms.login.controller;
 
-import com.lms.login.model.component.SessionManager;
 import com.lms.login.model.dto.LoginDto;
+import com.lms.login.model.dto.UserDto;
 import com.lms.login.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -50,17 +49,25 @@ public class LoginController {
         LoginDto login = loginService.login(loginDto);
         System.out.println(login);
         HttpSession session = request.getSession();
+
         if (login != null) {
-            session.setAttribute("login", login);
-            session.setMaxInactiveInterval(60 * 30);
+            session.setMaxInactiveInterval(60 * 180);
             switch (login.getUserType()) {
-                case "0" -> {
+                case "관리자" -> {
+                    session.setAttribute("login", login);
                     return "redirect:/admin";
                 }
-                case "1" -> {
+                case "교수" -> {
+                    UserDto prof = loginService.findProf(login.getUserId());
+                    session.setAttribute("login", prof);
+                    System.out.println("prof = " + session.getAttribute("login"));
                     return "redirect:/prof";
                 }
-                case "2" -> {
+                case "학생" -> {
+                    UserDto student = loginService.findStudent(login.getUserId());
+                    session.setAttribute("login", student);
+                    System.out.println("student = " + session.getAttribute("login"));
+
                     return "redirect:/main";
                 }
             }

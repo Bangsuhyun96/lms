@@ -1,12 +1,16 @@
 package com.lms.login.service;
 
-import com.lms.login.mapper.Login;
+import com.lms.login.dao.Login;
 import com.lms.login.model.dto.JoinDto;
 import com.lms.login.model.dto.LoginDto;
+import com.lms.login.model.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -27,4 +31,13 @@ public class LoginService {
         return loginDao.searchMember(joinDto);
 
     }
+
+    public UserDto findStudent(String userId) {
+        return loginDao.findByStudent(userId);
+    }
+
+    public UserDto findProf(String userId) {
+        return loginDao.findByProf(userId);
+    }
+
 }

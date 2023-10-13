@@ -1,7 +1,8 @@
-package com.lms.login.mapper;
+package com.lms.login.dao;
 
 import com.lms.login.model.dto.JoinDto;
 import com.lms.login.model.dto.LoginDto;
+import com.lms.login.model.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -13,4 +14,8 @@ public interface Login {
     List<JoinDto> findByJoinDto();
 
     List<JoinDto> searchMember(JoinDto joinDto);
+
+    UserDto findByStudent(String userId);
+    UserDto findByProf(String userId);
+
 }

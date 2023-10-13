@@ -31,7 +31,13 @@ public class LoginCheckFilter implements Filter {
 //                    log.info("미인증 사용자 요청 {}", requestURI);
                     // 로그인으로 redirect
                     // 사용자가 원래 가려고 했던 URI를 파라미터 값으로 기억했다가 로그인 후, 다시 페이지 이동
-                    httpResponse.sendRedirect("/");
+
+                    // alert하는 메세지 구문 (자바에서 alert보내는법)
+                    String alertScript = "<script>alert('로그인이 필요합니다.'); window.location.href='/';</script>";
+                    response.setCharacterEncoding("UTF-8");
+                    ((HttpServletResponse) response).setContentType("text/html; charset=UTF-8");
+                    response.getWriter().write(alertScript);
+
                     // 미인증 사용자는 다음으로 진행하지 않고 끝난다
                     return;
                 }
