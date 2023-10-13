@@ -9,6 +9,23 @@
 <%@ include file="/WEB-INF/view/admin/common/header.jsp" %>
 <div class="wrap">
     <%@ include file="/WEB-INF/view/admin/common/aside.jsp" %>
+
+    <!-- 테테스스트트 -->
+    <form action="/admin/lwm/search" method="get">
+        <select name="lectureYear" class="select">
+            <option value=" ">전체</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+        <select name="curriculumSemester" class="select">
+            <option value=" ">전체</option>
+            <option value="1">1학기</option>
+            <option value="2">2학기</option>
+        </select>
+        <button type="submit" class="btn_pos">조회</button>
+    </form>
+    <!-- 테테스스트트 끝-->
+
     <div class="main_contents_right">
         <!-- 상단 버튼 구조 1 -->
         <div class="div_common_button">
@@ -25,22 +42,20 @@
                     <td><label>수업년도/학기</label></td>
                     <td>
                         <div class="select_box">
-                            <select name="" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">2020</option>
-                                <option value="">2021</option>
-                                <option value="">2022</option>
-                                <option value="">2023</option>
+                            <select name="lectureYear" class="select">
+                                <option value="">(전체)</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
                     </td>
                     <td>
                         <div class="select_box">
-                            <select name="" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">1학기</option>
-                                <option value="">2학기</option>
+                            <select name="curriculumSemester" class="select">
+                                <option value="">(전체)</option>
+                                <option value="1">1학기</option>
+                                <option value="2">2학기</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>

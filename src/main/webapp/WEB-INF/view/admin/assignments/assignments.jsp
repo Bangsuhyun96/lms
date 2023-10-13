@@ -37,10 +37,8 @@
                         <div class="select_box select_2">
                             <select name="" class="select">
                                 <option value=" ">(전체)</option>
-                                <option value="">봄학기</option>
-                                <option value="">여름학기</option>
-                                <option value="">가을학기</option>
-                                <option value="">겨울학기</option>
+                                <option value="">1학기</option>
+                                <option value="">2학기</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
@@ -50,32 +48,10 @@
                         <div class="select_box">
                             <select name="fruits" class="select">
                                 <option value="">정규과정</option>
-                                <option value="">야간과정</option>
-                                <option value="">번역아틀리에</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
                     </td>
-                    <td><label>언어권구분</label></td>
-                    <td>
-                        <div class="select_box">
-                            <select name="fruits" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">영어</option>
-                                <option value="">프랑스어</option>
-                                <option value="">독일어</option>
-                                <option value="">스페인어</option>
-                                <option value="">러시아어</option>
-                                <option value="">중국어</option>
-                                <option value="">일본어</option>
-                                <option value="">베트남어</option>
-                                <option value="">공통</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
                     <td><label class="labeltext">개설강좌</label></td>
                     <td>
                         <div class="text_box">
@@ -100,7 +76,6 @@
                         <tr>
                             <th>강좌번호</th>
                             <th>개설강좌명</th>
-                            <th>언어권</th>
                             <th>교원</th>
                             <th>수강인원</th>
                             <th>과제건수</th>
@@ -109,86 +84,10 @@
 
                         <!--  출력  -->
                         <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
+                            <c:forEach items="${assignment_name}" var="assignment_name">
 
+                            </c:forEach>
+                        </tr>
                         <!-- 출력 끝-->
                         </tbody>
                     </table>
@@ -346,8 +245,8 @@
                 <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>과제정보&nbsp;</span></p>
             </div>
             <div class="div_common_button">
-                <button class="btn_pos" onclick="resetStyles()">신규</button>
-                <button class="btn-default">저장</button>
+                <button class="btn_pos" onclick="resetStyles()"r>신규</button>
+                <button class="btn-default" onclick="saveDataAndCreateTable()">저장</button>
             </div>
         </div>
 
