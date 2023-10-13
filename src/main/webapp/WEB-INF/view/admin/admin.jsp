@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="kor">
 <%@ include file="/WEB-INF/view/admin/common/front_header.jsp" %>
+<link href="<%=request.getContextPath()%>/resources/css/admin/common/admin.css" rel="stylesheet">
 <body>
 <%@ include file="/WEB-INF/view/admin/common/header.jsp" %>
     <div class="wrap">

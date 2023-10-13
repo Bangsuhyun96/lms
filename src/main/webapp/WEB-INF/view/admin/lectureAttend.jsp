@@ -72,10 +72,19 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- 검색 건수 -->
+        <c:set var="count" value="0" />
+        <c:forEach var="item" items="${lectureDto}">
+            <tr>
+                <c:set var="count" value="${count + 1}" />
+            </tr>
+        </c:forEach>
+
         <!--  타이틀 2  -->
         <div class="div_title_2">
             <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>강의출강관리&nbsp;</span></p>
-            <p>검색 결과 : 0 건</p>
+            <p>검색 결과 : ${count} 건</p>
         </div>
 
         <!--  출력 테이블 구조 1 -->
@@ -96,146 +105,31 @@
                 <!-- 헤더 끝-->
 
                 <!--  출력  -->
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
-                <tr>
-                    <td>강의ID</td>
-                    <td>강의이름</td>
-                    <td>수업일자</td>
-                    <td>교수ID</td>
-                    <td>교수이름</td>
-                    <td>강의시수</td>
-                    <td>
-                        <div class="table_select_box">
-                            <select name="progress" class="table_select">
-                                <option value=" "></option>
-                                <option value="">진행중</option>
-                                <option value="">미진행</option>
-                                <option value="">진행완료</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td>지급년월</td>
-                </tr>
+                <c:forEach var="item" items="${lectureDto}">
+                    <tr>
+                        <td>${item.lectureId}</td>
+                        <!-- 검색건수 -->
+                        <c:set var="count" value="${count + 1}" />
+                        <td>${item.lectureName}</td>
+                        <td>${item.startDate} ~ ${item.endDate}</td>
+                        <td>${item.profId}</td>
+                        <td>${item.name}</td>
+                        <td>${item.hours}</td>
+                        <td>
+                            <div class="table_select_box">
+                                <select name="progress" class="table_select">
+                                    <option value=" "></option>
+                                    <option value="">진행중</option>
+                                    <option value="">미진행</option>
+                                    <option value="">진행완료</option>
+                                </select>
+                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
+                            </div>
+                        </td>
+                        <td>지급년월</td>
+                    </tr>
+                </c:forEach>
+
                 <!-- 출력 끝-->
                 </tbody>
             </table>
