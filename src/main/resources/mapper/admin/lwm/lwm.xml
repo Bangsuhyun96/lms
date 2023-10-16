@@ -47,10 +47,45 @@
         ]]>
     </select>
 
-    <!-- 수업주자정보 저장 -->
+    <!-- 수업주차정보 추가 -->
+    <!-- 수업주차정보 추가 -->
+    <insert id="insertLwm" parameterType="com.lms.admin.lwm.dto.LwmDto">
+    <![CDATA[
+        INSERT INTO curriculum_lecture_week (curriculum_id, lecture_week, start_date, end_date, makeup_week)
+        VALUES (
+                   #{curriculumId},
+                   #{lectureWeek},
+                   #{startDate},
+                   #{endDate},
+                   #{makeupWeek}
+               )
+        ]]>
+</insert>
+
+    <!-- 수업주차정보 업데이트 -->
+    <update id="updateLwm" parameterType="com.lms.admin.lwm.dto.LwmDto">
+    <![CDATA[
+        UPDATE curriculum_lecture_week
+        SET
+            lecture_week = #{lectureWeek},
+            start_date = #{startDate},
+            end_date = #{endDate},
+            makeup_week = #{makeupWeek}
+        WHERE week_id = #{weekId}
+          AND curriculum_id = #{curriculumId}
+        ]]>
+</update>
 
     <!-- 수업주차정보 삭제-->
+    <delete id="deleteClw">
+        DELETE FROM lecutre_schdule WHERE week_id = #{weekId}
+    </delete>
+    <delete id="deleteLectureTime">
+        DELETE FROM lecture_time WHERE week_id = #{weekId}
+    </delete>
+    <delete id="deleteLwm">
+        DELETE FROM curriculum_lecture_week WHERE week_id = #{weekId}
+    </delete>
 
-    <!-- 수업주차정보 검색결과 조회 카운트-->
 
 </mapper>
