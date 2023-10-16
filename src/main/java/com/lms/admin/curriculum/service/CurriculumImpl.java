@@ -14,8 +14,18 @@ public class CurriculumImpl implements CurriculumService{
     private CurriculumMapper curriculumMapper;
 
     @Override
-    public List<CurriculumDto> getAllCurriculum(){
-        return curriculumMapper.getAllCurriculum();
+    public List<CurriculumDto> selectCurriculum(){
+        return curriculumMapper.selectCurriculum();
+    }
+
+    @Override
+    public void insertCurriculum(CurriculumDto curriculumDto){
+        curriculumMapper.insertCurriculum(curriculumDto);
+    }
+
+    @Override
+    public void deleteCurriculum(List<Integer> curriculumIds){
+        curriculumMapper.deleteCurriculum(curriculumIds);
     }
 
 }
