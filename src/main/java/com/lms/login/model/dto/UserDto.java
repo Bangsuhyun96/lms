@@ -3,6 +3,7 @@ package com.lms.login.model.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Data
 public class UserDto {
@@ -32,4 +33,9 @@ public class UserDto {
     private String accountBank;
     private int lectureFee;
 
+    public void setBirthDate(String birthDate) {
+        // 문자열을 LocalDate로 변환
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.birthDate = LocalDate.parse(birthDate, formatter);
+    }
 }
