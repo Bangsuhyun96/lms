@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class CurriculumImpl implements CurriculumService{
 
-    @Autowired// Mapper와 연결
+    @Autowired // Mapper와 연결
     private CurriculumMapper curriculumMapper;
 
     @Override
@@ -27,5 +27,15 @@ public class CurriculumImpl implements CurriculumService{
     public void deleteCurriculum(List<Integer> curriculumIds){
         curriculumMapper.deleteCurriculum(curriculumIds);
     }
+
+    @Override
+    public void updateCurriculum(CurriculumDto curriculumDto){
+        curriculumMapper.updateCurriculum(curriculumDto);
+    }
+
+//    @Override
+//    public List<CurriculumDto> searchCurriculum(CurriculumDto curriculumDto){
+//        return curriculumMapper.searchCurriculum(curriculumDto);
+//    }
 
 }

@@ -17,7 +17,7 @@
         <div class="div_common_button">
             <button class="btn_pos" id="searchBtn">조회</button>
             <button class="btn-default" id="insertBtn">신규</button>
-            <button class="btn-default">저장</button>
+            <button class="btn-default" id="saveBtn">저장</button>
             <button class="btn-default" id="deleteBtn">삭제</button>
         </div>
 
@@ -28,13 +28,13 @@
                     <td><label>과정년도</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text" id="curriculumYear"/>
+                            <input type="text" id="curriculumYear" name="curriculumYear"/>
                         </div>
                     </td>
                     <td><label>교육과정명</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text" id="curriculumName"/>
+                            <input type="text" id="curriculumName" name="curriculumName"/>
                         </div>
                     </td>
                 </tr>
@@ -50,7 +50,8 @@
                 <c:forEach var="item" items="${curriculumDto}">
                     <c:set var="count" value="${count + 1}" />
                 </c:forEach>
-                검색결과 : <c:out value="${count}"/>건
+<%--                검색결과 : <c:out value="${count}"/>건--%>
+                검색결과 : <span id="searchResultCount"><c:out value="${count}"/></span>건
             </p>
         </div>
 
@@ -60,7 +61,7 @@
                 <tbody>
                 <!-- 헤더 -->
                 <tr>
-                    <th class="allCheck one"><input type="checkbox" name="agree" id="all"></th>
+                    <th class="allCheck one"><input type="checkbox" name="agree" id="allCheck"></th>
                     <th>과정년도</th>
                     <th>교육과정명</th>
                     <th>강의주차</th>
@@ -72,12 +73,14 @@
                 <!--  출력  -->
                 <c:forEach items="${curriculumDto}" var="item">
                     <tr>
-                        <td class="allCheck"><input type="checkbox" name="agree"></td>
+                        <td class="allCheck"><input type="checkbox" name="agree" id="rowAllCheck" value="${item.curriculumId}"></td>
                         <td>${item.curriculumYear}</td>
                         <td>${item.curriculumName}</td>
-                        <td>${item.lectureWeek}주차</td>
+                        <td>${item.lectureWeek}</td>
                         <td><fmt:formatDate value="${item.startDate}" pattern="yyyy-MM-dd"/></td>
                         <td><fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd"/></td>
+                        <td hidden="hidden">${item.curriculumContent}</td>
+                        <td hidden="hidden" class="curriculumId">${item.curriculumId}</td>
                     </tr>
                 </c:forEach>
                 <!-- 출력 끝-->
@@ -114,11 +117,11 @@
                 <tr>
                     <td class="tg-0lax title">과정년도</td>
                     <td class="tg-0lax">
-                        <input type="text" class="curriculum_inputBox" id="curriculum_year"/>
+                        <input type="text" class="curriculum_inputBox" id="curriculum_year" name="curriculumYear"/>
                     </td>
                     <td class="tg-0lax title">강의주차</td>
                     <td class="tg-0lax">
-                        <input type="text" class="curriculum_inputBox" id="lecture_week"/>
+                        <input type="text" class="curriculum_inputBox" id="lecture_week" name="lectureWeek"/>
                     </td>
                 </tr>
                 </thead>
@@ -126,24 +129,24 @@
                 <tr>
                     <td class="tg-0lax title">교육과정명</td>
                     <td class="tg-0lax" colspan="5">
-                        <input type="text" class="curriculum_inputBox" id="curriculum_name"/>
+                        <input type="text" class="curriculum_inputBox" id="curriculum_name" name="curriculumName"/>
                     </td>
                 </tr>
                 <tr>
                     <td class="tg-0lax title">수업내용</td>
                     <td class="tg-0lax" colspan="5">
-                        <input type="text" class="curriculum_inputBox" id="curriculum_content"/>
+                        <input type="text" class="curriculum_inputBox" id="curriculum_content" name="curriculumContent"/>
                     </td>
                 </tr>
                 <tr>
                     <td class="tg-0lax title">시작일자</td>
                     <td class="tg-0lax">
-                        <input type="text" class="curriculum_inputBox" id="start_date"/>
+                        <input type="text" class="curriculum_inputBox" id="start_date" name="startDate"/>
                     </td>
                     </td>
                     <td class="tg-0lax title">종료일자</td>
                     <td class="tg-0lax" colspan="3">
-                        <input type="text" class="curriculum_inputBox" id="end_date">
+                        <input type="text" class="curriculum_inputBox" id="end_date" name="endDate">
                     </td>
                 </tr>
                 </tbody>

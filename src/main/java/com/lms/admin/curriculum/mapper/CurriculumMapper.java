@@ -14,4 +14,7 @@ public interface CurriculumMapper {
 
     public void deleteCurriculum(List<Integer> curriculumIds);
 
+    public void updateCurriculum(CurriculumDto curriculumDto);
+
+//    List<CurriculumDto> searchCurriculum(CurriculumDto curriculumDto);
 }
