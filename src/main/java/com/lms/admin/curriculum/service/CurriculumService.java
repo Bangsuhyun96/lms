@@ -14,4 +14,10 @@ public interface CurriculumService {
 
     // 교육과정 삭제하기
     public void deleteCurriculum(List<Integer> curriculumIds);
+
+    // 교육과정 수정하기
+    public void updateCurriculum(CurriculumDto curriculumDto);
+
+    // 교육과정 조회하기
+//    List<CurriculumDto> searchCurriculum(CurriculumDto curriculumDto);
 }

@@ -1,5 +1,11 @@
 // 검색 조건에 맞게 조회하기
 document.addEventListener("DOMContentLoaded", function() {
+    // 초기에 데이터 행만 표시
+    let rows = document.getElementById("curriculumTable").getElementsByTagName("tr");
+    for (let i = 1; i < rows.length; i++) {
+        rows[i].style.display = "";
+    }
+
     document.getElementById("searchBtn").addEventListener("click", function() {
         let curriculumYearText = document.getElementById("curriculumYear").value; // 입학년도 검색어
         let curriculumNameText = document.getElementById("curriculumName").value; // 교육과정명 검색어
@@ -8,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 검색 결과가 없음을 나타내는 플래그 추가
         let noResults = true;
+        let visibleRowCount = 0; // 현재 보이는 행의 수를 저장하는 변수
 
         for (let i = 1; i < rows.length; i++) { // 첫 번째 행은 테이블 헤더이므로 i=1부터 시작
             let yearColumn = rows[i].getElementsByTagName("td")[1]; // 입학년도 열
@@ -21,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let matchesName = curriculumNameText === '' || name.includes(curriculumNameText);
 
             if (matchesYear && matchesName) {
+                visibleRowCount++; // 현재 보이는 행 수 증가
                 rows[i].style.display = ""; // 해당 행을 보이게 함
                 noResults = false;
             } else {
@@ -28,83 +36,112 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // 모든 행을 검사한 후에 검색 결과가 없을 때만 alert를 표시
+        // 결과 표시를 위한 요소 찾기
+        let searchResultCountElement = document.querySelector("#searchResultCount");
+
+        // 현재 보이는 행 수를 결과 표시 요소에 업데이트
+        searchResultCountElement.textContent = visibleRowCount;
+
+        // 검색 결과가 없을 때만 alert를 표시
         if (noResults) {
             alert("일치하는 검색 결과가 없습니다.");
         }
     });
 });
 
-// 교육과정 테이블 선택했을 때 교육과정정보 테이블에 데이터 띄우기
-$(document).ready(function() {
-    $('#curriculumTable tbody tr').click(function() {
-        // 선택된 행에서 교육과정 정보 추출
-        var curriculumYear = $(this).find('td:eq(1)').text();
-        var curriculumName = $(this).find('td:eq(2)').text();
-        var lectureWeek = $(this).find('td:eq(3)').text();
-        var startDate = $(this).find('td:eq(4)').text();
-        var endDate = $(this).find('td:eq(5)').text();
 
-        // 교육과정정보 테이블에 정보 채우기
-        $('#curriculum_year').val(curriculumYear);
-        $('#curriculum_name').val(curriculumName);
-        $('#curriculum_content').val(curriculumName);
-        $('#lecture_week').val(lectureWeek);
-        $('#start_date').val(startDate);
-        $('#end_date').val(endDate);
+
+// 교육과정 테이블 선택했을 때 교육과정정보 테이블에 데이터 띄우기
+// 교육과정 수정하기
+$(document).ready(function() {
+    $(document).ready(function() {
+        var selectedRow;
+
+        $('#curriculumTable tbody tr').click(function() {
+            if (selectedRow) {
+                selectedRow.removeClass('selected');
+            }
+
+            selectedRow = $(this);
+            selectedRow.addClass('selected');
+
+            var curriculumYear = selectedRow.find('td:eq(1)').text();
+            var curriculumName = selectedRow.find('td:eq(2)').text();
+            var lectureWeek = selectedRow.find('td:eq(3)').text();
+            var startDate = selectedRow.find('td:eq(4)').text();
+            var endDate = selectedRow.find('td:eq(5)').text();
+            var curriculumContent= selectedRow.find('td:eq(6)').text();
+            var curriculumId = selectedRow.find('td:eq(7)').text();
+            console.log("curriculumId : ", curriculumId);
+
+            $('#curriculum_year').val(curriculumYear);
+            $('#curriculum_name').val(curriculumName);
+            $('#lecture_week').val(lectureWeek);
+            $('#start_date').val(startDate);
+            $('#end_date').val(endDate);
+            $('#curriculum_content').val(curriculumContent);
+            $('#curriculum_id').val(curriculumId);
+        });
+
+        $('#saveBtn').click(function() {
+            if (selectedRow) {
+                var curriculumYear = $('#curriculum_year').val();
+                var lectureWeek = $('#lecture_week').val();
+                var curriculumName = $('#curriculum_name').val();
+                var curriculumContent = $('#curriculum_content').val();
+                var startDate = $('#start_date').val();
+                var endDate = $('#end_date').val();
+                var curriculumId = $('#curriculum_id').val();
+
+                // console.log("curriculumYear : " , curriculumYear);
+
+
+                selectedRow.find('td:eq(1) input').val(curriculumYear);
+                selectedRow.find('td:eq(3) input').val(lectureWeek);
+                selectedRow.find('td:eq(5) input').val(curriculumName);
+                selectedRow.find('td:eq(7) input').val(curriculumContent);
+                selectedRow.find('td:eq(9) input').val(startDate);
+                selectedRow.find('td:eq(11) input').val(endDate);
+                curriculumId = selectedRow.find('td.curriculumId').text();
+
+
+                selectedRow.removeClass('selected');
+                let obj = {
+                    curriculumId: curriculumId,
+                    curriculumYear: curriculumYear,
+                    lectureWeek: lectureWeek,
+                    curriculumName: curriculumName,
+                    curriculumContent: curriculumContent,
+                    startDate: startDate,
+                    endDate: endDate
+                };
+
+                console.log(JSON.stringify(obj));
+                // 서버에 데이터를 저장
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin/updateCurriculum',
+                    contentType: 'application/json',
+                    data: JSON.stringify(obj),
+                    success: function (response) {
+                        alert(response); // 성공 메시지
+                        location.reload();
+                    },
+                    error: function () {
+                        alert('업데이트 중 오류가 발생했습니다.');
+
+                    }
+                });
+
+                // 선택 해제
+                selectedRow = null;
+            }
+        });
     });
 });
 
-// // 데이터 추가하기
-// document.addEventListener("DOMContentLoaded", function() {
-//     $("#insertBtn").click(function (){
-//         var curriculumInfo = {
-//             curriculumName: $("#curriculum_name").val(),
-//             curriculumYear: $("#curriculum_year").val(),
-//             lectureWeek: $("#lecture_week").val(),
-//             curriculumContent: $("#curriculum_content").val(),
-//             startDate: $("#start_date").val(),
-//             endDate: $("#end_date").val(),
-//             // attendanceRate: $("#attendance_rate").val()
-//         };
-//
-//         // 데이터 저장
-//         $.ajax({
-//             type: "POST",
-//             url: "/admin/insertCurriculum",
-//             data: JSON.stringify(curriculumInfo),
-//             contentType: "application/json",
-//             success: function (response){
-//                 alert("데이터가 성공적으로 저장되었습니다.");
-//
-//                 // 데이터 추가시 바로 교육과정 정보 테이블 업데이트
-//                 var newRow = $("<tr>");
-//                 newRow.append("<td><input type='radio' name='agree' value='" + curriculumInfo.curriculumId + "'></td>");
-//                 newRow.append("<td>" + curriculumInfo.curriculumYear + "</td>");
-//                 newRow.append("<td>" + curriculumInfo.curriculumName + "</td>");
-//                 newRow.append("<td>" + curriculumInfo.lectureWeek + "</td>");
-//                 newRow.append("<td>" + curriculumInfo.startDate + "</td>");
-//                 newRow.append("<td>" + curriculumInfo.endDate + "</td>");
-//                 newRow.append("<td>" + 80.0 + "</td>");
-//
-//                 // 교육과정 정보 테이블의 tbody에 새로운 행 추가
-//                 $("#curriculumTable tbody").append(newRow);
-//
-//                 // 입력 필드 초기화
-//                 $("#curriculum_name").val("");
-//                 $("#curriculum_year").val("");
-//                 $("#lecture_week").val("");
-//                 $("#curriculum_content").val("");
-//                 $("#start_date").val("");
-//                 $("#end_date").val("");
-//             },
-//             error: function (error){
-//                 alert("데이터 저장 중 오류 발생 : " + error);
-//             }
-//         });
-//     });
-// });
 
+// 교육과정 추가
 document.addEventListener("DOMContentLoaded", function() {
     $("#insertBtn").click(function (){
         var curriculumInfo = {
@@ -141,18 +178,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 newRow.append("<td><input type='checkbox' name='agree' value='" + curriculumInfo.curriculumIds + "'></td>");
                 newRow.append("<td>" + curriculumInfo.curriculumYear + "</td>");
                 newRow.append("<td>" + curriculumInfo.curriculumName + "</td>");
-                newRow.append("<td>" + curriculumInfo.lectureWeek + '주차' + "</td>");
+                newRow.append("<td>" + curriculumInfo.lectureWeek + "</td>");
                 newRow.append("<td>" + curriculumInfo.startDate + "</td>");
                 newRow.append("<td>" + curriculumInfo.endDate + "</td>");
 
+                /*
                 // 교육과정 정보 테이블의 tbody을 탐색하며 정렬된 위치를 찾아 삽입
                 var curriculumTable = $("#curriculumTable tbody");
-                // 테이블 내의 모든 행을 검색
                 var rows = curriculumTable.find("tr");
+
                 // 데이터를 삽입할 위치를 나타내는 변수 초기화
                 var insertIndex = -1;
 
-                // 모든 행을 반복하여 데이터를 삽입할 위치 찾기
+                // 삽입 위치를 찾기 위해 모든 행을 반복
                 for (var i = 0; i < rows.length; i++) {
                     // 현재 행의 입학년도를 가져와 정수로 변환
                     var rowYear = parseInt($(rows[i]).find("td:eq(1)").text());
@@ -173,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // 삽입 위치를 찾지 못한 경우, 새로운 행을 테이블 끝에 삽입
                     curriculumTable.append(newRow);
                 }
+                 */
 
                 // 입력 필드 초기화
                 $("#curriculum_name").val("");
@@ -181,6 +220,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 $("#curriculum_content").val("");
                 $("#start_date").val("");
                 $("#end_date").val("");
+
+                window.location.reload();
             },
             error: function (error){
                 alert("데이터 저장 중 오류 발생 : " + error);
@@ -189,69 +230,53 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     $("#deleteBtn").click(function () {
-//         var selectedIds = [];
-//         $("input[name='agree']:checked").each(function (){
-//             selectedIds.push($(this).val());
-//         });
-//
-//         $.ajax({
-//             type: "POST",
-//             url: "/admin/deleteCurriculum",
-//             data: {curriculumIds: selectedIds},
-//             success: function (response){
-//                 location.reload()
-//             },
-//             error:function (error){
-//                 alert("삭제 실패 : " + error);
-//             }
-//         })
-//     })
-// });
+
+// 모든 체크박스 선택 후 취소
+$(document).ready(function() {
+    var allCheckCheckbox = $("#allCheck");
+    var rowAllCheckCheckboxes = $("[id=rowAllCheck]");
+
+    // allCheck 체크박스 상태 변경 감지
+    allCheckCheckbox.change(function() {
+        // allCheck 체크박스의 현재 상태 확인 -> true 혹은 false로 저장
+        var isChecked = allCheckCheckbox.prop("checked");
+
+        // rowAllCheck 체크박스들을 선택 또는 해제
+        rowAllCheckCheckboxes.prop("checked", isChecked);
+    });
+});
 
 
-// 선택된 교육과정 레코드를 삭제하는 함수
-// $(document).ready(function () {
-//     $("#deleteBtn").click(function () {
-//         var selectedIds = [];
-//         $("input[name='agree']:checked").each(function () {
-//             selectedIds.push(parseInt($(this).closest("tr").find("td:eq(0)").text())); // Curriculum ID, adjust the column index accordingly
-//         });
-//
-//         if (selectedIds.length > 0) {
-//             if (confirm("선택한 항목을 삭제하시겠습니까?")) {
-//                 $.ajax({
-//                     type: "POST",
-//                     url: "/admin/deleteCurriculum",
-//                     data: JSON.stringify(selectedIds),
-//                     contentType: "application/json",
-//                     success: function (response) {
-//                         alert(response);
-//                         // Refresh or update the table as needed
-//                     },
-//                     error: function () {
-//                         alert("삭제에 실패했습니다.");
-//                     }
-//                 });
-//             }
-//         } else {
-//             alert("선택한 항목이 없습니다.");
-//         }
-//
-//
-//     });
-// });
+// 교육과정 삭제
+$(document).ready(function () {
+    $("#deleteBtn").click(function () {
+        // 선택한 항목의 ID를 저장할 배열
+        var selectedIds = [];
 
+        // 체크된 항목을 반복하여 ID를 배열에 추가
+        $("input[name='agree']:checked").each(function () {
+            selectedIds.push($(this).val());
+        });
 
-
-
-
-
-
-
-
-
-
-
-
+        // 체크된 항목 배열의 길이가 0보다 크다면
+        if (selectedIds.length > 0) {
+            $.ajax({
+                url: '/admin/deleteCurriculum',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(selectedIds),
+                success: function (response) {
+                    // 성공한 경우 처리
+                    alert(response);
+                    location.reload(); // 페이지 리로드
+                },
+                error: function (error) {
+                    // 실패한 경우 처리
+                    alert("삭제 실패: " + error.responseText);
+                }
+            });
+        } else {
+            alert("삭제할 항목을 선택하세요.");
+        }
+    });
+});
