@@ -1,4 +1,7 @@
 
+select {    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;}
 
 .header_wrap{display: flex; justify-content: space-between; padding: 0px 20px; border-bottom: 1px solid #d8d8d8;}
 .header_left img{height: 74px;}
@@ -47,7 +50,7 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 
 /*  셀렉트 박스 CSS  */
 .select_box { position: relative; width: 250px; height: 35px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff;}
-.select_box .select { width: inherit; height: inherit; background: transparent; border: 0 none; outline: 0 none; padding: 0 5px; position: relative; z-index: 3; appearance: none;}
+.select_box .select { width: inherit; height: inherit; background: transparent; border: 0 none; outline: 0 none; padding: 0 35px 0 5px; position: relative; z-index: 3; appearance: none;}
 .select_box .select:focus{border: 1px solid #4caf50;}
 .select_box .select option { background: #fff; color: #222; padding: 3px 0; font-size: 16px;}
 .select_box .icoArrow { position: absolute; top: 0; right: 0; z-index: 1; width: 35px; height: inherit; display: flex; justify-content: center; align-items: center;}
