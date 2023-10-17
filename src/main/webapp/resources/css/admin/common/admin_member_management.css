@@ -1,3 +1,5 @@
+
+
 .header_wrap{display: flex; justify-content: space-between; padding: 0px 20px; border-bottom: 1px solid #d8d8d8;}
 .header_left img{height: 74px;}
 .header_right{display: flex; align-items: center;}
@@ -37,8 +39,7 @@
 .menu_btn button{width: 230px; height: 36px; background: #388e3c; border: 2px solid #388e3c; color: #fff; border-radius: 5px; font-size: 0.9rem; text-align: left; padding: 0 13px;}
 .text-indent{text-indent: 18px;}
 
-
-table td label{display: flex; width: 150px; text-align: left; padding: 12px;}
+table td label{display: table-cell; width: 80px; text-align: center; padding: 12px;}
 
 .select_table_1{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 .select_table_2{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
@@ -56,13 +57,11 @@ table td label{display: flex; width: 150px; text-align: left; padding: 12px;}
 .div_common_button button{margin: 0 4px 0 0;}
 .btn_pos:hover{cursor: pointer;}
 .btn-default:hover{cursor: pointer;}
-.btn_file:hover{cursor: pointer;}
 .btn_pos { background-color: #6B6B6B; border: 1px solid #6B6B6B; color: #fff; padding: 0px 10px; height: 30px; border-radius: 3px;}
 .btn-default { padding: 0px 10px; color: #6b6b6b; border: 1px solid #6b6b6b; background-color: #fff; height: 30px; border-radius: 3px;}
-.btn_file { background-color: #6B6B6B; border: 1px solid #6B6B6B; color: #fff; padding: 0px 10px; height: 30px; border-radius: 3px;}
 
 /*  텍스트 박스 CSS  */
-.text_box input{position: relative; width: 252px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
+.text_box input{position: relative; width: 226px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
 .text_box input:focus{outline:none; border: 1px solid #4caf50;}
 
 /*  라디오 버튼 CSS  */
@@ -78,56 +77,34 @@ table td label{display: flex; width: 150px; text-align: left; padding: 12px;}
 .div_title_1 img{width: 16px;}
 
 /*  타이틀 2 CSS  */
-.div_title_2{position: relative; padding: 20px 0 4px 0; display: flex; margin-left: 10px;}
+.div_title_2{position: relative; padding: 20px 0 4px 0; display: flex;}
 .div_title_2 p{font-size: 1rem; line-height: 26px; height: 26px; color: #6B6B6B;}
 .div_title_2 p span{font-weight: 600; color: #444;}
 .div_title_2 img{width: 16px;}
+.div_title_2 input{border: 1px solid #fff; margin: 0 10px; width: 220px; border-radius: 5px; padding: 0 12px;}
+.div_title_2 input:focus{border: 1px solid #4caf50;}
+.div_title_2 button{border: 1px solid #d6d9dc; background: #fff; font-size: 0.9rem; line-height: 0; border-radius: 5px; color: #222; position: relative; z-index: 1;}
+.div_title_2 button::before{content: '';position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #4caf50; transition: all 0.3s; z-index: -1; border-radius: 4px;}
+.div_title_2 button:hover::before{width: 100%;}
+.div_title_2 button:hover{color:#fff; cursor: pointer;}
 
 /*  출력 테이블 구조 1  */
-.select_view_table{display: flex;}
-.select_view_table_1{height: 450px;}
+/*.select_view_table_1{overflow: scroll; height: 300px;}*/
 .select_view_table_1 table{border:1px solid #aaa; width: 100%;}
-.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 150px;}
-.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
+.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 250px;}
+.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: center; height: 40px; line-height: 40px; padding: 0 4px;}
 .table_btn_pos{text-align: center !important;}
 .select_view_table_1 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
+.select_view_table_1 #dataTable .input_member { height: 70%; border: 1px solid #a1a1a1}
 
-/* 페이징 */
-.free_paging ul{border: 0.5px solid #d2d5d6; display: flex; justify-content: center; width: 99.8%; height: 40px; line-height: 40px; background: #fff;}
-.free_paging li{margin: 0 6px; display: inline-block;}
-.free_paging2 ul{border: 0.5px solid #d2d5d6; display: flex; justify-content: center; width: 98.9%; height: 40px; line-height: 40px; background: #fff; margin-left: 10px;}
-.free_paging2 li{margin: 0 6px; display: inline-block;}
+/*  테이블 셀렉트 박스 CSS  */
+.select_view_table_1 .table_select_box { position: relative; width: 250px; height: 27px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff; display: flex;}
+.select_view_table_1 .table_select_box .table_select { width: inherit; height: inherit; background: transparent; border: 0 none; outline: 0 none; padding: 0 5px; position: relative; z-index: 3; appearance: none;}
+.select_view_table_1 .table_select_box .table_select:focus{border: 1px solid #4caf50;}
+.select_view_table_1 .table_select_box .table_select option { background: #fff; color: #222; padding: 3px 0; font-size: 16px;}
+.select_view_table_1 .table_select_box .icoArrow { position: absolute; top: 0; right: 0; z-index: 1; width: 35px; height: inherit; display: flex; justify-content: center; align-items: center;}
 
-.select_view_table{display: flex;}
-.select_view_table_2{height: 450px; margin-left: 10px;}
-.select_view_table_2 table{border:1px solid #aaa; width: 100%;}
-.select_view_table_2 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 150px;}
-.select_view_table_2 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
-.table_btn_pos{text-align: center !important;}
-.select_view_table_2 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
-
-/*  텍스트 박스1 CSS  */
-.text_box_1 input{position: relative; width: 1270px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
-.text_box_1 input:focus{outline:none; border: 1px solid #4caf50;}
-input[type="file"] {
-    display: none;
-}
-
-/*  텍스트 박스2 CSS  */
-.text_box_2 input{position: relative; width: 1331px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
-.text_box_2 input:focus{outline:none; border: 1px solid #4caf50;}
-.text_box_2 textarea{position: relative; width: 1331px; height: 100px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 10px;margin: 5px 0 0 0;}
-.text_box_2 textarea:focus{outline:none; border: 1px solid #4caf50; margin: 5px 0 0 0; padding: 10px;}
-
-.select_table_2{
-    pointer-events: none;
-}
-.select_table_2 input {
-    background-color: #d3d3d3;
-}
-.select_table_2 .select_box{
-    background-color: #d3d3d3;
-}
-.select_table_2 .text_box_2 textarea{
-    background-color: #d3d3d3;
-}
+/* 테이블 스크롤 바*/
+.select_view_table_1::-webkit-scrollbar {width: 6px; height: 6px;}
+.select_view_table_1::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
+.select_view_table_1::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
