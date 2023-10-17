@@ -14,8 +14,4 @@ public class CurriculumDto {
     private int lectureWeek;
     private Date startDate;
     private Date endDate;
-    private float attendanceRate;
-    private int curriculumSemester;
-    private String curriculumDivision;
-    private int lectureGrade;
 }

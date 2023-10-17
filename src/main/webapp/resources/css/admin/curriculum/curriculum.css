@@ -125,11 +125,13 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .select_view_table_2 .tg .tg-0lax{vertical-align: middle;}
 .select_view_table_2 .tg .tg-0lax title{width:500px;}
 
-/* 교육과정 테이블2 input 상자 */
-.curriculum_inputBox{width: 180px;height: 35px; border: 1px solid #d6d9dc; background-color: #efefef;}
-.curriculum_inputBox:focus{outline:none; border: 1px solid #4caf50;}
-#curriculum_content{width: 98%; height: 200px;}
 
+
+/* 교육과정 테이블2 input 상자 */
+.curriculum_inputBox{width: 200px;height: 35px; border: 1px solid #d6d9dc; background-color: #ECECECFF;}
+.curriculum_inputBox:focus{outline:none; border: 1px solid #4caf50;}
+#curriculum_name{width: 50%;}
+#curriculum_content{width: 98%; height: 200px;}
 
 /* 교육과정 - 수업학기 테이블 체크 박스  */
 .select_view_table_1 .result {border:1px solid #aaa; background-color: white;}
