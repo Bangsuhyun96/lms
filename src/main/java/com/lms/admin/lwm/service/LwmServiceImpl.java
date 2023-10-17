@@ -25,4 +25,30 @@ public class LwmServiceImpl implements LwmService{
         return lwmMapper.searchLwmByYearAndSemester(lectureYear, curriculumSemester);
     }
 
+    // 수업주차정보 추가
+    @Override
+    public int insertLwm(LwmDto lwmDto) {
+        return lwmMapper.insertLwm(lwmDto);
+    }
+
+    // 수업주차정보 업데이트
+    @Override
+    public int updateLwm(LwmDto lwmDto) {
+        return lwmMapper.updateLwm(lwmDto);
+    }
+
+    // 수업주차정보 삭제
+    @Override
+    public int clwDelete(int weekId){
+        return lwmMapper.deleteClw(weekId);
+    }
+    @Override
+    public int lectureTime(int weekId){
+        return lwmMapper.deleteLectureTime(weekId);
+    }
+    @Override
+    public int lwmDelete(int weekId){
+        return lwmMapper.deleteLwm(weekId);
+    }
+
 }

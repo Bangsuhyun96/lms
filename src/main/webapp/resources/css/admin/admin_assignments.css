@@ -28,7 +28,7 @@
 .menu_tree{overflow-y: scroll; overflow-x: clip; padding: 14px 0 0 0; height: calc(100% - 120px);}
 .menu_tree td:hover{ background: #e8f5e9;}
 .menu_tree td:hover p span{ color:#4caf50; font-weight: 600;}
-.menu_tree::-webkit-scrollbar {height: 6px;}
+.menu_tree::-webkit-scrollbar {width: 6px;}
 .menu_tree::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .menu_tree::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
 .menu_tree td{ width: 243px;}
@@ -85,26 +85,31 @@ table td label{display: flex; width: 150px; text-align: left; padding: 12px;}
 
 /*  출력 테이블 구조 1  */
 .select_view_table{display: flex;}
-.select_view_table_1{height: 450px;}
+.select_view_table_1{height: 450px; overflow: scroll;}
+.select_view_table_1::-webkit-scrollbar {width: 6px; height: 0;}
+.select_view_table_1::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
+.select_view_table_1::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
+
 .select_view_table_1 table{border:1px solid #aaa; width: 100%;}
-.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 150px;}
-.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
+.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 100px;}
+.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: center; height: 40px; line-height: 40px; padding: 0 4px;}
+.select_view_table_1 td:nth-child(1) { width: 20px;}
+.select_view_table_1 td:nth-child(2) { width: 300px; text-align: left;}
 .table_btn_pos{text-align: center !important;}
 .select_view_table_1 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
 
 /* 페이징 */
-.free_paging ul{border: 0.5px solid #d2d5d6; display: flex; justify-content: center; width: 99.8%; height: 40px; line-height: 40px; background: #fff;}
-.free_paging li{margin: 0 6px; display: inline-block;}
-.free_paging2 ul{border: 0.5px solid #d2d5d6; display: flex; justify-content: center; width: 98.9%; height: 40px; line-height: 40px; background: #fff; margin-left: 10px;}
-.free_paging2 li{margin: 0 6px; display: inline-block;}
-
 .select_view_table{display: flex;}
-.select_view_table_2{height: 450px; margin-left: 10px;}
+.select_view_table_2{height: 450px; margin-left: 10px; overflow: scroll;}
 .select_view_table_2 table{border:1px solid #aaa; width: 100%;}
 .select_view_table_2 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 150px;}
 .select_view_table_2 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
 .table_btn_pos{text-align: center !important;}
 .select_view_table_2 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
+.select_view_table_2::-webkit-scrollbar {width: 6px; height: 0;}
+.select_view_table_2::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
+.select_view_table_2::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
+
 
 /*  텍스트 박스1 CSS  */
 .text_box_1 input{position: relative; width: 1270px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}

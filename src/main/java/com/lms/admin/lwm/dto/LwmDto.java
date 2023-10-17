@@ -15,4 +15,6 @@ public class LwmDto {
     private Date startDate; // curriculum 테이블 → 시작일
     private Date endDate; // curriculum 테이블 → 종료일
     private String makeupWeek; // curriculum_lecture_week 테이블 → 보강주
+    private int lectureId;
+    private int subjectNo;
 }
