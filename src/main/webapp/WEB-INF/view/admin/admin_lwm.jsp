@@ -10,63 +10,66 @@
 <div class="wrap">
     <%@ include file="/WEB-INF/view/admin/common/aside.jsp" %>
 
-<%--    <!-- 테테스스트트 -->--%>
+    <!-- 테테스스트트 -->
 <%--    <form action="/admin/lwm/search" method="get">--%>
-<%--        <select name="lectureYear" class="select">--%>
-<%--            <option value=" ">전체</option>--%>
+<%--        <select name="curriculumYear" class="select">--%>
+<%--            <option value="">전체</option>--%>
 <%--            <option value="2023">2023</option>--%>
 <%--            <option value="2024">2024</option>--%>
 <%--        </select>--%>
-<%--        <select name="curriculumSemester" class="select">--%>
-<%--            <option value=" ">전체</option>--%>
-<%--            <option value="1">1학기</option>--%>
-<%--            <option value="2">2학기</option>--%>
+<%--        <select name="curriculumName" class="select">--%>
+<%--            <option value="">전체</option>--%>
+<%--            <option value="자바(JAVA)기반 풀스택 개발자 취업과정">자바(JAVA)기반 풀스택 개발자 취업과정</option>--%>
+<%--            <option value="자바(JAVA)프로그래밍(JSP)">자바(JAVA)프로그래밍(JSP)</option>--%>
+<%--            <option value="[IT코칭] JAVA로 잡는 실전 프로그래밍">[IT코칭] JAVA로 잡는 실전 프로그래밍</option>--%>
 <%--        </select>--%>
 <%--        <button type="submit" class="btn_pos">조회</button>--%>
 <%--    </form>--%>
-<%--    <!-- 테테스스트트 끝-->--%>
-
+    <!-- 테테스스트트 끝-->
+<%--    <button class="btn_pos" id="SearchButton">조회</button>--%>
     <div class="main_contents_right">
         <!-- 상단 버튼 구조 1 -->
         <div class="div_common_button">
-            <form action="/admin/lwm/search"><button class="btn_pos">조회</button></form>
+            <button type="submit" class="btn_pos" id="SearchButton">조회</button>
             <button class="btn-default" id="addRowButton">신규</button>
-            <form action="/admin/lwm/add"><button class="btn-default" id="saveButton">저장</button></form>
-           <button class="btn-default" id="deleteButton" type="submit">삭제</button>
+            <button class="btn-default" id="saveButton">저장</button>
+            <button class="btn-default" id="deleteButton" type="submit">삭제</button>
         </div>
         <!--  선택 테이블 구조 1 -->
         <div class="select_table_1">
             <table>
                 <tbody>
                 <tr>
-                    <td><label>수업년도/학기</label></td>
+                    <td><label>수업년도</label></td>
                     <td>
                         <div class="select_box">
-                            <select name="lectureYear" class="select">
+                            <select name="curriculumYear" class="select">
                                 <option value="">(전체)</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
+                                <c:forEach items="${lwm}" var="item" varStatus="loop">
+                                    <c:if test="${loop.first || !item.curriculumYear.equals(lwm[loop.index - 1].curriculumYear)}">
+                                        <option value="${item.curriculumYear}">${item.curriculumYear}</option>
+                                    </c:if>
+                                </c:forEach>
+                                <%--                                <option value="">전체</option>--%>
+                                <%--                                <option value="2023">2023</option>--%>
+                                <%--                                <option value="2024">2024</option>--%>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
                     </td>
+                    <td><label>과정명</label></td>
                     <td>
                         <div class="select_box">
-                            <select name="curriculumSemester" class="select">
-                                <option value="">(전체)</option>
-                                <option value="1">1학기</option>
-                                <option value="2">2학기</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td><label>과정구분</label></td>
-                    <td>
-                        <div class="select_box">
-                            <select name="" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">정규과정</option>
-                                <option value="">야간과정</option>
+                            <select name="curriculumName" class="select">
+                                <option value="">전체</option>
+                                <%--                                <option value="자바(JAVA)기반 풀스택 개발자 취업과정">자바(JAVA)기반 풀스택 개발자 취업과정</option>--%>
+                                <%--                                <option value="자바(JAVA)프로그래밍(JSP)">자바(JAVA)프로그래밍(JSP)</option>--%>
+                                <%--                                <option value="[IT코칭] JAVA로 잡는 실전 프로그래밍">[IT코칭] JAVA로 잡는 실전 프로그래밍</option>--%>
+                                <c:forEach items="${lwm}" var="item" varStatus="loop">
+                                    <c:if test="${loop.first || !item.curriculumName.equals(lwm[loop.index - 1].curriculumName)}">
+                                        <option value="${item.curriculumName}">${item.curriculumName}</option>
+                                    </c:if>
+                                </c:forEach>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
@@ -95,8 +98,7 @@
                 <tr>
                     <th class="w40"><input type="checkbox" id="selectAllCheckbox"></th>
                     <th>수업년도</th>
-                    <th>학기</th>
-                    <th>과정구분</th>
+                    <th>과정명</th>
                     <th>강의주</th>
                     <th>시작일</th>
                     <th>종료일</th>
@@ -108,15 +110,14 @@
                 <c:forEach items="${lwm}" var="item">
                     <tr>
                         <td class="w40"><input type="checkbox" class="rowCheckbox"></td>
-                        <td><input type="hidden" name="weekId" value="${item.weekId}">${item.lectureYear}</td>
-                        <td>${item.curriculumSemester}</td>
-                        <td>${item.curriculumDivision}</td>
+                        <td><input type="hidden" name="weekId" value="${item.weekId}">${item.curriculumYear}</td>
+                        <td style="min-width: 300px">${item.curriculumName}</td>
                         <td>${item.lectureWeek}주차</td>
                         <td><fmt:formatDate value="${item.startDate}" pattern="yyyy-MM-dd"/></td>
                         <td><fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd"/></td>
                         <td>
                             <c:choose>
-                                <c:when test="${item.makeupWeek == 1}">
+                                <c:when test="${item.makeupWeek == N}">
                                     <input type="checkbox" checked="checked">
                                 </c:when>
                                 <c:otherwise>
@@ -131,7 +132,6 @@
             </table>
         </div>
     </div>
-
 </div>
 </body>
 <script>
@@ -149,7 +149,7 @@
         const newRow = table.insertRow(table.rows.length);
         const cellCount = table.rows[0].cells.length;
 
-        const fieldNames = ["lectureYear", "curriculumSemester", "curriculumDivision", "lectureWeek", "startDate", "endDate", "endDate"]; // 두 번 반복되는 "endDate"는 수정하실 필요가 있을 것 같습니다.
+        const fieldNames = ["curriculumYear", "curriculumName", "lectureWeek", "startDate", "endDate", "makeupWeek"];
 
         for (let i = 0; i < cellCount; i++) {
             const newCell = newRow.insertCell(i);
@@ -177,77 +177,7 @@
         newRow.getElementsByTagName("input")[1].focus();
     });
 
-    // 데이터 저장하기
-    // document.querySelector("button#saveButton").addEventListener("click", function () {
-    //     const selectedRow = document.querySelector("input[type='checkbox']:checked");
-    //
-    //     if (selectedRow) {
-    //         const makeupWeekCheckbox = selectedRow.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector("input[type='checkbox']");
-    //         const makeupWeekValue = makeupWeekCheckbox.checked ? 1 : 0;
-    //         const rowData = {
-    //             lectureYear: selectedRow.parentElement.nextElementSibling.textContent,
-    //             curriculumSemester: selectedRow.parentElement.nextElementSibling.nextElementSibling.textContent,
-    //             curriculumDivision: selectedRow.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.textContent,
-    //             lectureWeek: selectedRow.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent,
-    //             startDate: selectedRow.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent,
-    //             endDate: selectedRow.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.textContent,
-    //             makeupWeek: makeupWeekValue
-    //         };
-    //         $.ajax({
-    //             url: "/admin/lwm/add", // 서버의 저장 엔드포인트 URL
-    //             type: "POST", // POST 방식으로 데이터 전송
-    //             data: JSON.stringify(rowData), // JSON 형식으로 데이터 전송
-    //             contentType: "application/json; charset=utf-8", // 데이터 형식 설정
-    //             success: function (response) {
-    //                 // 서버로부터의 응답을 처리
-    //                 console.log("저장 성공");
-    //                 console.log(rowData);
-    //             },
-    //             error: function (error) {
-    //                 // 에러 처리
-    //                 console.error("저장 실패: " + error);
-    //             }
-    //         });
-    //     } else {
-    //         alert("선택된 행이 없습니다. 저장할 행을 선택하세요.");
-    //     }
-    // });
-
-    // 하나의 데이터 삭제하기
-    // document.querySelector("button#deleteButton").addEventListener("click", function () {
-    //     const selectedRow = document.querySelector("input[type='checkbox']:checked");
-    //
-    //     if (selectedRow) {
-    //         // 선택된 행의 weekId 가져오기
-    //         const weekId = selectedRow.parentElement.parentElement.querySelector("[name='weekId']").value;
-    //
-    //         // 서버로 전송할 데이터 객체 생성
-    //         const rowData = {
-    //             weekId: weekId
-    //         };
-    //
-    //         $.ajax({
-    //             url: "/admin/lwm/delete", // 서버의 삭제 엔드포인트 URL
-    //             type: "POST", // POST 방식으로 데이터 삭제 요청 전송
-    //             data: JSON.stringify(rowData), // JSON 형식으로 데이터 전송
-    //             contentType: "application/json; charset=utf-8", // 데이터 형식 설정
-    //             success: function (response) {
-    //                 // 서버로부터의 응답을 처리
-    //                 console.log("삭제 성공");
-    //                 console.log(rowData);
-    //                 // location.reload(); // 삭제 시 페이지 리로드
-    //             },
-    //             error: function (error) {
-    //                 // 에러 처리
-    //                 console.error("삭제 실패: " + error);
-    //             }
-    //         });
-    //     } else {
-    //         alert("선택된 행이 없습니다. 삭제할 행을 선택하세요.");
-    //     }
-    // });
-
-    // 전체 데이터 삭제하기
+    // 선택 데이터 삭제하기
     document.querySelector("button#deleteButton").addEventListener("click", function () {
         const selectedRows = document.querySelectorAll("input.rowCheckbox:checked");
         const weekIds = Array.from(selectedRows).map(row => row.closest("tr").querySelector("[name='weekId']").value);
@@ -268,18 +198,33 @@
         });
     });
 
-    // search 실행
-    document.querySelector("button.btn_pos").addEventListener("click", function () {
-        // 선택된 수업년도, 학기 값을 가져오기
-        const lectureYear = document.querySelector("select[name='lectureYear']").value;
-        const curriculumSemester = document.querySelector("select[name='curriculumSemester']").value;
+    // 조회가 안돼
+    // document.querySelector("button#SearchButton").addEventListener("click", function () {
+    //     // 선택된 값을 가져오기
+    //     const selectedCurriculumYear = document.querySelector("select[name='curriculumYear']").value;
+    //     const selectedCurriculumName = document.querySelector("select[name='curriculumName']").value;
+    //
+    //     // GET 요청을 실행
+    //     $.ajax({
+    //         url: "/admin/lwm/search",
+    //         type: "GET",
+    //         data: {
+    //             curriculumYear: selectedCurriculumYear,
+    //             curriculumName: selectedCurriculumName
+    //         },
+    //         success: function (response) {
+    //             console.log("조회 성공");
+    //             console.log(selectedCurriculumName);
+    //             console.log(selectedCurriculumYear);
+    //         },
+    //         error: function (error) {
+    //             console.error("조회 실패: " + error);
+    //             // 에러 처리
+    //         }
+    //     });
+    // });
 
-        // GET 요청을 생성하고 선택된 값들을 매개변수로 추가
-        const url = `/admin/lwm/search?lectureYear=${lectureYear}&curriculumSemester=${curriculumSemester}`;
 
-        // 페이지를 이동하여 조회를 실행
-        window.location.href = url;
-    });
 
 </script>
 </html>
