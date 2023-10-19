@@ -13,7 +13,7 @@ public interface LwmMapper {
     public List<LwmDto> searchLwmList();
 
     // 수업주차정보 선택 조회
-    List<LwmDto> searchLwmByYearAndSemester(@Param("lectureYear") String lectureYear, @Param("curriculumSemester") int curriculumSemester);
+    List<LwmDto> searchLwmByYearAndName(@Param("curriculumYear") String curriculumYear, @Param("curriculumName") String curriculumName);
 
     // 수업주차정보 추가
     int insertLwm(LwmDto lwmDto);

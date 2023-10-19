@@ -16,6 +16,8 @@
             start_date,
             end_date
         FROM curriculum
+        ORDER BY curriculum_id DESC
+            LIMIT #{startRow}, #{pageSize}
     </select>
 
     <!-- 교육과정 추가하기 -->
@@ -47,6 +49,11 @@
             END_DATE = #{endDate}
         WHERE CURRICULUM_ID = #{curriculumId}
     </update>
+
+    <!-- 교육과정 전체 개수 -->
+    <select id="getTotalCurriculumCount" resultType="int">
+        SELECT COUNT(*) FROM curriculum
+    </select>
 
 <!--    <select id="searchCurriculum" resultType="com.lms.admin.curriculum.dto.CurriculumDto">-->
 <!--        SELECT-->

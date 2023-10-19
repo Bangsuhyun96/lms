@@ -18,9 +18,10 @@ public class AssignmentDto {
     private int fileNo; // 파일번호
     private int lectorId; // 강사번호
     private String professorName; // 추가: SQL 쿼리와 일치하도록 professorName 필드 추가
-    private String lectureName; // 추가: SQL 쿼리와 일치하도록 lecture_name 필드 추가
     private int studentCount; // 추가: SQL 쿼리와 일치하도록 student_count 필드 추가
+
+    private String lectureName; // 강의이름
     private String lectureYear; // 년도
-    private int curriculumSemester; //학기
-    private int curriculumDivision; //과정구분
+    private int assignmentCount;
+
 }
