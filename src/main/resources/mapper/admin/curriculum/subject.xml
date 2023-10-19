@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- xml파일을 사용할 mapper가 있는 경로 -->
+<mapper namespace="com.lms.admin.curriculum.mapper.SubjectMapper">
+
+    <!-- 교과목 리스트 조회하기 -->
+    <select id="selectSubject" resultType="com.lms.admin.curriculum.dto.SubjectDto">
+        SELECT subject_id, subject_name, subject_use
+        FROM subject
+    </select>
+
+    <!-- 교과목 추가하기 -->
+    <insert id="insertSubject" parameterType="com.lms.admin.curriculum.dto.SubjectDto">
+        INSERT INTO subject(SUBJECT_NAME, SUBJECT_USE)
+        VALUES (#{subjectName}, #{subjectUse})
+    </insert>
+
+    <!-- 교과목 삭제하기 -->
+    <delete id="deleteSubject" parameterType="java.util.List">
+        DELETE FROM subject
+        WHERE SUBJECT_ID IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- 교과목 수정하기 -->
+    <update id="updateSubject" parameterType="com.lms.admin.curriculum.dto.SubjectDto">
+        UPDATE subject
+        SET
+            SUBJECT_NAME = #{subjectName},
+            SUBJECT_USE = #{subjectUse}
+        WHERE SUBJECT_ID = #{subjectId}
+    </update>
+</mapper>
