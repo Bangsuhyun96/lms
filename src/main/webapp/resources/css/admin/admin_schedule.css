@@ -30,7 +30,7 @@
 .menu_tree{overflow-y: scroll; overflow-x: clip; padding: 14px 0 0 0; height: calc(100% - 120px);}
 .menu_tree td:hover{ background: #e8f5e9;}
 .menu_tree td:hover p span{ color:#4caf50; font-weight: 600;}
-.menu_tree::-webkit-scrollbar {height: 6px;}
+.menu_tree::-webkit-scrollbar {width: 6px;}
 .menu_tree::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .menu_tree::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
 .menu_tree td{ width: 243px;}
@@ -46,7 +46,7 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .select_table_3{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 
 /*  셀렉트 박스 CSS  */
-.select_box { position: relative; width: 250px; height: 35px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff;}
+.select_box { position: relative; width: 320px; height: 35px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff;}
 .select_box .select { width: inherit; height: inherit; background: transparent; border: 0 none; outline: 0 none; padding: 0 5px; position: relative; z-index: 3; appearance: none;}
 .select_box .select:focus{border: 1px solid #4caf50;}
 .select_box .select option { background: #fff; color: #222; padding: 3px 0; font-size: 16px;}
@@ -89,11 +89,14 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .div_title_2 button:hover{color:#fff; cursor: pointer;}
 
 /*  출력 테이블 구조 1  */
-.select_view_table_1{overflow: scroll; height: 417px;}
-.select_view_table_1 table{border:1px solid #aaa; width: 1400px;}
-.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px;}
-.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
-.table_btn_pos{text-align: center !important;}
+.select_view_table_1{overflow: scroll; max-height: 616px;}
+.select_view_table_1 table{border:1px solid #aaa; width: 100%;}
+.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 200px;}
+.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: center; height: 40px; line-height: 40px; width: 200px;}
+.select_view_table_1 .w40{width: 40px;}
+.select_view_table_1 .w300{min-width: 300px;}
+.select_view_table_1 .w200{width: 200px;}
+.select_view_table_1 .hiddenClass{display: none;}
 .select_view_table_1 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
 
 /*  테이블 셀렉트 박스 CSS  */
@@ -102,13 +105,9 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .select_view_table_1 .table_select_box .table_select:focus{border: 1px solid #4caf50;}
 .select_view_table_1 .table_select_box .table_select option { background: #fff; color: #222; padding: 3px 0; font-size: 16px;}
 .select_view_table_1 .table_select_box .icoArrow { position: absolute; top: 0; right: 0; z-index: 1; width: 35px; height: inherit; display: flex; justify-content: center; align-items: center;}
-.select_2{width: 140px !important;}
+/*.select_2{width: 140px !important;}*/
 
 /* 테이블 스크롤 바*/
-.select_view_table_1::-webkit-scrollbar {width: 6px; height: 6px;}
+.select_view_table_1::-webkit-scrollbar {width: 6px; height: 0px;}
 .select_view_table_1::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .select_view_table_1::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
-
-/* 페이징 CSS*/
-.free_paging ul{ display: flex; justify-content: center; width: 100%; height: 40px; line-height: 40px; background: #fff;}
-.free_paging li{margin: 0 6px; display: inline-block;}

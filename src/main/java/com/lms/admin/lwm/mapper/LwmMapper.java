@@ -16,10 +16,10 @@ public interface LwmMapper {
     List<LwmDto> searchLwmByYearAndName(@Param("curriculumYear") String curriculumYear, @Param("curriculumName") String curriculumName);
 
     // 수업주차정보 추가
-    int insertLwm(LwmDto lwmDto);
+    void insertLwm(LwmDto lwmDto);
 
     // 수업주차정보 업데이트
-    int updateLwm(LwmDto lwmDto);
+    void updateLwm(LwmDto lwmDto);
 
     // 수업주차정보 삭제
     int deleteClw(@Param("weekId") int weekId);
