@@ -14,24 +14,26 @@
         <div class="syllabus_contents">
             <div class="syllabus_contents_1">
                 <p>년도</p>
-                <input type="text" value="2023" disabled>
+                <input type="text" value="${profDto.lectureYear}" disabled>
             </div>
             <div class="syllabus_contents_1">
-                <p>학기</p>
-                <input type="text" value="1학기" disabled>
+                <p>수업기간</p>
+                <input type="text" value="${profDto.startDate} ~ ${profDto.endDate}" disabled>
             </div>
             <div class="syllabus_contents_1">
                 <p>과정명</p>
-                <input type="text" value="정규과정" disabled>
+                <input type="text" value="${profDto.curriculumName}" disabled>
             </div>
             <div class="syllabus_contents_1">
                 <p>과목명</p>
-                <input type="text" value="알고리즘 ( 강의코드 ex) 00087427 )" disabled>
+                <input type="text" value="${profDto.lectureName}" disabled>
             </div>
         </div>
         <div class="prof_attendance_title4">
             <p>[00주차] 2023-10-07</p>
             <p>총 00명 [출석률 %] - 출석 00명 / 지각 00명 / 결석 00명</p>
+            <a href="#"><div class="prof_attendance_title4_arrow_left"></div></a>
+            <a href="#"><div class="prof_attendance_title4_arrow_right"></div></a>
         </div>
 
         <div class="prof_attendance_title3">

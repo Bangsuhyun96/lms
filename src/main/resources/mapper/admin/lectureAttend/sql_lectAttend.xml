@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- xml파일을 사용할 mapper가 있는 경로 -->
+<mapper namespace="com.lms.admin.lectureAttendance.mapper.LectureMapper">
+    <select id="selectAll" resultType="com.lms.admin.lectureAttendance.dto.LectureDto">
+        SELECT
+            lecture_id,
+            lecture_name,
+            c.start_date,
+            c.end_date,
+            p.prof_id,
+            p.name,
+            hours,
+            progress,
+            f.fee_date
+        FROM lecture_info li
+                 INNER JOIN CURRICULUM c ON li.CURRICULUM_ID = c.CURRICULUM_ID
+                 INNER JOIN PROF p ON li.INSTRUCTOR_NO = p.PROF_ID
+                 INNER JOIN FEE f ON p.PROF_ID = f.PROF_ID;
+    </select>
+
+    <select id="selectSearch" parameterType="com.lms.admin.lectureAttendance.dto.LectureDto" resultType="com.lms.admin.lectureAttendance.dto.LectureDto">
+        SELECT
+            l.lecture_id,
+            l.lecture_name,
+            c.start_date,
+            c.end_date,
+            p.prof_id,
+            p.name,
+            l.hours,
+            progress,
+            fee_date
+        FROM lecture_info l
+            JOIN prof p ON l.Instructor_no = p.prof_id
+            JOIN fee f ON p.prof_id = f.prof_id
+            JOIN curriculum c ON l.curriculum_id = c.curriculum_id
+        <if test="lectureYear != '' or month != 0 or name != '' or lectureName != ''">
+            WHERE
+                1
+            <if test="lectureYear != null and lectureYear !=''">
+                AND l.lecture_year = #{lectureYear}
+            </if>
+            <if test="month != null and month != ''">
+                AND MONTH(c.start_date) = #{month}
+            </if>
+            <if test="name != null and name != ''">
+                AND p.prof_id = #{name} OR p.name = #{name}
+            </if>
+            <if test="lectureName != null and lectureName != ''">
+                AND l.lecture_name LIKE CONCAT('%', #{lectureName}, '%')
+            </if>
+        </if>
+    </select>
+
+    <!-- 저장 -->
+    <update id="lectUpdate" parameterType="java.util.Map">
+        UPDATE lecture_info l
+            JOIN prof p ON l.Instructor_no = p.prof_id
+            JOIN fee f ON p.prof_id = f.prof_id
+            JOIN curriculum c ON l.curriculum_id = c.curriculum_id
+            SET l.progress = #{progress}, f.fee_date = #{feeDate}
+            WHERE l.lecture_id = #{lectureId}
+    </update>
+</mapper>

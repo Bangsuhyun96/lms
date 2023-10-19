@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.admin.moli.mapper.MoliMapper">
+    <select id="selectAll" resultType="com.lms.admin.moli.dto.MoliDto">
+        SELECT DISTINCT
+            li.lecture_id,
+            li.lecture_year,
+            c.curriculum_name,
+            c.CURRICULUM_ID,
+            li.lecture_name,
+            p.name,
+            li.hours,
+            c.lecture_week,
+            li.progress,
+            lt.classroom,
+            li.student_count,
+            lt.LECTURE_DAY,
+            lt.LECTURE_TIME,
+            p.PROF_ID,
+            p.LECTURE_FEE
+        FROM lecture_info li
+            JOIN lecture_time lt ON li.lecture_id = lt.lecture_id
+            JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+            JOIN prof p ON li.instructor_no = p.prof_id
+<!--        <if test="lectureYear != '' or curriculumName != 0 or lectureName != ''">-->
+<!--            WHERE-->
+<!--            1-->
+<!--            <if test="lectureYear != null and lectureYear !=''">-->
+<!--                AND l.lecture_year = #{lectureYear}-->
+<!--            </if>-->
+<!--            <if test="curriculumName != null and curriculumName != ''">-->
+<!--                AND c.CURRICULUM_NAME = #{curriculumName}-->
+<!--            </if>-->
+<!--            <if test="lectureName != null and lectureName != ''">-->
+<!--                AND l.lecture_name LIKE CONCAT('%', #{lectureName}, '%')-->
+<!--            </if>-->
+<!--        </if>-->
+    </select>
+
+    <select id="selectSearch" resultType="com.lms.admin.moli.dto.MoliDto">
+        SELECT DISTINCT
+        li.lecture_id,
+        li.lecture_year,
+        c.curriculum_name,
+        c.CURRICULUM_ID,
+        li.lecture_name,
+        p.name,
+        li.hours,
+        c.lecture_week,
+        li.progress,
+        lt.classroom,
+        li.student_count,
+        lt.LECTURE_DAY,
+        lt.LECTURE_TIME,
+        p.PROF_ID,
+        p.LECTURE_FEE
+        FROM lecture_info li
+            JOIN lecture_time lt ON li.lecture_id = lt.lecture_id
+            JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+            JOIN prof p ON li.instructor_no = p.prof_id
+        <if test="lectureYear != '' or curriculumName != '' or lectureName != ''">
+            WHERE
+                1
+            <if test="lectureYear != null and lectureYear !=''">
+                AND li.LECTURE_YEAR = #{lectureYear}
+            </if>
+            <if test="curriculumName != null and curriculumName != ''">
+                AND c.CURRICULUM_NAME = #{curriculumName}
+            </if>
+            <if test="lectureName != null and lectureName != ''">
+                AND li.LECTURE_NAME LIKE CONCAT('%', #{lectureName}, '%')
+            </if>
+        </if>
+    </select>
+
+    <!-- 업데이트 (저장 ) -->
+    <update id="selectUpdate" parameterType="String">
+        UPDATE lecture_info li
+            JOIN prof p ON li.instructor_no = p.prof_id
+        SET li.STUDENT_COUNT = #{studentCount}, p.name = #{name}
+        WHERE li.LECTURE_ID = #{lectureId}
+    </update>
+
+
+    <!-- 강사정보등록 (강사전체조회) -->
+    <select id="searchProf" parameterType="com.lms.admin.moli.dto.MoliDto">
+        SELECT p.PROF_ID, p.NAME, p.LECTURE_FEE
+        FROM prof p
+    </select>
+
+    <!-- 강사료 업데이트 -->
+    <update id="profUpdate" parameterType="java.util.Map">
+        UPDATE prof p
+        SET p.LECTURE_FEE = #{lectureFee}
+        WHERE p.PROF_ID = #{profId}
+    </update>
+</mapper>
