@@ -17,10 +17,10 @@ public class AdminController {
         return "admin/admin_csm";
     }
 
-    @GetMapping("/moli")
-    public String ManagingOpenLectureInformation(){
-        return "admin/admin_moli";
-    }
+//    @GetMapping("/moli")
+//    public String ManagingOpenLectureInformation(){
+//        return "admin/admin_moli";
+//    }
 
     @GetMapping("/mlp")
     public String ManagingLecturePlan(){

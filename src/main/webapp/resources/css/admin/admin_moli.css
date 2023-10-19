@@ -39,7 +39,7 @@
 .menu_btn button{width: 230px; height: 36px; background: #388e3c; border: 2px solid #388e3c; color: #fff; border-radius: 5px; font-size: 0.9rem; text-align: left; padding: 0 13px;}
 .text-indent{text-indent: 18px;}
 
-table td label{display: table-cell; width: 200px; text-align: left; padding: 12px;}
+table td label{display: table-cell; width: 300px; text-align: center; padding: 12px;}
 
 .select_table_1{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 .select_table_2{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
@@ -55,7 +55,7 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .select_box_flex>.select_box{width: 124px;}
 
 /*  버튼 CSS  */
-.div_common_button{width: 100%; display: flex; justify-content: flex-end; margin: 20px 0 4px 0;}
+.div_common_button{width: 100%; display: flex; justify-content: flex-end; margin: 0 0 4px 0;}
 .div_common_button button{margin: 0 4px 0 0;}
 .btn_pos:hover{cursor: pointer;}
 .btn-default:hover{cursor: pointer;}
@@ -63,7 +63,7 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .btn-default { padding: 0px 10px; color: #6b6b6b; border: 1px solid #6b6b6b; background-color: #fff; height: 30px; border-radius: 3px;}
 
 /*  텍스트 박스 CSS  */
-.text_box input{position: relative; width: 252px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
+.text_box input{position: relative; width: 350px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
 .text_box input:focus{outline:none; border: 1px solid #4caf50;}
 
 /*  라디오 버튼 CSS  */
@@ -73,13 +73,13 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .radio_box input:focus-visible{outline: #222;}
 
 /*  타이틀 1 CSS  */
-.div_title_1{position: relative; padding: 20px 0 4px 0; display: flex;}
+.div_title_1{position: relative; padding: 50px 0 4px 0; display: flex;}
 .div_title_1 p{font-size: 1rem; line-height: 26px; height: 26px; color: #6B6B6B;}
 .div_title_1 p span{font-weight: 600; color: #444;}
 .div_title_1 img{width: 16px;}
 
 /*  타이틀 2 CSS  */
-.div_title_2{position: relative; padding: 20px 0 4px 0; display: flex;}
+.div_title_2{position: relative; padding: 50px 0 4px 0; display: flex;}
 .div_title_2 p{font-size: 1rem; line-height: 26px; height: 26px; color: #6B6B6B;}
 .div_title_2 p span{font-weight: 600; color: #444;}
 .div_title_2 img{width: 16px;}
@@ -91,10 +91,11 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .div_title_2 button:hover{color:#fff; cursor: pointer;}
 
 /*  출력 테이블 구조 1  */
-.select_view_table_1{overflow: scroll; height: 417px;}
+.select_view_table_1{overflow-y: scroll; max-height: 417px;}
 .select_view_table_1 table{border:1px solid #aaa; width: 100%;}
-.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px;}
-.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
+.select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 45px;}
+.select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: center; height: 40px; line-height: 40px; padding: 0 4px;}
+.select_view_table_1 input{ background: #fefefe; border: 0px; text-align: center; height: 40px; line-height: 40px;}
 .table_btn_pos{text-align: center !important;}
 .select_view_table_1 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
 
@@ -114,3 +115,30 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 /* 페이징 CSS*/
 .free_paging ul{ display: flex; justify-content: center; width: 100%; height: 40px; line-height: 40px; background: #fff;}
 .free_paging li{margin: 0 6px; display: inline-block;}
+
+
+.table-container {
+    position: relative;
+}
+
+#th_header {
+    position: sticky;
+    top: 0;
+}
+
+.table-container .resultTable td:hover{
+    background-color: #e8e8e8;
+    cursor: pointer;
+}
+.blue{
+    background-color: #ecf3ff !important;
+}
+
+/* disabled input 요소의 배경 색상을 변경 */
+input:disabled {
+    background-color: #efefef; /* 원하는 배경 색상으로 변경 */
+}
+
+.studentflex{display: flex;width: 350px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff;}
+.studentflex input{width: 300px; border: 0px;}
+.studentflex p{width: 50px; text-align: center; margin: auto;}

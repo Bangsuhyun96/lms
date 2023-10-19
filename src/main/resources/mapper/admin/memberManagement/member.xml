@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.admin.memberManagement.dao.MemberDao">
+
+
+    <insert id="saveStudent">
+        insert into student (student_id, name, birth_date, gender, address, address_detail, zip_code, phone_no, email,
+                             student_status, entrance_year, user_id)
+        values (#{studentId}, #{name}, #{birthDate}, #{gender}, #{address}, #{addressDetail}, #{zipCode}, #{phoneNo},
+                #{email}, #{studentStatus}, #{entranceYear}, #{userId});
+
+    </insert>
+
+    <insert id="saveProf">
+        insert into prof (PROF_ID, name, birth_date, gender, address, address_detail, zip_code, phone_no, email,
+                             ACCOUNT, ACCOUNT_NAME, ACCOUNT_BANK, LECTURE_FEE, USER_ID)
+        values (#{profId}, #{name}, #{birthDate}, #{gender}, #{address}, #{addressDetail}, #{zipCode}, #{phoneNo},
+                #{email}, #{account}, #{accountName}, #{accountBank}, #{lectureFee}, #{userId});
+    </insert>
+
+
+
+    <insert id="saveUser">
+        insert into user (USER_ID, USER_TYPE, LOGIN_ID, USER_PW, FIRE_YN, CHANGE_PW_YN, PW_ERR_COUNT, REGIST_DATE)
+        values (#{userId}, #{userType}, #{loginId}, #{userPw}, 'N', 'N', 0, NOW());
+    </insert>
+<!--    학생수정-->
+    <update id="updateStudent">
+        update student
+        set NAME = #{name}, BIRTH_DATE = #{birthDate}, GENDER = #{gender}, ADDRESS = #{address},
+            ADDRESS_DETAIL = #{addressDetail}, ZIP_CODE = #{zipCode},PHONE_NO = #{phoneNo}, EMAIL = #{email},
+            ENTRANCE_YEAR = #{entranceYear}, STUDENT_STATUS = #{studentStatus}
+        where user_id = #{userId}
+    </update>
+
+    <!--    교수수정-->
+    <update id="updateProf">
+        update prof
+        set NAME = #{name}, BIRTH_DATE = #{birthDate}, GENDER = #{gender}, ADDRESS = #{address},
+            ADDRESS_DETAIL = #{addressDetail}, ZIP_CODE = #{zipCode},
+            PHONE_NO = #{phoneNo}, EMAIL = #{email}, ACCOUNT = #{account}, ACCOUNT_NAME = #{accountName},
+            ACCOUNT_BANK = #{accountBank}, LECTURE_FEE = #{lectureFee}
+        where user_id = #{userId}
+    </update>
+
+
+    <select id="findByStudentId" resultType="java.lang.Integer">
+        SELECT MAX(CAST(SUBSTRING(USER_ID, LENGTH(user_id) - LOCATE('-', REVERSE(user_id)) + 2) AS UNSIGNED))
+        FROM user
+        WHERE USER_ID like 'student2023-%';
+    </select>
+
+    <select id="findByProfId" resultType="java.lang.Integer">
+        SELECT MAX(CAST(SUBSTRING(USER_ID, LENGTH(user_id) - LOCATE('-', REVERSE(user_id)) + 2) AS UNSIGNED))
+        FROM user
+        WHERE USER_ID like 'prof2023-%';
+    </select>
+
+    <!--삭제쿼리-->
+    <delete id="deleteUser">
+        delete from user where USER_ID = #{userId}
+    </delete>
+<!--학생삭제-->
+    <delete id="deleteStudent">
+        delete from student where USER_ID = #{userId}
+    </delete>
+<!--    교수삭제-->
+    <delete id="deleteProf">
+        delete from prof where USER_ID = #{userId}
+    </delete>
+
+<!--    1개 상세조회-->
+    <select id="findStudent" resultType="com.lms.login.model.dto.UserDto">
+        select *
+        from student
+        where USER_ID = #{userId}
+    </select>
+    <select id="findProf" resultType="com.lms.login.model.dto.UserDto">
+        select *
+        from prof
+        where USER_ID = #{userId}
+    </select>
+
+<!--    학번, 교수번호로 조회하는거-->
+    <select id="findStudentId" resultType="com.lms.login.model.dto.UserDto">
+        SELECT *
+        FROM student
+        where STUDENT_ID = #{studentId}
+    </select>
+    <select id="findProfId" resultType="com.lms.login.model.dto.UserDto">
+        select *
+        from prof
+        where PROF_ID = #{profId}
+    </select>
+
+
+</mapper>

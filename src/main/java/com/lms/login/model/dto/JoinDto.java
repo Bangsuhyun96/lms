@@ -1,11 +1,14 @@
 package com.lms.login.model.dto;
 
+import com.lms.admin.memberManagement.dao.MemberDao;
+import com.lms.admin.memberManagement.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Data
 @AllArgsConstructor

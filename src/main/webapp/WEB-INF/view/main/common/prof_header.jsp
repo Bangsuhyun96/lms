@@ -38,7 +38,7 @@
             <div class="header_info">
                 <div class="header_info_left">
                     <a href="" class="user_img"><i class="fa-solid fa-user"></i></a>
-                    <a href=""><p>교수</p></a>
+                    <a href=""><p>${login.name}</p></a>
                 </div>
                 <div class="header_info_right">
                     <button class="header_logout_btn">로그아웃</button>

@@ -7,6 +7,7 @@
 .myclass_contents .myclass_contents_1{display: flex; margin: 12px 0; align-items: center;}
 .myclass_contents .myclass_contents_1 p{font-size: 1.2rem; padding: 0 40px;}
 .myclass_contents .myclass_contents_1 input{width: 400px; height: 40px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 20px; color:#222;}
+.myclass_contents .myclass_contents_1 select{width: 400px; height: 40px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 20px; color:#222;}
 
 .myclass_enroll{position: relative; display: flex; margin: 0 20px; flex-direction: column;}
 .myclass_enroll_contents{display: flex; flex-direction: column; border-bottom: 1px solid #2a2a2a;}
