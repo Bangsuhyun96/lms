@@ -42,7 +42,7 @@ select {    text-overflow: ellipsis;
 .menu_btn button{width: 230px; height: 36px; background: #388e3c; border: 2px solid #388e3c; color: #fff; border-radius: 5px; font-size: 0.9rem; text-align: left; padding: 0 13px;}
 .text-indent{text-indent: 18px;}
 
-table td label{display: table-cell; width: 200px; text-align: left; padding: 12px;}
+table td label{display: table-cell; width: 200px; text-align: center; padding: 12px;}
 
 .select_table_1{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 .select_table_2{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
@@ -92,11 +92,14 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .div_title_2 button:hover{color:#fff; cursor: pointer;}
 
 /*  출력 테이블 구조 1  */
-/*.select_view_table_1{overflow: scroll; height: 616px;}*/
+.select_view_table_1{overflow: scroll; max-height: 616px;}
 .select_view_table_1 table{border:1px solid #aaa; width: 100%;}
 .select_view_table_1 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 200px;}
 .select_view_table_1 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: center; height: 40px; line-height: 40px; width: 200px;}
 .select_view_table_1 .w40{width: 40px;}
+.select_view_table_1 .w300{min-width: 300px;}
+.select_view_table_1 .w200{width: 200px;}
+.select_view_table_1 .hiddenClass{display: none;}
 .select_view_table_1 td button{ width: 70px; height: 30px; background: #fff; font-size: 0.95rem; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer;}
 
 /*  테이블 셀렉트 박스 CSS  */
