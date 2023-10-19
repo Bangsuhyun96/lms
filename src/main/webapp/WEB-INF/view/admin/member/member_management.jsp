@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link href="<%=request.getContextPath()%>/resources/css/admin/common/admin_member_management.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/admin/member_management.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/admin/member/member_management.js"></script>
 
 <!-- 여기서 CSS 추가하자 -->
 <!-- 여기서 CSS 추가하자 -->
@@ -19,9 +19,7 @@
             <button class="btn_pos" id="searchButton">조회</button>
             <button class="btn-default" id="newButton">신규</button>
             <button class="btn-default" id="saveButton">저장</button>
-            <button class="btn-default">삭제</button>
-            <button class="btn-default" disabled="">선택</button>
-            <button class="btn-default" disabled="" >닫기</button>
+            <button class="btn-default" id="deleteButton">삭제</button>
         </div>
 
         <!--  선택 테이블 구조 2 -->
@@ -75,7 +73,7 @@
                 <c:forEach var="item" items="${member}">
                     <tr>
                         <td><input type="checkbox" class="checkbox" name="selectedItems"></td>
-                        <td>${item.userId}</td>
+                        <td><a href="/admin/find/member?userId=${item.userId}&userType=${item.userType}">${item.userId}</a></td>
                         <td>${item.userType}</td>
                         <td>${item.name}</td>
                         <td>${item.loginId}</td>
