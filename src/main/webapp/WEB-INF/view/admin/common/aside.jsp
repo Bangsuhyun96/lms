@@ -38,7 +38,7 @@
         <tr><td><a href="" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;강사관리</span></p></a></td></tr>
         <tr><td><a href="" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;포털관리</span></p></a></td></tr>
         <tr><td><a href="" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;통계관리</span></p></a></td></tr>
-        <tr><td><a href="" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;수강신청관리</span></p></a></td></tr>
+        <tr><td><a href="/admin/lecture/apply/subject" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;수강신청관리</span></p></a></td></tr>
 
         </tbody>
       </table>
