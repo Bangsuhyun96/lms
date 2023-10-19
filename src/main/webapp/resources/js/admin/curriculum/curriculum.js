@@ -54,15 +54,19 @@ document.addEventListener("DOMContentLoaded", function() {
 // 교육과정 테이블 선택했을 때 교육과정정보 테이블에 데이터 띄우기
 // 교육과정 수정하기
 $(document).ready(function() {
-    $(document).ready(function() {
+    // $(document).ready(function() {
         var selectedRow;
 
         $('#curriculumTable tbody tr').click(function() {
+
+            // 이미 선택된 행이 있는 경우, 이전 선택을 취소하고 시각적 표식 제거
             if (selectedRow) {
                 selectedRow.removeClass('selected');
             }
 
+            // 현재 클릭한 행을 selectedRow 변수에 저장
             selectedRow = $(this);
+            // 현재 클릭한 행에 시각적 표식 추가 (선택한 것으로 표시)
             selectedRow.addClass('selected');
 
             var curriculumYear = selectedRow.find('td:eq(1)').text();
@@ -72,7 +76,7 @@ $(document).ready(function() {
             var endDate = selectedRow.find('td:eq(5)').text();
             var curriculumContent= selectedRow.find('td:eq(6)').text();
             var curriculumId = selectedRow.find('td:eq(7)').text();
-            console.log("curriculumId : ", curriculumId);
+            // console.log("curriculumId : ", curriculumId);
 
             $('#curriculum_year').val(curriculumYear);
             $('#curriculum_name').val(curriculumName);
@@ -137,7 +141,7 @@ $(document).ready(function() {
                 selectedRow = null;
             }
         });
-    });
+    // });
 });
 
 
@@ -273,6 +277,8 @@ $(document).ready(function () {
                 error: function (error) {
                     // 실패한 경우 처리
                     alert("삭제 실패: " + error.responseText);
+                    document.write("삭제 실패: " + error.responseText);
+
                 }
             });
         } else {
