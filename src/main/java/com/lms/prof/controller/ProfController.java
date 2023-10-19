@@ -28,22 +28,12 @@ public class ProfController {
         return "main/prof/prof_fee";
     }
 
-    @GetMapping("/schedule")
-    public String profSchedule(){
-        return "main/prof/prof_schedule";
-    }
 
     @GetMapping("/plan")
     public String profPlan(){ return "main/prof/prof_plan"; }
 
     @GetMapping("/weekplan")
     public String profWeekPlan(){ return "main/prof/prof_weekplan"; }
-
-    @GetMapping("/attendance")
-    public String profAttendance(){
-       return "main/prof/prof_attendance";
-    }
-
 
     /////////////////////////////////////////////////////////////////
     @GetMapping("/assignment")

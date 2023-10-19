@@ -14,8 +14,9 @@ public class CurriculumImpl implements CurriculumService{
     private CurriculumMapper curriculumMapper;
 
     @Override
-    public List<CurriculumDto> selectCurriculum(){
-        return curriculumMapper.selectCurriculum();
+    public List<CurriculumDto> selectCurriculum(int pageNum, int pageSize){
+        int startRow = (pageNum - 1) * pageSize;
+        return curriculumMapper.selectCurriculum(startRow, pageSize);
     }
 
     @Override
@@ -33,6 +34,10 @@ public class CurriculumImpl implements CurriculumService{
         curriculumMapper.updateCurriculum(curriculumDto);
     }
 
+    @Override
+    public int getTotalCurriculumCount(){
+        return curriculumMapper.getTotalCurriculumCount();
+    }
 //    @Override
 //    public List<CurriculumDto> searchCurriculum(CurriculumDto curriculumDto){
 //        return curriculumMapper.searchCurriculum(curriculumDto);

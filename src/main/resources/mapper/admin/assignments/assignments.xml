@@ -2,18 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lms.admin.assignments.mapper.AssignmentMapper">
-    <select id="getAllAssignments" resultType="com.lms.admin.assignments.dto.AssignmentDto">
-        SELECT
-            l.lecture_id as lectureId,
-            l.lecture_name as lectureName,
-            l.student_count as studentCount,
-            p.name as professorName
-        FROM
-            lecture_info l
-                LEFT JOIN prof p ON l.lecture_id = p.prof_id;
-    </select>
-
-
 <!--    <select id="getAllAssignments" resultType="com.lms.admin.assignments.dto.AssignmentDto">-->
 <!--        SELECT-->
 <!--            l.lecture_id as lectureId,-->
@@ -22,14 +10,48 @@
 <!--            p.name as professorName-->
 <!--        FROM-->
 <!--            lecture_info l-->
-<!--        LEFT JOIN-->
-<!--            prof p ON l.lecture_id = p.prof_id-->
-<!--        LEFT JOIN-->
-<!--            curriculum c ON l.lecture_id = c.curriculum_id-->
-<!--        WHERE-->
-<!--              l.lecture_year = '2023' &#45;&#45; 원하는 연도를 입력하세요-->
-<!--          AND l.lecture_name = '소프트웨어 공학 기초' &#45;&#45; 원하는 강의명을 입력하세요-->
-<!--          AND c.curriculum_semester = '1' &#45;&#45; 원하는 학기를 입력하세요-->
-<!--          AND c.curriculum_division = '정규 과정'; &#45;&#45; 원하는 학과를 입력하세요;-->
+<!--                LEFT JOIN prof p ON l.lecture_id = p.prof_id;-->
 <!--    </select>-->
+    <select id="getAllAssignments" resultType="com.lms.admin.assignments.dto.AssignmentDto">
+        SELECT
+            l.lecture_id as lectureId,
+            l.lecture_name as lectureName,
+            l.student_count as studentCount,
+            p.name as professorName,
+            COUNT(DISTINCT l.lecture_id) as assignmentCount
+        FROM
+            lecture_info l
+                LEFT JOIN prof p ON l.lecture_id = p.prof_id
+                LEFT JOIN assignments a ON l.lecture_id = a.lecture_id
+        WHERE
+            1=1
+          AND l.lecture_name LIKE CONCAT('%', '', '%')
+        GROUP BY
+            l.lecture_id, l.lecture_name, l.student_count, p.name;
+    </select>
+
+
+    <select id="searchAssignments" resultType="com.lms.admin.assignments.dto.AssignmentDto">
+        SELECT
+            l.lecture_id as lectureId,
+            l.lecture_name as lectureName,
+            p.name as professorName,
+            l.student_count as studentCount,
+            COUNT(DISTINCT a.lecture_id) as assignmentCount
+        FROM
+            lecture_info l
+                LEFT JOIN prof p ON l.lecture_id = p.prof_id
+                LEFT JOIN assignments a ON l.lecture_id = a.lecture_id
+        WHERE
+            l.lecture_name LIKE CONCAT('%', #{lectureName}, '%')
+          AND (#{lectureYear} = '(전체)' OR l.lecture_year LIKE CONCAT('%', #{lectureYear}, '%'))
+        GROUP BY l.lecture_id, l.lecture_name, p.name, l.student_count;
+    </select>
 </mapper>
+
+        <!--        <if test="lectureName != null and lectureName != ''">-->
+        <!--            AND l.lecture_name LIKE CONCAT('%', #{assignmentDto.lectureName}, '%')-->
+        <!--        </if>-->
+        <!--        <if test="lectureYear != null and lectureYear != ''">-->
+        <!--            <![CDATA[AND l.lecture_year = #{assignmentDto.lectureYear} ]]>-->
+        <!--        </if>-->
