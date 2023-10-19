@@ -34,4 +34,11 @@ public class AssignmentServiceImpl implements AssignmentService {
         return assignments;
 
     }
+
+
+    @Override
+    public int insertAssignment(AssignmentDto assignmentDto) {
+        // Assignment 객체를 데이터베이스에 저장
+        return assignmentMapper.insertAssignment(assignmentDto);
+    }
 }

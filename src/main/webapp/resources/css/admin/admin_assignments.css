@@ -38,14 +38,14 @@
 .text-indent{text-indent: 18px;}
 
 
-table td label{display: flex; width: 150px; text-align: left; padding: 12px;}
+table td label{display: flex; width: 182px; text-align: left; padding: 12px;}
 
 .select_table_1{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 .select_table_2{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 .select_table_3{background: #fff; border: 1px solid #d2d5d6; border-radius: 4px; padding: 20px;}
 
 /*  셀렉트 박스 CSS  */
-.select_box { position: relative; width: 250px; height: 35px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff;}
+.select_box { position: relative; width: 284px; height: 35px; border-radius: 3px; border: 1px solid #d6d9dc; background: #fff;}
 .select_box .select { width: inherit; height: inherit; background: transparent; border: 0 none; outline: 0 none; padding: 0 5px; position: relative; z-index: 3; appearance: none;}
 .select_box .select:focus{border: 1px solid #4caf50;}
 .select_box .select option { background: #fff; color: #222; padding: 3px 0; font-size: 16px;}
@@ -62,7 +62,7 @@ table td label{display: flex; width: 150px; text-align: left; padding: 12px;}
 .btn_file { background-color: #6B6B6B; border: 1px solid #6B6B6B; color: #fff; padding: 0px 10px; height: 30px; border-radius: 3px;}
 
 /*  텍스트 박스 CSS  */
-.text_box input{position: relative; width: 252px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
+.text_box input{position: relative; width: 286px; height: 35px; border-radius: 3px; border:1px solid #d6d9dc; background: #fff; padding: 0 12px;}
 .text_box input:focus{outline:none; border: 1px solid #4caf50;}
 
 /*  라디오 버튼 CSS  */
