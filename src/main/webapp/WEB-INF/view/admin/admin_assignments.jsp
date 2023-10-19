@@ -122,8 +122,8 @@
                 <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>과제정보&nbsp;</span></p>
             </div>
             <div class="div_common_button">
-                <button class="btn_pos" onclick="resetStyles()"r>신규</button>
-                <button class="btn-default" onclick="saveDataAndCreateTable()">저장</button>
+                <button class="btn_pos" onclick="resetStyles()">신규</button>
+                <button class="btn-default" id="saveButton" onclick="saveDataAndCreateTable()">저장</button>
             </div>
         </div>
 
@@ -132,17 +132,17 @@
             <table>
                 <tbody>
                 <tr>
-                    <td><label>과제번호</label></td>
+                    <td><label for="assignmentIdInput">과제번호</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text">
+                            <input type="text" id="assignmentIdInput">
                         </div>
                     </td>
-                    <td><label>수행단위</label></td>
+                    <td><label for="unitInput">수행단위</label></td>
                     <td>
                         <div class="select_box_flex">
                             <div class="select_box">
-                                <select name="" class="select">
+                                <select id="unitInput" name="" class="select">
                                     <option value="">개인과제</option>
                                     <option value="">그룹과제</option>
                                 </select>
@@ -150,11 +150,11 @@
                             </div>
                         </div>
                     </td>
-                    <td><label>진행상태</label></td>
+                    <td><label for="statusInput">진행상태</label></td>
                     <td>
                         <div class="select_box_flex">
                             <div class="select_box">
-                                <select name="" class="select">
+                                <select id="statusInput" name="" class="select">
                                     <option value="">제출가능</option>
                                     <option value="">제출마감</option>
                                 </select>
@@ -164,110 +164,52 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label>과제명</label></td>
+                    <td><label for="assignmentNameInput">과제명</label></td>
                     <td colspan="5">
                         <div class="text_box_2">
-                            <input type="text">
+                            <input type="text" id="assignmentNameInput">
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>수강인원</label></td>
+                    <td><label for="studentCountInput">수강인원</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text">
+                            <input type="text" id="studentCountInput">
                         </div>
                     </td>
-                    <td><label>제출인원</label></td>
+                    <td><label for="submissionCountInput">제출인원</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text">
+                            <input type="text" id="submissionCountInput">
                         </div>
                     </td>
-                    <td><label>출제자</label></td>
+                    <td><label for="professorNameInput">출제자</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text">
+                            <input type="text" id="professorNameInput">
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td><label>제출시작일시</label></td>
+                    <td><label for="startDateInput">제출시작일시</label></td>
                     <td>
-                        <div class="select_box_flex">
-                            <div class="select_box">
-                                <select name="" class="select">
-                                    <option value="">선택</option>
-                                    <option value="">2023</option>
-                                    <option value="">2024</option>
-                                </select>
-                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                            </div>
+                        <div class="text_box">
+                            <input type="text" id="startDateInput">
                         </div>
                     </td>
+                    <td><label for="endDateInput">제출마감일시</label></td>
                     <td>
-                        <div class="select_box_flex">
-                            <div class="select_box">
-                                <select name="" class="select">
-                                    <option value="">선택</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option>
-                                </select>
-                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                            </div>
-                        </div>
-                    </td>
-                    <td><label>제출마감일시</label></td>
-                    <td>
-                        <div class="select_box_flex">
-                            <div class="select_box">
-                                <select name="" class="select">
-                                    <option value="">선택</option>
-                                    <option value="">2020</option>
-                                    <option value="">2021</option>
-                                    <option value="">2022</option>
-                                    <option value="">2023</option>
-                                </select>
-                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="select_box_flex">
-                            <div class="select_box">
-                                <select name="" class="select">
-                                    <option value="">선택</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option>
-                                </select>
-                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                            </div>
+                        <div class="text_box">
+                            <input type="text" id="endDateInput">
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td style="transform: translateY(-80px);"><label>과제설명</label></td>
+                    <td style="transform: translateY(-80px);"><label for="descriptionInput">과제설명</label></td>
                     <td colspan="6">
                         <div class="text_box_2">
-                            <textarea rows="4" cols="50" name="assignment_description"></textarea>
+                            <textarea id="descriptionInput" rows="4" cols="50" name="assignment_description"></textarea>
                         </div>
                     </td>
                 </tr>
