@@ -1,6 +1,9 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/admin/curriculum/curriculum.js"></script>
 <!-- CSS -->
 <link href="<%=request.getContextPath()%>/resources/css/admin/curriculum/curriculum.css" rel="stylesheet">
 <!DOCTYPE html>
@@ -12,37 +15,26 @@
     <%@ include file="/WEB-INF/view/admin/common/aside.jsp" %>
     <div class="main_contents_right">
         <div class="div_common_button">
-            <button class="btn_pos">조회</button>
-            <button class="btn-default">신규</button>
-            <button class="btn-default">저장</button>
-            <button class="btn-default">삭제</button>
+            <button class="btn_pos" id="searchBtn">조회</button>
+            <button class="btn-default" id="insertBtn">신규</button>
+            <button class="btn-default" id="saveBtn">저장</button>
+            <button class="btn-default" id="deleteBtn">삭제</button>
         </div>
 
         <div class="select_table_1">
             <table>
                 <tbody>
                 <tr>
-                    <td><label>입학년도</label></td>
+                    <td><label>과정년도</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text" />
-                        </div>
-                    </td>
-                    <td><label>과정구분</label></td>
-                    <td>
-                        <div class="select_box">
-                            <select name="fruits" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">정규과정</option>
-                                <option value="">야간과정</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
+                            <input type="text" id="curriculumYear" name="curriculumYear"/>
                         </div>
                     </td>
                     <td><label>교육과정명</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text" />
+                            <input type="text" id="curriculumName" name="curriculumName"/>
                         </div>
                     </td>
                 </tr>
@@ -51,31 +43,44 @@
         </div>
 
         <div class="div_title_1">
-            <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>교육과정&nbsp;</span>검색결과:0000건</p>
+            <p>
+                <img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>교육과정&nbsp;</span>
+                <!-- 검색 건수 -->
+                <c:set var="count" value="0"/>
+                <c:forEach var="item" items="${curriculumDto}">
+                    <c:set var="count" value="${count + 1}" />
+                </c:forEach>
+<%--                검색결과 : <c:out value="${count}"/>건--%>
+                검색결과 : <span id="searchResultCount"><c:out value="${count}"/></span>건
+            </p>
         </div>
 
         <!--  출력 테이블 구조 1 -->
         <div class="select_view_table_1">
-            <table>
+            <table id="curriculumTable">
                 <tbody>
                 <!-- 헤더 -->
                 <tr>
-                    <th class="allCheck one"><input type="checkbox" name="agree"></th>
-                    <th>입학년도</th>
-                    <th>과정구분</th>
+                    <th class="allCheck one"><input type="checkbox" name="agree" id="allCheck"></th>
+                    <th>과정년도</th>
                     <th>교육과정명</th>
-                    <th>시작학기</th>
+                    <th>강의주차</th>
+                    <th>시작일자</th>
+                    <th>종료일자</th>
                 </tr>
                 <!-- 헤더 끝-->
 
                 <!--  출력  -->
                 <c:forEach items="${curriculumDto}" var="item">
                     <tr>
-                        <td class="allCheck"><input type="checkbox" name="agree"></td>
+                        <td class="allCheck"><input type="checkbox" name="agree" id="rowAllCheck" value="${item.curriculumId}"></td>
                         <td>${item.curriculumYear}</td>
-                        <td>${item.curriculumDivision}</td>
                         <td>${item.curriculumName}</td>
-                        <td>${item.curriculumSemester}</td>
+                        <td>${item.lectureWeek}</td>
+                        <td><fmt:formatDate value="${item.startDate}" pattern="yyyy-MM-dd"/></td>
+                        <td><fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd"/></td>
+                        <td hidden="hidden">${item.curriculumContent}</td>
+                        <td hidden="hidden" class="curriculumId">${item.curriculumId}</td>
                     </tr>
                 </c:forEach>
                 <!-- 출력 끝-->
@@ -112,31 +117,11 @@
                 <tr>
                     <td class="tg-0lax title">과정년도</td>
                     <td class="tg-0lax">
-                        <input type="text" class="curriculum_inputBox"/>
+                        <input type="text" class="curriculum_inputBox" id="curriculum_year" name="curriculumYear"/>
                     </td>
-                    <td class="tg-0lax title">학년</td>
+                    <td class="tg-0lax title">강의주차</td>
                     <td class="tg-0lax">
-                        <div class="select_box">
-                            <select name="fruits" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">1학년</option>
-                                <option value="">2학년</option>
-                                <option value="">3학년</option>
-                                <option value="">4학년</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td class="tg-0lax title">과정구분</td>
-                    <td class="tg-0lax">
-                        <div class="select_box">
-                            <select name="fruits" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">정규과정</option>
-                                <option value="">야간과정</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
+                        <input type="text" class="curriculum_inputBox" id="lecture_week" name="lectureWeek"/>
                     </td>
                 </tr>
                 </thead>
@@ -144,69 +129,63 @@
                 <tr>
                     <td class="tg-0lax title">교육과정명</td>
                     <td class="tg-0lax" colspan="5">
-                        <input type="text" class="curriculum_inputBox"/>
+                        <input type="text" class="curriculum_inputBox" id="curriculum_name" name="curriculumName"/>
                     </td>
                 </tr>
                 <tr>
                     <td class="tg-0lax title">수업내용</td>
                     <td class="tg-0lax" colspan="5">
-                        <input type="text" class="curriculum_inputBox" id="curriculum_content"/>
+                        <input type="text" class="curriculum_inputBox" id="curriculum_content" name="curriculumContent"/>
                     </td>
                 </tr>
                 <tr>
-                    <td class="tg-0lax title">시작학기</td>
+                    <td class="tg-0lax title">시작일자</td>
                     <td class="tg-0lax">
-                        <div class="select_box">
-                            <select name="fruits" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">1학기</option>
-                                <option value="">2학기</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
+                        <input type="text" class="curriculum_inputBox" id="start_date" name="startDate"/>
                     </td>
-                    <td class="tg-0lax title">이수출석율</td>
+                    </td>
+                    <td class="tg-0lax title">종료일자</td>
                     <td class="tg-0lax" colspan="3">
-                        <input type="text" name="username" value="80%" class="curriculum_inputBox" disabled>
+                        <input type="text" class="curriculum_inputBox" id="end_date" name="endDate">
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
 
-        </br>
+<%--        </br>--%>
 
-        <div class="div_title_1">
-            <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>수업학기&nbsp;</span>검색결과:00건</p>
-        </div>
+<%--        <div class="div_title_1">--%>
+<%--            <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>수업학기&nbsp;</span>검색결과:00건</p>--%>
+<%--        </div>--%>
 
-        <div class="select_view_table_1">
-            <table>
-                <tbody>
-                <!-- 헤더 -->
-                <tr>
-                    <th>번호</th>
-                    <th>수업년도</th>
-                    <th>시작학기</th>
-                    <th>수강학년</th>
-                    <th>강의시작일</th>
-                    <th>강의종료일</th>
-                </tr>
-                <!-- 헤더 끝-->
+<%--        <div class="select_view_table_1">--%>
+<%--            <table>--%>
+<%--                <tbody>--%>
+<%--                <!-- 헤더 -->--%>
+<%--                <tr>--%>
+<%--                    <th>번호</th>--%>
+<%--                    <th>수업년도</th>--%>
+<%--                    <th>시작학기</th>--%>
+<%--                    <th>수강학년</th>--%>
+<%--                    <th>강의시작일</th>--%>
+<%--                    <th>강의종료일</th>--%>
+<%--                </tr>--%>
+<%--                <!-- 헤더 끝-->--%>
 
-                <c:forEach items="${curriculumDto}" var="item">
-                    <tr>
-                        <td>${item.curriculumId}</td>
-                        <td>${item.curriculumYear}</td>
-                        <td>${item.curriculumSemester}</td>
-                        <td>${item.lectureGrade}</td>
-                        <td><fmt:formatDate value="${item.startDate}" pattern="yyyy-MM-dd"/></td>
-                        <td><fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd"/></td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-    </div>
+<%--                <c:forEach items="${curriculumDto}" var="item">--%>
+<%--                    <tr>--%>
+<%--                        <td>${item.curriculumId}</td>--%>
+<%--                        <td>${item.curriculumYear}</td>--%>
+<%--&lt;%&ndash;                        <td>${item.curriculumSemester}</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <td>${item.lectureGrade}</td>&ndash;%&gt;--%>
+<%--                        <td><fmt:formatDate value="${item.startDate}" pattern="yyyy-MM-dd"/></td>--%>
+<%--                        <td><fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd"/></td>--%>
+<%--                    </tr>--%>
+<%--                </c:forEach>--%>
+<%--                </tbody>--%>
+<%--            </table>--%>
+<%--    </div>--%>
 </div>
 </body>
 </html>

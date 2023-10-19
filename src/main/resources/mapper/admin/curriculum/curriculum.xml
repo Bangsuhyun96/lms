@@ -4,7 +4,9 @@
 
 <!-- xml파일을 사용할 mapper가 있는 경로 -->
 <mapper namespace="com.lms.admin.curriculum.mapper.CurriculumMapper">
-    <select id="getAllCurriculum" resultType="com.lms.admin.curriculum.dto.CurriculumDto">
+
+    <!-- 교육과정 리스트 조회하기 -->
+    <select id="selectCurriculum" resultType="com.lms.admin.curriculum.dto.CurriculumDto">
         SELECT
             curriculum_id,
             curriculum_name,
@@ -12,12 +14,58 @@
             curriculum_year,
             lecture_week,
             start_date,
-            end_date,
-            attendance_rate,
-            curriculum_semester,
-            curriculum_division,
-            lecture_grade
+            end_date
         FROM curriculum
     </select>
+
+    <!-- 교육과정 추가하기 -->
+    <insert id="insertCurriculum" parameterType="com.lms.admin.curriculum.dto.CurriculumDto">
+        INSERT INTO curriculum
+            (curriculum_name, curriculum_content, curriculum_year, lecture_week, start_date, end_date)
+        VALUES
+            (#{curriculumName}, #{curriculumContent}, #{curriculumYear}, #{lectureWeek}, #{startDate}, #{endDate})
+    </insert>
+
+    <!-- 교욱과정 삭제하기 -->
+    <delete id="deleteCurriculum"  parameterType="java.util.List">
+        DELETE FROM curriculum
+        WHERE curriculum_id IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- 교육과정 수정하기 -->
+    <update id="updateCurriculum" parameterType="com.lms.admin.curriculum.dto.CurriculumDto">
+        UPDATE curriculum
+        SET
+            CURRICULUM_NAME = #{curriculumName},
+            CURRICULUM_CONTENT = #{curriculumContent},
+            CURRICULUM_YEAR = #{curriculumYear},
+            LECTURE_WEEK = #{lectureWeek},
+            START_DATE = #{startDate},
+            END_DATE = #{endDate}
+        WHERE CURRICULUM_ID = #{curriculumId}
+    </update>
+
+<!--    <select id="searchCurriculum" resultType="com.lms.admin.curriculum.dto.CurriculumDto">-->
+<!--        SELECT-->
+<!--        curriculum_id,-->
+<!--        curriculum_name,-->
+<!--        curriculum_content,-->
+<!--        curriculum_year,-->
+<!--        lecture_week,-->
+<!--        start_date,-->
+<!--        end_date-->
+<!--        FROM curriculum-->
+<!--        WHERE 1=1-->
+<!--        <if test="curriculumYear != null and curriculumYear != ''">-->
+<!--            AND curriculum_year = #{curriculumYear}-->
+<!--        </if>-->
+<!--        <if test="curriculumName != null and curriculumName != ''">-->
+<!--            AND curriculum_name LIKE CONCAT('%', #{curriculumName}, '%')-->
+<!--        </if>-->
+<!--    </select>-->
+
 
 </mapper>
