@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- xml파일을 사용할 mapper가 있는 경로 -->
+<mapper namespace="com.lms.admin.curriculum.mapper.CurriSubMapper">
+
+    <!-- 교육과정 교과목 리스트 조회하기 -->
+    <select id="selectCurri" resultType="com.lms.admin.curriculum.dto.CurriSubDto">
+--         SELECT
+--              CURRICULUM_NAME, CURRICULUM_YEAR, LECTURE_WEEK
+--         FROM CURRICULUM
+--         SELECT
+--             C.CURRICULUM_NAME, C.CURRICULUM_YEAR, C.LECTURE_WEEK, S.SUBJECT_NAME, S.SUBJECT_USE
+--         FROM CURRICULUM C
+--             INNER JOIN CURRICULUM_SUBJECT CS ON C.CURRICULUM_ID = CS.CURRICULUM_ID
+--             INNER JOIN SUBJECT S ON CS.SUBJECT_ID = S.SUBJECT_ID;
+
+--         SELECT DISTINCT C.CURRICULUM_NAME, C.CURRICULUM_YEAR
+--         FROM CURRICULUM_SUBJECT CS
+--                  INNER JOIN CURRICULUM C ON CS.CURRICULUM_ID = C.CURRICULUM_ID;
+           SELECT * FROM curriculum
+    </select>
+
+    <select id="selectSub" resultType="com.lms.admin.curriculum.dto.CurriSubDto">
+--         SELECT
+--             SUBJECT_NAME, SUBJECT_USE
+--         FROM subject
+        --         SELECT
+--             C.CURRICULUM_NAME, C.CURRICULUM_YEAR, C.LECTURE_WEEK, S.SUBJECT_NAME, S.SUBJECT_USE
+--         FROM CURRICULUM C
+--             INNER JOIN CURRICULUM_SUBJECT CS ON C.CURRICULUM_ID = CS.CURRICULUM_ID
+--             INNER JOIN SUBJECT S ON CS.SUBJECT_ID = S.SUBJECT_ID;
+--         SELECT S.SUBJECT_NAME, S.SUBJECT_USE
+--         FROM CURRICULUM_SUBJECT CS
+--                  INNER JOIN SUBJECT S ON CS.SUBJECT_ID = S.SUBJECT_ID
+--         WHERE CS.CURRICULUM_ID = #{CURRICULUM_ID} AND CS.SUBJECT_ID = #{SUBJECT_ID};
+
+SELECT subject_id, subject_name, subject_use
+FROM subject
+    </select>
+    
+    <select id="selectOne" resultType="com.lms.admin.curriculum.dto.CurriSubDto">
+        SELECT * FROM SUBJECT
+        WHERE SUBJECT_ID IN
+            (SELECT SUBJECT_ID FROM CURRICULUM_SUBJECT
+             WHERE CURRICULUM_ID = #{curriculumId});
+    </select>
+
+</mapper>
