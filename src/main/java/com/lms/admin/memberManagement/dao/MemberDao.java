@@ -6,7 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MemberDao {
-    void saveStudent(UserDto userDto);
+    UserDto saveStudent(UserDto userDto);
+    UserDto saveProf(UserDto userDto);
+
 
     void saveUser(JoinDto joinDto);
 
@@ -17,5 +19,12 @@ public interface MemberDao {
     void deleteStudent(String userId);
     void deleteProf(String userId);
 
+    UserDto findStudent(String userId);
+    UserDto findProf(String userId);
 
+    UserDto findStudentId(int studentId);
+    UserDto findProfId(int profId);
+
+    void updateStudent(UserDto userDto);
+    void updateProf(UserDto userDto);
 }

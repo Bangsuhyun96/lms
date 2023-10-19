@@ -23,17 +23,17 @@
 
             <!--  타이틀 2  -->
             <div class="div_title_2">
-                <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>학생정보저장&nbsp;</span></p>
+                <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>교수정보저장&nbsp;</span></p>
             </div>
             <!--  선택 테이블 구조 1 -->
             <div class="select_table_1">
                 <table>
                     <tbody>
                     <tr>
-                        <td><label>학번</label></td>
+                        <td><label>교수번호</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="studentId" class="select" value="${studentId}">
+                                <input type="text" name="profId" class="select" value="${profId}">
 
                             </div>
                         </td>
@@ -111,24 +111,24 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label>입학년도</label></td>
+                        <td><label>계좌번호</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="entranceYear" class="select">
+                                <input type="text" name="account" class="select">
 
                             </div>
                         </td>
-                        <td><label>상태구분</label></td>
+                        <td><label>예금주명</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="studentStatus" class="select">
+                                <input type="text" name="accountName" class="select" value="${user.name}">
 
                             </div>
                         </td>
-                        <td><label>유저ID</label></td>
+                        <td><label>은행명</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="userId" class="select" value="${user.userId}">
+                                <input type="text" name="accountBank" class="select" >
 
                             </div>
                         </td>
@@ -136,6 +136,31 @@
                     </tbody>
                 </table>
             </div>
+
+                <!--  선택 테이블 구조 1 -->
+                <div class="select_table_1">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td><label>강의시수단가</label></td>
+                            <td>
+                                <div class="select_box">
+                                    <input type="text" name="lectureFee" class="select">
+
+                                </div>
+                            </td>
+                            <td><label>사용자id</label></td>
+                            <td>
+                                <div class="select_box">
+                                    <input type="text" name="userId" class="select" value="${user.userId}">
+
+                                </div>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             <!-- 여기서 만들쟈-->
             <!-- 여기서 만들쟈-->
             <!-- 여기서 만들쟈-->

@@ -14,7 +14,7 @@
     <%@ include file="/WEB-INF/view/admin/common/aside.jsp" %>
 
         <div class="main_contents_right">
-            <form action="/admin/student/add" method="post">
+            <form action="/admin/prof/update" method="post">
             <!-- 상단 버튼 구조 1 -->
             <div class="div_common_button">
                 <button class="btn-default" type="submit">저장</button>
@@ -23,17 +23,17 @@
 
             <!--  타이틀 2  -->
             <div class="div_title_2">
-                <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>학생정보저장&nbsp;</span></p>
+                <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>교수정보저장&nbsp;</span></p>
             </div>
             <!--  선택 테이블 구조 1 -->
             <div class="select_table_1">
                 <table>
                     <tbody>
                     <tr>
-                        <td><label>학번</label></td>
+                        <td><label>교수번호</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="studentId" class="select" value="${studentId}">
+                                <input type="text" name="profId" class="select" value="${profId}" readonly>
 
                             </div>
                         </td>
@@ -47,7 +47,7 @@
                         <td><label>생년월일</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="date" name="birthDate" class="select" required>
+                                <input type="date" name="birthDate" class="select" value="${user.birthDate}">
 
                             </div>
                         </td>
@@ -56,25 +56,21 @@
                         <td><label>성별</label></td>
                         <td>
                             <div class="select_box">
-                                <select name="gender" class="select" required>
-                                    <option value="남성">남성</option>
-                                    <option value="여성">여성</option>
+                                <input type="text" name="gender" class="select" value="${user.gender}">
 
-                                </select>
-                                <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                             </div>
                         </td>
                         <td><label>주소</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="address" class="select">
+                                <input type="text" name="address" class="select" value="${user.address}">
 
                             </div>
                         </td>
                         <td><label>상세주소</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="addressDetail" class="select">
+                                <input type="text" name="addressDetail" class="select" value="${user.addressDetail}">
 
                             </div>
                         </td>
@@ -91,44 +87,44 @@
                         <td><label>우편번호</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="zipCode" class="select">
+                                <input type="text" name="zipCode" class="select" value="${user.zipCode}">
 
                             </div>
                         </td>
                         <td><label>연락처</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="phoneNo" class="select" required>
+                                <input type="text" name="phoneNo" class="select" value="${user.phoneNo}">
 
                             </div>
                         </td>
                         <td><label>이메일</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="email" name="email" class="select" value="${user.loginId}" >
+                                <input type="email" name="email" class="select" value="${user.email}" >
 
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td><label>입학년도</label></td>
+                        <td><label>계좌번호</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="entranceYear" class="select">
+                                <input type="text" name="account" class="select" value="${user.account}">
 
                             </div>
                         </td>
-                        <td><label>상태구분</label></td>
+                        <td><label>예금주명</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="studentStatus" class="select">
+                                <input type="text" name="accountName" class="select" value="${user.accountName}">
 
                             </div>
                         </td>
-                        <td><label>유저ID</label></td>
+                        <td><label>은행명</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="userId" class="select" value="${user.userId}">
+                                <input type="text" name="accountBank" class="select" value="${user.accountBank}">
 
                             </div>
                         </td>
@@ -136,6 +132,31 @@
                     </tbody>
                 </table>
             </div>
+
+                <!--  선택 테이블 구조 1 -->
+                <div class="select_table_1">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td><label>강의시수단가</label></td>
+                            <td>
+                                <div class="select_box">
+                                    <input type="text" name="lectureFee" class="select" value="${user.lectureFee}">
+
+                                </div>
+                            </td>
+                            <td><label>사용자id</label></td>
+                            <td>
+                                <div class="select_box">
+                                    <input type="text" name="userId" class="select" value="${user.userId}" readonly>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             <!-- 여기서 만들쟈-->
             <!-- 여기서 만들쟈-->
             <!-- 여기서 만들쟈-->

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.admin.lecture_apply.dao.ApplyDao">
+
+    <select id="selectInfo" resultType="com.lms.admin.lecture_apply.dto.LectureInfoDto">
+        SELECT li.`lecture_id`,
+               li.`lecture_name`,
+               li.`lecture_year`,
+               li.`hours`,
+               li.`progress`,
+               li.`student_count`,
+               li.`lecture_content`,
+               lt.`lecture_day`,
+               lt.`lecture_time`,
+               lt.`classroom`,
+               p.`name`
+        FROM `lecture_info` li
+                 JOIN `lecture_time` lt ON li.`lecture_id` = lt.`lecture_id`
+                 JOIN `prof` p ON li.`instructor_no` = p.`prof_id`;
+
+    </select>
+</mapper>

@@ -73,7 +73,7 @@
                 <c:forEach var="item" items="${member}">
                     <tr>
                         <td><input type="checkbox" class="checkbox" name="selectedItems"></td>
-                        <td>${item.userId}</td>
+                        <td><a href="/admin/find/member?userId=${item.userId}&userType=${item.userType}">${item.userId}</a></td>
                         <td>${item.userType}</td>
                         <td>${item.name}</td>
                         <td>${item.loginId}</td>

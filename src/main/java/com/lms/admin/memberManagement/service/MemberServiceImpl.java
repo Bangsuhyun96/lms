@@ -21,6 +21,12 @@ public class MemberServiceImpl implements MemberService{
         memberDao.saveStudent(userDTo);
     }
 
+
+    @Override
+    public void saveProf(UserDto userDTo) {
+        memberDao.saveProf(userDTo);
+    }
+
     @Override
     public int findStudentId() {
 //        System.out.println(memberDao.findByStudentId());
@@ -60,5 +66,29 @@ public class MemberServiceImpl implements MemberService{
 
         memberDao.deleteUser(userId);
 
+    }
+
+    // 상세조회
+    @Override
+    public UserDto findStudent(String userId) {
+        return memberDao.findStudent(userId);
+    }
+
+    @Override
+    public UserDto findProf(String userId) {
+        return memberDao.findProf(userId);
+    }
+
+
+    // 맴버 수정
+
+    @Override
+    public void updateStudent(UserDto userDto) {
+        memberDao.updateStudent(userDto);
+    }
+
+    @Override
+    public void updateProf(UserDto userDto) {
+        memberDao.updateProf(userDto);
     }
 }
