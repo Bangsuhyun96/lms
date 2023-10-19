@@ -12,6 +12,7 @@
 <!--            lecture_info l-->
 <!--                LEFT JOIN prof p ON l.lecture_id = p.prof_id;-->
 <!--    </select>-->
+
     <select id="getAllAssignments" resultType="com.lms.admin.assignments.dto.AssignmentDto">
         SELECT
             l.lecture_id as lectureId,
@@ -68,13 +69,13 @@
         WHERE
                 a.assignment_id = #{assignmentId}
     </insert>
-    <insert id="insertAssignment">
-        INSERT INTO lecture_info (student_count)
-        SELECT
-            l.student_count as studentCount,
-        FROM lecture_info l
-                 JOIN assignments a on l.lecture_id = a.assignment_id
-        WHERE
-            l.lecture_id = #{lectureId}
-    </insert>
+<!--    <insert id="insertAssignment">-->
+<!--        INSERT INTO lecture_info (student_count)-->
+<!--        SELECT-->
+<!--            l.student_count as studentCount,-->
+<!--        FROM lecture_info l-->
+<!--                 JOIN assignments a on l.lecture_id = a.assignment_id-->
+<!--        WHERE-->
+<!--            l.lecture_id = #{lectureId}-->
+<!--    </insert>-->
 </mapper>
