@@ -21,8 +21,34 @@ public class LwmServiceImpl implements LwmService{
 
     // 수업주차정보 선택 조회
     @Override
-    public List<LwmDto> searchLwmByYearAndSemester(String lectureYear, int curriculumSemester) {
-        return lwmMapper.searchLwmByYearAndSemester(lectureYear, curriculumSemester);
+    public List<LwmDto> searchLwmByYearAndName(String curriculumYear, String curriculumName) {
+        return lwmMapper.searchLwmByYearAndName(curriculumYear, curriculumName);
+    }
+
+    // 수업주차정보 추가
+    @Override
+    public int insertLwm(LwmDto lwmDto) {
+        return lwmMapper.insertLwm(lwmDto);
+    }
+
+    // 수업주차정보 업데이트
+    @Override
+    public int updateLwm(LwmDto lwmDto) {
+        return lwmMapper.updateLwm(lwmDto);
+    }
+
+    // 수업주차정보 삭제
+    @Override
+    public int clwDelete(int weekId){
+        return lwmMapper.deleteClw(weekId);
+    }
+    @Override
+    public int lectureTime(int weekId){
+        return lwmMapper.deleteLectureTime(weekId);
+    }
+    @Override
+    public int lwmDelete(int weekId){
+        return lwmMapper.deleteLwm(weekId);
     }
 
 }

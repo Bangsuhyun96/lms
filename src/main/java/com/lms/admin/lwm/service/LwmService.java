@@ -10,7 +10,15 @@ public interface LwmService {
     List<LwmDto> lwmSelectAll();
 
     // 수업주차정보 선택 조회
-    List<LwmDto> searchLwmByYearAndSemester(String lectureYear, int curriculumSemester);
+    List<LwmDto> searchLwmByYearAndName(String curriculumYear, String curriculumName);
 
+    // 수업주차정보 추가
+    int insertLwm(LwmDto lwmDto);
+    // 수업주차정보 업데이트
+    int updateLwm(LwmDto lwmDto);
+    // 수업주차정보 삭제
+    int clwDelete(int weekId);
+    int lectureTime(int weekId);
+    int lwmDelete(int weekId);
 
 }

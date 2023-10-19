@@ -1,6 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link href="<%=request.getContextPath()%>/resources/css/admin/assignments/assignments.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/admin/admin_assignments.css" rel="stylesheet">
 <script src="/resources/js/admin/assignments/assignments.js"></script>
 <!DOCTYPE html>
 <html lang="kor">
@@ -12,7 +12,7 @@
     <div class="main_contents_right">
         <!-- 상단 버튼 구조 1 -->
         <div class="div_common_button">
-            <button class="btn_pos">조회</button>
+            <button class="btn_pos" id="searchButton">조회</button>
             <button class="btn-default">삭제</button>
         </div>
         <!--  선택 테이블 구조 1 -->
@@ -20,42 +20,22 @@
             <table>
                 <tbody>
                 <tr>
-                    <td><label>수업년도/학기</label></td>
+                    <td><label>수업년도</label></td>
                     <td>
                         <div class="select_box select_2">
-                            <select name="" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">2020</option>
-                                <option value="">2021</option>
-                                <option value="">2022</option>
-                                <option value="">2023</option>
+                            <select id="lectureYearSelect" name="lectureYear" class="select">
+                                <option value="">(전체)</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
                             </select>
                             <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                         </div>
                     </td>
-                    <td>
-                        <div class="select_box select_2">
-                            <select name="" class="select">
-                                <option value=" ">(전체)</option>
-                                <option value="">1학기</option>
-                                <option value="">2학기</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
-                    <td><label>과정구분</label></td>
-                    <td>
-                        <div class="select_box">
-                            <select name="fruits" class="select">
-                                <option value="">정규과정</option>
-                            </select>
-                            <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
-                        </div>
-                    </td>
+
                     <td><label class="labeltext">개설강좌</label></td>
                     <td>
                         <div class="text_box">
-                            <input type="text" />
+                            <input type="text" id="searchInput" name="lectureName" placeholder="검색어를 입력하세요"/>
                         </div>
                     </td>
                 </tr>
@@ -70,7 +50,7 @@
                     <p><img src="<%=request.getContextPath()%>/resources/image/bullet-main.png" alt=""><span>강좌정보&nbsp;</span>검색결과:0000건</p>
                 </div>
                 <div class="select_view_table_1">
-                    <table>
+                    <table id="dataTable">
                         <tbody>
                         <!-- 헤더 -->
                         <tr>
@@ -82,29 +62,21 @@
                         </tr>
                         <!-- 헤더 끝-->
 
-                        <!--  출력  -->
-                        <tr>
-                            <c:forEach items="${assignment_name}" var="assignment_name">
 
-                            </c:forEach>
-                        </tr>
-                        <!-- 출력 끝-->
+                        <!--  출력  -->
+
+                        <c:forEach items="${assignments}" var="assignment" varStatus="loop">
+                            <tr>
+                                <td>${assignment.lectureId}</td>
+                                <td>${assignment.lectureName}</td>
+                                <td>${assignment.professorName}</td>
+                                <td>${assignment.studentCount}</td>
+                                <td>${assignment.assignmentCount}</td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
+
                     </table>
-                </div>
-                <div class="free_paging">
-                    <ul>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                    </ul>
                 </div>
             </div>
             <div>
@@ -136,108 +108,13 @@
                             <td>내용</td>
                             <td>내용</td>
                         </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
-                        <tr>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                            <td>내용</td>
-                        </tr>
                         <!-- 출력 끝-->
                         </tbody>
                     </table>
                 </div>
-                <div class="free_paging2">
-                    <ul>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                    </ul>
-                </div>
-                </div>
-
             </div>
+
+        </div>
 
         <!--  타이틀 2  -->
         <div class="div_title_1">
@@ -321,10 +198,8 @@
                             <div class="select_box">
                                 <select name="" class="select">
                                     <option value="">선택</option>
-                                    <option value="">2020</option>
-                                    <option value="">2021</option>
-                                    <option value="">2022</option>
                                     <option value="">2023</option>
+                                    <option value="">2024</option>
                                 </select>
                                 <span class="icoArrow"><img src="<%=request.getContextPath()%>/resources/image/icon-selectbtn.png" alt=""></span>
                             </div>
