@@ -1,5 +1,3 @@
-
-
 .header_wrap{display: flex; justify-content: space-between; padding: 0px 20px; border-bottom: 1px solid #d8d8d8;}
 .header_left img{height: 74px;}
 .header_right{display: flex; align-items: center;}
@@ -30,7 +28,7 @@
 .menu_tree{overflow-y: scroll; overflow-x: clip; padding: 14px 0 0 0; height: calc(100% - 120px);}
 .menu_tree td:hover{ background: #e8f5e9;}
 .menu_tree td:hover p span{ color:#4caf50; font-weight: 600;}
-.menu_tree::-webkit-scrollbar {width: 6px;}
+.menu_tree::-webkit-scrollbar {height: 6px;}
 .menu_tree::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .menu_tree::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
 .menu_tree td{ width: 243px;}
@@ -112,33 +110,29 @@ table td label{display: table-cell; width: 200px; text-align: left; padding: 12p
 .free_paging ul{ display: flex; justify-content: center; width: 100%; height: 40px; line-height: 40px; background: #fff;}
 .free_paging li{margin: 0 6px; display: inline-block;}
 
-/* 교욱과정 테이블1 체크 박스 */
-/*.select_view_table_1 .curriculum{background-color: #efefef; border:1px solid #aaa;}*/
-/*.select_view_table_1 td div {text-align: center;}*/
+/* 회원 테이블1 초기화 버튼 */
+.select_view_table_1 .table_btn_pos button{
+    width: 70px; height: 25px;
+    background: #fff; color: #2a2a2a; font-size: 0.95rem;
+    border: 1px solid #3a3a3a; border-radius: 3px;
+    cursor: pointer;}
 
-/* 교육과정 테이블1 구조 */
-.select_view_table_1 .allCheck{width: 20px; text-align: center;}
+/* 회원 테이블2 구조 */
+.select_view_table_2{width:100%; height: 220px;}
+.select_view_table_2 .tg{height:inherit;}
+.select_view_table_2 .tg td{border:1px solid #dcdcdc; padding:0 5px;}
+.select_view_table_2 .tg .tg-title{vertical-align: middle; background-color: white;}
+.select_view_table_2 .tg .name{width: 200px; padding:10px 5px; background-color: white;}
+.select_view_table_2 .tg .content{width: 400px;}
+.select_view_table_2 .tg .tg-title .dcontent{height:40px; background-color: #eaeaea;}
+.select_view_table_2 .tg .myimg{width: 65%; border:1px solid #dcdcdc; margin: auto;}
+.select_view_table_2 .myimg img{width: 100%; height: 180px;}
 
-/* 교육과정 테이블2 구조 */
-.select_view_table_2 .tg  {border:1px solid #aaa; width: 100%; background-color: white;}
-.select_view_table_2 .tg td{overflow:hidden; padding:10px 5px; border:1px solid #d2d5d6; width: 15%;}
-.select_view_table_2 .tg .tg-0lax{vertical-align: middle;}
-.select_view_table_2 .tg .tg-0lax title{width:500px;}
-
-/* 교육과정 테이블2 input 상자 */
-.curriculum_inputBox{width: 180px;height: 35px; border: 1px solid #d6d9dc; background-color: #efefef;}
-.curriculum_inputBox:focus{outline:none; border: 1px solid #4caf50;}
-#curriculum_content{width: 98%; height: 200px;}
-
-
-/* 교육과정 - 수업학기 테이블 체크 박스  */
-.select_view_table_1 .result {border:1px solid #aaa; background-color: white;}
-
-
-
+/*
 .select_view_table_1 .insturctor {background-color: #efefef; border:1px solid #aaa;}
 .tg{border:1px solid #aaa;}
 .tg td{border:1px solid #aaa; padding:10px 5px;}
 .tg th{border:1px solid #aaa; padding:10px 5px;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
+*/
