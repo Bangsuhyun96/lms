@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lms.admin.curriculumSchedule.mapper.CurriculumScheduleMapper">
+    <!-- 수업일정관리 전체 조회-->
+    <select id="curriculumScheduleSelect" resultType="com.lms.admin.curriculumSchedule.dto.CurriculumScheduleDto">
+        SELECT
+            c.curriculum_year as curriculumYear,
+            c.curriculum_name as curriculumName,
+            cs.certain_type as certainType,
+            cs.start_date as startDate,
+            cs.end_date as endDate
+        FROM
+        curriculum c JOIN curriculum_schedule cs on c.CURRICULUM_ID = cs.CURRICULUM_ID
+        ORDER BY c.CURRICULUM_ID ASC, c.CURRICULUM_NAME, cs.START_DATE ASC
+    </select>
+</mapper>
