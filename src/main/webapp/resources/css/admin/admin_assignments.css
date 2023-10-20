@@ -85,7 +85,7 @@ table td label{display: flex; width: 182px; text-align: left; padding: 12px;}
 
 /*  출력 테이블 구조 1  */
 .select_view_table{display: flex;}
-.select_view_table_1{height: 450px; overflow: scroll;}
+.select_view_table_1{max-height: 450px; overflow-y: scroll;}
 .select_view_table_1::-webkit-scrollbar {width: 6px; height: 0;}
 .select_view_table_1::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
 .select_view_table_1::-webkit-scrollbar-track {background-color: #FFF; border-radius: 50px; margin: 4px 0;}
@@ -100,7 +100,7 @@ table td label{display: flex; width: 182px; text-align: left; padding: 12px;}
 
 /* 페이징 */
 .select_view_table{display: flex;}
-.select_view_table_2{height: 450px; margin-left: 10px; overflow: scroll;}
+.select_view_table_2{max-height: 450px; margin-left: 10px; overflow-y: scroll;}
 .select_view_table_2 table{border:1px solid #aaa; width: 100%;}
 .select_view_table_2 th{ background: #efefef; border: 0.5px solid #d2d5d6; text-align: center; height: 40px; line-height: 40px; width: 150px;}
 .select_view_table_2 td{ background: #fefefe; border: 0.5px solid #dcdcdc; text-align: left; height: 40px; line-height: 40px; padding: 0 4px;}
