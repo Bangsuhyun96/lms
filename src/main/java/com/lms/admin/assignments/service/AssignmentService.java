@@ -11,4 +11,6 @@ public interface AssignmentService {
     List<AssignmentDto> getAllAssignments();
 //    List<SearchResult> search(AssignmentDto assignmentDto);
     List<Assignment> searchAssignments(String lectureName, String lectureYear);
+
+    int insertAssignment(AssignmentDto assignmentDto);
 }
