@@ -17,7 +17,7 @@
         <tr><td><a href="/admin/moli" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;개설강좌관리</span></p></a></td></tr>
         <tr><td><a href="/admin/schedule" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;수업일정정보</span></p></a></td></tr>
         <tr><td><a href="/admin/lecture/apply/subject" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;수강신청관리</span></p></a></td></tr>
-        <tr><td><a href="/admin/assignment" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;과제관리</span></p></a></td></tr>
+        <tr><td><a href="/admin/assignments" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;과제관리</span></p></a></td></tr>
         <tr><td><a href="/admin/lectureAttend" ><p><i class="fa-solid fa-folder-open text-indent"></i><span>&nbsp;출강강의관리</span></p></a></td></tr>
 
         </tbody>
