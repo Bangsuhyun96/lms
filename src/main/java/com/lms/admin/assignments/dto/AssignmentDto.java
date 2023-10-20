@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class AssignmentDto {
-    private int assignmentsId; // 과제ID
+    private int assignmentId; // 과제ID
     private int lectureId; // 강의ID
     private String assignmentName; // 과제명
     private String unit; // 수행단위
@@ -21,6 +21,7 @@ public class AssignmentDto {
     private int studentCount; // 추가: SQL 쿼리와 일치하도록 student_count 필드 추가
 
     private String lectureName; // 강의이름
+
     private String lectureYear; // 년도
     private int assignmentCount;
 

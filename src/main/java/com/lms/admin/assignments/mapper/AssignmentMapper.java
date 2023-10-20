@@ -14,4 +14,6 @@ public interface AssignmentMapper {
 //  List<SearchResult> search(AssignmentDto assignmentDto);
     List<Assignment> searchAssignments(@Param("lectureName") String lectureName, @Param("lectureYear") String lectureYear);
 
+    int insertAssignment(AssignmentDto assignmentDto);
+
 }
