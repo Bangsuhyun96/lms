@@ -1,8 +1,8 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=📕학습%20관리%20솔루션%20사이트%20&animation=&fontColor=222222&fontSize=40" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=📕학습%20관리%20솔루션%20사이트%20&animation=&fontColor=222222&fontSize=30" />
 </div>    
 <div style="text-align: left;"> 
-    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📕학습 관리 솔루션 사이트 </h2>  
+<!--     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📕학습 관리 솔루션 사이트 </h2>   -->
     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 스프링 부트 + Mybatis 학습 관리 솔루션 코딩 </div> 
 </div>
 <div style="text-align: left;">
