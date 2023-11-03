@@ -1,9 +1,9 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=📕학습%20관리%20솔루션%20사이트%20&animation=&fontColor=222222&fontSize=30" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=📕학습%20관리%20솔루션%20사이트%20&animation=&fontColor=222222&fontSize=33" />
 </div>    
 <div style="text-align: left;"> 
 <!--     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📕학습 관리 솔루션 사이트 </h2>   -->
-    <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 스프링 부트 + Mybatis 학습 관리 솔루션 코딩 </div> 
+<!--     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 스프링 부트 + Mybatis 학습 관리 솔루션 코딩 </div>  -->
 </div>
 <div style="text-align: left;">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🛠️ 기술 스택 </h2> <br>
@@ -50,6 +50,7 @@
 </div>
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🔎 멤버 구성 및 역할 분담 </h2> 
+    
     **😺팀장 방수현** : 프론트 전체, 강의주차 정보 관리, 수업 일정 정보 관리
     
     **😺팀원 김훈규** : 과제 관리
@@ -70,6 +71,7 @@
 </div>
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📗 프로젝트 회고 </h2>
+    
     ## 😼 Keep
 
     ## 😹 Problem
