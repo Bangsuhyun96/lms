@@ -60,8 +60,8 @@ HTML5, CSS3
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Development Tools
-        <img src="https://img.shields.io/badge/intellijidea-#000000?style=for-the-badge&logo=intellijidea&logoColor=white">
-        <img src="https://img.shields.io/badge/visualstudiocode-#007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
+        <img src="https://img.shields.io/badge/IntelliJ IDEA-#000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
+        <img src="https://img.shields.io/badge/Visual Studio Code-#007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Framework
