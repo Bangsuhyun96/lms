@@ -63,7 +63,7 @@
 </div>
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 💻 화면 구성 </h2>
-
+    <img src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
 </div>
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 💡 주요 기능 </h2>
