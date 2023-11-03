@@ -59,6 +59,8 @@ HTML5, CSS3
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Development Tools<br>
+        <img src="https://img.shields.io/badge/Java-#000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
+        <img src="https://img.shields.io/badge/Java-#000000?style=[뱃지모양]&logo=[아이콘이름]&logoColor=[폰트색]">
         <img src="https://img.shields.io/badge/IntelliJ IDEA-#000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
         <img src="https://img.shields.io/badge/Visual Studio Code-#007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
     </div>
