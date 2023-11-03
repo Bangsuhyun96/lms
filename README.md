@@ -68,6 +68,19 @@
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 💡 주요 기능 </h2>
 
+### 회원가입 및 로그인
+    - 관리자가 회원가입을 진행한다.
+    - 로그인 시 관리자, 학생, 강사 회원별 페이지로 리다이렉트한다.
+    
+### 강의 시간표
+    - 학생 또는 강사 회원별 개설된 강의를 시간표로 조회할 수 있다.
+    
+### 수강 관리
+    - 전체 성적 조회, 학기별 수강한 모든 이력을 조회할 수 있다.
+
+### 과제 관리
+    - 수강 혹은 강의중인 강의의 과제 리스트를 조회할 수 있다.
+    
 </div>
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📗 프로젝트 회고 </h2>
