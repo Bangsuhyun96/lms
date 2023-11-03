@@ -55,19 +55,17 @@ HTML5, CSS3
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Server<br>
-            <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=for-the-badge&logo=Apache Tomcat&logoColor=white">
+            <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=for-the-badge&logo=Apache Tomcat&logoColor=black">
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Development Tools<br>
-        <img src="https://img.shields.io/badge/Java-#000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
-        <img src="https://img.shields.io/badge/Java-#000000?style=[뱃지모양]&logo=[아이콘이름]&logoColor=[폰트색]">
-        <img src="https://img.shields.io/badge/IntelliJ IDEA-#000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
-        <img src="https://img.shields.io/badge/Visual Studio Code-#007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
+            <img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
+            <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Framework<br>
             <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white">
-            <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+<!--             <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"> -->
     </div>
     <div style="margin: ; text-align: left;" "text-align: left;">
         # Version control<br>
