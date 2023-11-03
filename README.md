@@ -1,5 +1,6 @@
-<div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=&animation=&fontColor=000000&fontSize=100&width=1000" />
+<div>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=&animation=&fontColor=000000&fontSize=70" />
+    <img src="https://capsule-render.vercel.app/api?type=모양&color=색상코드&height=높이&section=header&text=텍스트&fontSize=텍스트크기" />
 </div>
     
 <div style="text-align: left;"> 
