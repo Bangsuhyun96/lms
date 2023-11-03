@@ -82,6 +82,6 @@
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🧑‍💻 문의 </h2>
     <div style="text-align: left;">
         <a href=mailto:bangt968712@gmail.com> <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:bangt968712@gmail.com"></a>
+        <a href="https://open.kakao.com/o/smvWVhQf"><img src="https://img.shields.io/badge/KakaoTalk-FFCD00?style=for-the-badge&logoColor=black&logo=KakaoTalk"></a>
     </div>
-</div>
-    
+</div>    
