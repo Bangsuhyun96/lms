@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lms.user.mapper.UserInfoMapper">
+    <select id="userinfo" resultType="com.lms.user.dto.UserinfoDto">
+        SELECT
+            s.name,
+            s.birth_date,
+            s.gender,
+            s.address,
+            s.address_detail,
+            s.email,
+            s.phone_no
+            FROM student s
+        WHERE s.student_id = #{studentId}
+    </select>
+</mapper>

@@ -11,18 +11,14 @@
             <div>
                 <ul class="header_menu">
                     <li id="menu_item_1">
-                        <p>나의정보</p>
-                        <ul class="header_childmenu">
-                            <li><a href="/mypage/myinfo">나의 정보 조회</a></li>
-                            <li><a href="/mypage/coursehistory">수강 이력</a></li>
-                            <li><a href="/mypage/grade">성적 조회</a></li>
-                        </ul>
+                        <a href="/mypage/myinfo">
+                            <p>나의정보</p>
+                        </a>
                     </li>
                     <li id="menu_item_2">
                         <p>수업정보</p>
                         <ul class="header_childmenu">
                             <li><a href="/classinfo/myclass">나의 강의실</a></li>
-                            <li><a href="/classinfo/assignment">과제제출</a></li>
                             <li><a href="/classinfo/enroll">수강신청</a></li>
                             <li><a href="/classinfo/gradecheck">성적조회</a></li>
                         </ul>

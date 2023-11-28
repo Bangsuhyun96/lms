@@ -22,12 +22,12 @@
             <div class="myinfo_table">
                 <table>
                     <tbody>
-                        <tr><th><p>성명</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                        <tr><th><p>생년월일</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                        <tr><th><p>성별</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                        <tr><th><p>이메일</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                        <tr><th><p>주소</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                        <tr><th><p>연락처</p></th><td><input type="text" maxlength="50" disabled></td></tr>
+                        <tr><th><p>성명</p></th><td><input type="text" value=${studentInfo.name} maxlength="50" disabled></td></tr>
+                        <tr><th><p>생년월일</p></th><td><input type="text" value=${studentInfo.birthDate} maxlength="50" disabled></td></tr>
+                        <tr><th><p>성별</p></th><td><input type="text" value=${studentInfo.gender} maxlength="50" disabled></td></tr>
+                        <tr><th><p>이메일</p></th><td><input type="text" value="${studentInfo.email}" maxlength="50" disabled></td></tr>
+                        <tr><th><p>주소</p></th><td><input type="text" value="${studentInfo.address}, ${studentInfo.addressDetail}" maxlength="50" disabled></td></tr>
+                        <tr><th><p>연락처</p></th><td><input type="text" value=${studentInfo.phoneNo} maxlength="50" disabled></td></tr>
                     </tbody>
                 </table>
             </div>
