@@ -27,15 +27,16 @@ public class LwmServiceImpl implements LwmService{
 
     // 수업주차정보 추가
     @Override
-    public int insertLwm(LwmDto lwmDto) {
-        return lwmMapper.insertLwm(lwmDto);
+    public void insertLwm(LwmDto lwmDto) {
+        lwmMapper.insertLwm(lwmDto);
     }
 
     // 수업주차정보 업데이트
     @Override
-    public int updateLwm(LwmDto lwmDto) {
-        return lwmMapper.updateLwm(lwmDto);
+    public void updateLwm(LwmDto lwmDto) {
+        lwmMapper.updateLwm(lwmDto);
     }
+
 
     // 수업주차정보 삭제
     @Override

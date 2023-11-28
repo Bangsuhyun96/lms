@@ -26,15 +26,20 @@ public class CurriculumController {
         return "admin/curriculum/curriculum";
     }
 
-    // 교육과정 리스트 출력
+    // 교육과정 리스트 출력 : 페이징, 정렬
     @GetMapping("/admin/curriculumList")
-    public String getCurriculumList(Model model) {
-        List<CurriculumDto> curriculumDto = curriculumService.selectCurriculum();
+    public String getCurriculumList(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum, Model model) {
+        int pageSize = 5; // 한 페이지당 게시물 수
+        List<CurriculumDto> curriculumDto = curriculumService.selectCurriculum(pageNum, pageSize);
+
+        int totalCurriculumCount = curriculumService.getTotalCurriculumCount(); // 게시물의 총 개수를 계산
+        int totalPages = (int) Math.ceil((double) totalCurriculumCount / pageSize); //전체 페이지 수 계산(총 게시물/한 페이지당 게시물 수)
 
         // CurriculumDto에 있는 입학년도를 기준으로 오름차순 정렬
         Collections.sort(curriculumDto, Comparator.comparing(CurriculumDto::getCurriculumYear));
 
         model.addAttribute("curriculumDto", curriculumDto);
+        model.addAttribute("totalPages", totalPages);
         return "/admin/curriculum/curriculum";
     }
     //    @GetMapping("/admin/curriculumList")
