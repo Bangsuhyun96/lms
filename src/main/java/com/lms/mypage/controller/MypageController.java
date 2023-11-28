@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/mypage")
 public class MypageController {
-
-    @GetMapping("/myinfo")
-    public String myinfo(){
-        return "main/mypage/myinfo";
-    }
+//
+//    @GetMapping("/myinfo")
+//    public String myinfo(){
+//        return "main/mypage/myinfo";
+//    }
 
     @GetMapping("/coursehistory")
     public String coursehistory(){
