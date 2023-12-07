@@ -8,16 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/classinfo")
 public class ClassInfoController {
 
-    @GetMapping("myclass")
-    public String myClass(){
-        return "main/class_info/myclass";
-    }
-
-    @GetMapping("syllabus")
-    public String syllabus(){
-        return "main/class_info/syllabus";
-    }
-
     @GetMapping("attendance")
     public String attendance(){
         return "main/class_info/attendance";

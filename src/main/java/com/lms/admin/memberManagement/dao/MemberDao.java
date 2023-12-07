@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MemberDao {
-    UserDto saveStudent(UserDto userDto);
-    UserDto saveProf(UserDto userDto);
+    void saveStudent(UserDto userDto);
+    void saveProf(UserDto userDto);
 
 
     void saveUser(JoinDto joinDto);

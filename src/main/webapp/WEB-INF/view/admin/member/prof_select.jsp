@@ -33,7 +33,7 @@
                         <td><label>교수번호</label></td>
                         <td>
                             <div class="select_box">
-                                <input type="text" name="profId" class="select" value="${profId}" readonly>
+                                <input type="text" name="profId" class="select" value="${user.profId}" readonly>
 
                             </div>
                         </td>
