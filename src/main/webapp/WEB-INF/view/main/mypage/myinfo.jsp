@@ -14,9 +14,6 @@
         <div class="myinfo_info">
             <div class="myinfo_img">
                 <img src="<%= request.getContextPath() %>/resources/image/pro.jpg" alt="">
-                <div>
-                    <button>선택하기</button>
-                </div>
 
             </div>
             <div class="myinfo_table">
@@ -33,7 +30,7 @@
             </div>
         </div>
         <div class="myinfo_modify">
-            <button>수정하기</button>
+            <button type="submit" onclick="location.href='/mypage/myinfo/update'">수정하기</button>
         </div>
     </div>
 </div>

@@ -13,5 +13,6 @@
 .enroll_table{margin: 0 auto;}
 .enroll_table table{border: 1px solid #c2c2c2; min-width: 1400px; margin: 0 20px; text-align: center;}
 .enroll_table th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; background: #149000; color: #fff; border: 1px solid #149000;}
+.enroll_table th:nth-child(3){width: 280px;}
 .enroll_table td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; border-bottom: 1px solid #c2c2c2; max-width: 240px;}
 .enroll_table button{width: 65px; height: 24px; font-size: 0.9rem; background: #fff; color: #2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.2); cursor: pointer;}

@@ -38,11 +38,6 @@ public class ClassInfoController {
         return "/main/class_info/assignment_view";
     }
 
-    @GetMapping("enroll")
-    public String enroll(){
-        return "main/class_info/enroll";
-    }
-
     @GetMapping("gradecheck")
     public String gradecheck(){
         return "main/class_info/gradecheck";

@@ -5,6 +5,8 @@ import com.lms.user.mapper.UserInfoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class UserInfoServiceImpl implements UserInfoService{
@@ -14,5 +16,10 @@ public class UserInfoServiceImpl implements UserInfoService{
     @Override
     public UserinfoDto userInfo(int studentId){
         return userInfoMapper.userinfo(studentId);
+    }
+
+    @Override
+    public int userInfoUpdate(Map<String, Object> params){
+        return userInfoMapper.userInfoUpdate(params);
     }
 }

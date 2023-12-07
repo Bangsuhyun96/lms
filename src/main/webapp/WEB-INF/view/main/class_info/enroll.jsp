@@ -13,62 +13,55 @@
         </div>
         <div class="enroll_contents">
             <div class="enroll_contents_1">
-                <p>년도 / 학기</p>
-                <input type="text" value="2023" disabled>
-                <input type="text" value="1학기" disabled>
+                <p>년도</p>
+                <input type="text" id="currentYear" disabled>
             </div>
+            <script>
+                var currentYear = new Date().getFullYear();
+                document.getElementById("currentYear").value = currentYear;
+            </script>
         </div>
         <div class="enroll_table">
             <table>
                 <tbody>
                 <tr>
-                    <th>년도</th>
-                    <th>개설강좌명</th>
-                    <th>학점</th>
+                    <th>개설과정명</th>
                     <th>교수명</th>
-                    <th>강의시간</th>
-                    <th>강의명</th>
-                    <th>신청인원</th>
-                    <th>신청버튼</th>
+                    <th>진행일자</th>
+                    <th>수강인원</th>
+                    <th>학습과목</th>
+                    <th>수강신청</th>
                 </tr>
                 <tr>
-                    <td>2023</td>
                     <td>한국어</td>
-                    <td>3</td>
                     <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
+                    <td>2023/12/07 ~ 2023/06/01</td>
                     <td>30명</td>
+                    <td><button type="submit">상세보기</button></td>
                     <td><button type="submit">신청</button></td>
                 </tr>
                 <tr>
-                    <td>2023</td>
                     <td>한국어</td>
-                    <td>3</td>
                     <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
+                    <td>2023/12/07 ~ 2023/06/01</td>
                     <td>30명</td>
+                    <td><button type="submit">상세보기</button></td>
                     <td><button type="submit">신청</button></td>
                 </tr>
                 <tr>
-                    <td>2023</td>
                     <td>한국어</td>
-                    <td>3</td>
                     <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
+                    <td>2023/12/07 ~ 2023/06/01</td>
                     <td>30명</td>
+                    <td><button type="submit">상세보기</button></td>
                     <td><button type="submit">신청</button></td>
                 </tr>
                 <tr>
-                    <td>2023</td>
                     <td>한국어</td>
-                    <td>3</td>
                     <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
+                    <td>2023/12/07 ~ 2023/06/01</td>
                     <td>30명</td>
+                    <td><button type="submit">상세보기</button></td>
                     <td><button type="submit">신청</button></td>
                 </tr>
                 </tbody>
@@ -81,54 +74,20 @@
             <table>
                 <tbody>
                 <tr>
-                    <th>년도</th>
-                    <th>개설강좌명</th>
-                    <th>학점</th>
+                    <th>개설과정명</th>
                     <th>교수명</th>
-                    <th>강의시간</th>
-                    <th>강의명</th>
-                    <th>신청인원</th>
-                    <th>삭제버튼</th>
+                    <th>진행일자</th>
+                    <th>수강인원</th>
+                    <th>학습과목</th>
+                    <th>수강취소</th>
                 </tr>
                 <tr>
-                    <td>2023</td>
                     <td>한국어</td>
-                    <td>3</td>
                     <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
+                    <td>2023/12/07 ~ 2023/06/01</td>
                     <td>30명</td>
-                    <td><button type="submit">삭제</button></td>
-                </tr>
-                <tr>
-                    <td>2023</td>
-                    <td>한국어</td>
-                    <td>3</td>
-                    <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
-                    <td>30명</td>
-                    <td><button type="submit">삭제</button></td>
-                </tr>
-                <tr>
-                    <td>2023</td>
-                    <td>한국어</td>
-                    <td>3</td>
-                    <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
-                    <td>30명</td>
-                    <td><button type="submit">삭제</button></td>
-                </tr>
-                <tr>
-                    <td>2023</td>
-                    <td>한국어</td>
-                    <td>3</td>
-                    <td>서지환</td>
-                    <td>월요일 1교시</td>
-                    <td>601호</td>
-                    <td>30명</td>
-                    <td><button type="submit">삭제</button></td>
+                    <td><button type="submit">상세보기</button></td>
+                    <td><button type="submit">취소</button></td>
                 </tr>
                 </tbody>
             </table>

@@ -12,4 +12,6 @@ public class UserinfoDto {
     private String address; // 주소
     private String addressDetail; // 상세주소
     private String phoneNo; // 연락처
+    private String zipCode; // 우편번호
+    private String profileImg; // 프로필사진
 }
