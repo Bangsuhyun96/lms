@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 나의 강의실 년도 띄우기 -->
+<mapper namespace="com.lms.user.classinfo.mapper.StuClassInfoMapper">
+    <select id="lectureYearAll" resultType="com.lms.user.classinfo.dto.StuClassInfoDto">
+        SELECT li.lecture_year, li.LECTURE_NAME, li.LECTURE_ID
+        FROM student s
+                 JOIN lecture_apply la ON s.student_id = la.student_id
+                 JOIN lecture_info li ON la.lecture_id = li.lecture_id
+        WHERE
+            s.STUDENT_ID = #{studentId};
+    </select>
+
+<!-- 강좌 정보 띄우기 -->
+    <select id="getSyllabusInfo" resultType="com.lms.user.classinfo.dto.StuClassInfoDto">
+        SELECT
+            li.lecture_name,
+            li.lecture_year,
+            p.name AS profName,
+            p.phone_no AS tel,
+            p.email,
+            lt.lecture_day,
+            lt.lecture_time,
+            lt.classroom,
+            c.curriculum_name
+        FROM
+            student s
+                JOIN
+            lecture_apply la ON s.student_id = la.student_id
+                JOIN
+            lecture_info li ON la.lecture_id = li.lecture_id
+                JOIN
+            prof p ON li.instructor_no = p.prof_id
+                JOIN
+            lecture_time lt ON li.lecture_id = lt.lecture_id
+                JOIN
+            curriculum c ON li.curriculum_id = c.curriculum_id
+        WHERE
+            s.STUDENT_ID = #{studentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 강의 일정 띄우기 -->
+    <select id="getLectureSchedule" resultType="com.lms.user.classinfo.dto.StuClassInfoDto">
+        SELECT
+            clw.lecture_week,
+            clw.start_date,
+            clw.end_date,
+            ls.lecture_contents
+        FROM
+            curriculum_lecture_week clw
+                JOIN
+            lecture_schedule ls ON clw.week_id = ls.week_id
+                JOIN
+            lecture_info li ON ls.lecture_id = li.lecture_id
+                JOIN
+            lecture_apply la ON li.lecture_id = la.lecture_id
+                JOIN
+            student s ON la.student_id = s.student_id
+        WHERE
+            s.STUDENT_ID = #{studentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+</mapper>
