@@ -12,21 +12,25 @@
         <div class="syllabus_title">
             <p>강좌정보</p>
         </div>
+
         <div class="syllabus_contents">
             <div class="syllabus_contents_1">
                 <p>년도</p>
                 <input type="text" value="${param.lectureYear}" disabled>
             </div>
+
             <div class="syllabus_contents_1">
                 <p>과정명</p>
                     <input type="text" value="${stuClassInfoDtos.curriculumName}" disabled>
             </div>
+
             <div class="syllabus_contents_1">
                 <p>시작일</p>
                 <fmt:formatDate value="${stuLectureSchedules[0].startDate}" pattern="yyyy-MM-dd" var="formattedStartDate" />
                 <input type="text" value="${formattedStartDate}" disabled>
             </div>
-<%--            <!-- 마지막 종료일 들고오기 -->--%>
+
+            <!-- 마지막 종료일 들고오기 -->
             <c:set var="count" value="0" />
             <c:forEach var="item" items="${stuLectureSchedules}">
                 <tr>
@@ -39,6 +43,7 @@
                 <input type="text" value="${formattedEndDate}" disabled>
             </div>
         </div>
+
         <div class="syllabus_table2">
             <table>
                 <tbody>
@@ -60,11 +65,13 @@
                         <th>E-mail</th>
                         <td>${stuClassInfoDtos.email}</td>
                     </tr>
+                    <tr>
+                        <th>교과목 설명</th>
+                        <td colspan="4">${stuClassInfoDtos.subjectContent}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-
-
 
 <%--        <div class="syllabus_title2">--%>
 <%--            <p>학습평가방식</p>--%>
@@ -83,55 +90,23 @@
         <div class="syllabus_title3">
             <p>강의일정</p>
         </div>
+
         <div class="syllabus_table">
             <table>
                 <tbody>
-                <tr>
-                    <th>수업일자</th>
-                    <th>수업내용</th>
-                </tr>
+                    <tr>
+                        <th>강의주차</th>
+                        <th>수업내용</th>
+                    </tr>
                 <c:forEach items="${stuLectureSchedules}" var="item">
-                <tr>
-
+                    <tr>
                         <td>${item.lectureWeek}주차</td>
                         <td>${item.lectureContents}</td>
-
-                </tr>
+                    </tr>
                 </c:forEach>
-
-<%--                <tr>--%>
-<%--                    <td>2023-09-30</td>--%>
-<%--                    <td>-</td>--%>
-<%--                    <td></td>--%>
-<%--                    <td>대면</td>--%>
-<%--                    <td>방수현</td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td>2023-09-30</td>--%>
-<%--                    <td>-</td>--%>
-<%--                    <td></td>--%>
-<%--                    <td>대면</td>--%>
-<%--                    <td>방수현</td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td>2023-09-30</td>--%>
-<%--                    <td>-</td>--%>
-<%--                    <td></td>--%>
-<%--                    <td>대면</td>--%>
-<%--                    <td>방수현</td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td>2023-09-30</td>--%>
-<%--                    <td>-</td>--%>
-<%--                    <td></td>--%>
-<%--                    <td>대면</td>--%>
-<%--                    <td>방수현</td>--%>
-<%--                </tr>--%>
                 </tbody>
             </table>
         </div>
-
-
     </div>
 </div>
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>

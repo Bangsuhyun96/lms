@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.prof.profClassInfo.mapper.ProfClassInfoMapper">
+
+    <!-- 나의 강의실 년도 띄우기 -->
+    <select id="lectureYearAll" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
+        SELECT li.lecture_year
+        FROM lecture_info li
+                 JOIN prof p ON li.instructor_no = p.prof_id
+        WHERE p.prof_id = #{profId};
+    </select>
+
+    <!-- 나의 강의실 수강 과목 띄우기 -->
+    <select id="lectureSubjectAll" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
+        SELECT li.lecture_year, li.LECTURE_NAME, li.LECTURE_ID
+        FROM lecture_info li
+                 JOIN prof p ON li.instructor_no = p.prof_id
+        WHERE p.prof_id = #{profId};
+    </select>
+
+    <!-- 강좌 정보 : 년도, 과정명 -->
+    <select id="getSyllabusInfo" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
+        SELECT
+            li.LECTURE_ID,
+            li.lecture_name,
+            li.lecture_year,
+            c.curriculum_name
+        FROM
+            lecture_info li
+                JOIN prof p ON li.instructor_no = p.prof_id
+                JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+        WHERE
+            p.prof_id = #{profId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 강좌 정보 : 날짜 -->
+    <select id="getSyllabusDateInfo" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
+        SELECT
+            clw.lecture_week,
+            clw.start_date,
+            clw.end_date
+        FROM
+            curriculum_lecture_week clw
+                JOIN
+            curriculum c ON clw.curriculum_id = c.curriculum_id
+                JOIN
+            lecture_info li ON c.curriculum_id = li.curriculum_id
+                JOIN
+            prof p ON li.instructor_no = p.prof_id
+        WHERE
+            p.prof_id = #{profId}
+        AND li.lecture_year = #{lectureYear}
+        AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 강좌 계획 -->
+    <select id="getSyllabusPlan" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
+        SELECT
+            li.LECTURE_ID,
+            li.lecture_name,
+            li.LECTURE_CONTENT AS subjectContent,
+            p.name AS profName,
+            p.phone_no AS tel,
+            p.email,
+            lt.lecture_day,
+            lt.lecture_time,
+            lt.classroom
+        FROM
+            prof p
+                JOIN
+            lecture_info li ON p.prof_id = li.instructor_no
+                JOIN
+            lecture_apply la ON li.lecture_id = la.lecture_id
+                JOIN
+            student s ON la.student_id = s.student_id
+                JOIN
+            lecture_time lt ON li.lecture_id = lt.lecture_id
+        WHERE
+            p.prof_id = #{profId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 주차 계획 -->
+    <select id="getWeeklyPlan" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
+        SELECT ls.lecture_contents, ls.LECTURE_SCHEDULE_ID as lectureScheduleId, clw.lecture_week
+        FROM lecture_schedule ls
+                 JOIN
+            curriculum_lecture_week clw ON ls.week_id = clw.week_id
+                 JOIN
+            lecture_info li ON ls.lecture_id = li.lecture_id
+                 JOIN
+            prof p ON li.instructor_no = p.prof_id
+        WHERE p.prof_id = #{profId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 강좌 계획 교과목 설명 추가 -->
+    <update id="insertSubjectPlan" parameterType="java.util.Map">
+        UPDATE lecture_info
+        SET
+            LECTURE_CONTENT = #{subjectContent}
+        WHERE LECTURE_ID = #{lectureId};
+    </update>
+
+    <!-- 강좌 계획 주차별 교과목 상세 설명 추가 -->
+<!--    <update id="insertLectureContents" parameterType="java.util.Map">-->
+<!--        UPDATE lecture_schedule-->
+<!--        SET-->
+<!--            LECTURE_CONTENTS = #{lectureContents}-->
+<!--        WHERE LECTURE_SCHEDULE_ID = #{lectureScheduleId};-->
+
+<!--&lt;!&ndash;        <foreach collection="params" item="param" separator=";">&ndash;&gt;-->
+<!--&lt;!&ndash;            UPDATE lecture_schedule&ndash;&gt;-->
+<!--&lt;!&ndash;            SET LECTURE_CONTENTS = #{param.lectureContents}&ndash;&gt;-->
+<!--&lt;!&ndash;            WHERE LECTURE_SCHEDULE_ID = #{param.lectureScheduleId}&ndash;&gt;-->
+<!--&lt;!&ndash;        </foreach>&ndash;&gt;-->
+<!--    </update>-->
+
+<!--    <insert id="insertLectureContents" parameterType="java.util.Map">-->
+<!--        INSERT INTO lecture_schedule (lecture_contents, week_id)-->
+<!--        VALUES-->
+<!--        <foreach collection="contentsList" item="content" index="index" separator=",">-->
+<!--            (#{content}, (SELECT week_id FROM curriculum_lecture_week WHERE lecture_week = #{index + 1}))-->
+<!--        </foreach>-->
+
+<!--    </insert>-->
+
+    <update id="insertLectureContents" parameterType="java.util.Map">
+        <foreach collection="contentsList" index="index" item="item" separator=" ">
+            UPDATE lecture_schedule ls
+            JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id
+            SET ls.lecture_contents = #{contentsList[index]}
+            WHERE clw.lecture_week = #{index + 1}
+            AND ls.lecture_id = #{lectureId}
+        </foreach>
+    </update>
+
+
+
+
+</mapper>

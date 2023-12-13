@@ -1,18 +1,18 @@
-package com.lms.user.classinfo.dto;
+package com.lms.prof.profClassInfo.dto;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class StuClassInfoDto {
+public class ProfClassInfoDto {
     // lecture_info
     private String lectureYear;
     private String lectureName;
     private String subjectContent; // 교과목 설명
 
     private int lectureId;
-    private int studentId;
+    private int profId;
 
     // curriculum
     private String curriculumName;
@@ -28,11 +28,12 @@ public class StuClassInfoDto {
     private String classroom;
 
     // curriculum_lecture_week
-    private int lectureWeek;
     private Date startDate;
     private Date endDate;
+    private int lectureWeek;
 
     // lecture_schedule
     private String lectureContents; // 주차별 교과목 상세 설명
+    private int lectureScheduleId;
 
 }
