@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.classInfo.mapper.EnrollMapper">
+    <select id="enrollAll" resultType="com.lms.classInfo.dto.EnrollDto">
+        SELECT distinct
+            c.curriculum_name,
+            c.start_date,
+            c.end_date,
+            li.student_count,
+            li.CURRICULUM_ID
+        FROM lecture_info li
+                 JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+        WHERE c.CURRICULUM_YEAR = YEAR(CURDATE())
+    </select>
+
+    <select id="subAndProf" resultType="com.lms.classInfo.dto.EnrollDto">
+        SELECT
+            c.curriculum_name,
+            p.name,
+            s.subject_name
+        FROM lecture_info li
+                 JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+                 JOIN prof p ON li.instructor_no = p.prof_id
+                 JOIN subject s ON li.subject_id = s.subject_id
+        WHERE li.lecture_year = YEAR(CURDATE())
+    </select>
+
+    <!-- 수강신청한 과목 출력 -->
+    <select id="enrolmented" resultType="com.lms.classInfo.dto.EnrollDto">
+        SELECT distinct
+            c.CURRICULUM_ID,
+            c.curriculum_name,
+            c.start_date,
+            c.end_date,
+            la.count
+            FROM lecture_apply la
+        JOIN lecture_info li ON la.lecture_id = li.lecture_id
+        JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+        WHERE la.student_id = #{studentId}
+            AND li.lecture_year = YEAR(CURDATE())
+    </select>
+
+    <!-- 수강신청 과목 삽입 -->
+    <insert id="insertSub" parameterType="java.util.Map">
+        INSERT IGNORE INTO lecture_apply(lecture_id, student_id)
+            SELECT li.lecture_id, #{studentID}
+             FROM lecture_info li
+             WHERE li.curriculum_id = #{curriculumId}
+    </insert>
+
+    <!-- 수강 취소 -->
+    <delete id="deleteCurriculum" parameterType="java.util.Map">
+        DELETE la
+        FROM lecture_apply la
+        JOIN lecture_info li ON la.lecture_id = li.lecture_id
+        WHERE la.student_id = #{studentID} AND
+            li.curriculum_id = #{curriculumId}
+    </delete>
+
+    <!-- 수강인원수 업데이트 -->
+    <update id="countUpdate" parameterType="int">
+        UPDATE lecture_apply la
+            JOIN (
+            SELECT la2.LECTURE_ID, COUNT(la2.student_id) AS new_count
+            FROM lecture_apply la2
+            JOIN lecture_info li ON la2.LECTURE_ID = li.LECTURE_ID
+            WHERE li.CURRICULUM_ID = #{curriculumId}
+            GROUP BY la2.LECTURE_ID
+            ) subquery ON la.LECTURE_ID = subquery.LECTURE_ID
+            SET la.count = subquery.new_count
+        WHERE EXISTS (
+            SELECT 1
+            FROM lecture_info li
+            WHERE la.LECTURE_ID = li.LECTURE_ID AND li.CURRICULUM_ID = #{curriculumId}
+            );
+    </update>
+</mapper>

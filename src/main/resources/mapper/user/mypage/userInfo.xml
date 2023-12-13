@@ -10,8 +10,21 @@
             s.address,
             s.address_detail,
             s.email,
-            s.phone_no
+            s.phone_no,
+            s.ZIP_CODE
             FROM student s
         WHERE s.student_id = #{studentId}
     </select>
+
+    <update id="userInfoUpdate" parameterType="map">
+        UPDATE student s
+        SET s.NAME = #{name},
+            s.GENDER = #{gender},
+            s.EMAIL = #{email},
+            s.ZIP_CODE = #{zipCode},
+            s.ADDRESS = #{address},
+            s.ADDRESS_DETAIL = #{addressDetail},
+            s.PHONE_NO = #{phoneNo}
+        WHERE s.STUDENT_ID = #{studentID}
+    </update>
 </mapper>
