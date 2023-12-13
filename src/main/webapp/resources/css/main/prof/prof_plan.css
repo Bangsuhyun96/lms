@@ -17,7 +17,7 @@
 
 .syllabus_table2{margin: 20px auto 0;}
 .syllabus_table2 table{min-width: 1400px; margin: 0 20px; text-align: center; border-bottom: 1px solid #2a2a2a; border-top: 1px solid #c2c2c2; }
-.syllabus_table2 th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; background: #149000; color: #fff; border-bottom: 1px solid #c2c2c2;}
+.syllabus_table2 th{width: 140px; padding: 0 40px; height: 40px; line-height: 40px; font-size: 1.2rem; background: #149000; color: #fff; border-bottom: 1px solid #c2c2c2; font-size: 16px;}
 .syllabus_table2 td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; max-width: 240px; border-bottom: 1px solid #c2c2c2;}
 
 .lectoer_plan_table3{margin: 20px auto 0;}
@@ -26,5 +26,13 @@
 .lectoer_plan_table3 td{height: 40px; line-height: 40px; font-size: 1rem; padding: 0 20px; background: #f8f8f8; max-width: 240px; border-bottom: 1px solid #c2c2c2;}
 
 
-.lectoer_plan_pagebtn{ display: flex; margin: 12px 0 0 12px;}
+.lectoer_plan_pagebtn{display: flex; margin-top: 10px; margin-right: 20px; float: right;}
 button{width: 90px; height: 30px; background: #fff; font-size: 0.95rem; color:#2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer; margin: 0 0 0 8px;}
+
+/* input 박스 크기 및 폰트 크기 */
+table tbody tr td input{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    font-size: 15px;
+}

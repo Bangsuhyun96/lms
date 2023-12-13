@@ -29,8 +29,8 @@ public class ProfController {
     }
 
 
-    @GetMapping("/plan")
-    public String profPlan(){ return "main/prof/prof_plan"; }
+//    @GetMapping("/plan")
+//    public String profPlan(){ return "main/prof/prof_plan"; }
 
     @GetMapping("/weekplan")
     public String profWeekPlan(){ return "main/prof/prof_weekplan"; }

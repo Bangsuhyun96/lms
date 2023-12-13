@@ -16,14 +16,18 @@ import java.util.List;
 public class StuController {
     public final StuClassInfoService stuClassInfoService;
 
-    // 나의 강의실 년도 띄우기
+    // 나의 강의실 년도 및 수강 과목 띄우기
     @GetMapping("/classinfo/myclass")
     public String selectYear(Model model, HttpSession session) {
         UserDto userDto = (UserDto) session.getAttribute("login");
         int studentID = userDto.getStudentId();
 
-        List<StuClassInfoDto> stuClassInfoDto = stuClassInfoService.lectureYearAll(studentID);
-        model.addAttribute("stuClassInfoDto", stuClassInfoDto);
+        List<StuClassInfoDto> stuClassInfoYearDto = stuClassInfoService.lectureYearAll(studentID);
+        List<StuClassInfoDto> stuClassInfoSubjectDto = stuClassInfoService.lectureSubjectAll(studentID);
+
+        model.addAttribute("stuClassInfoYearDto", stuClassInfoYearDto);
+        model.addAttribute("stuClassInfoSubjectDto", stuClassInfoSubjectDto);
+
         return "main/class_info/myclass";
     }
 
@@ -38,6 +42,7 @@ public class StuController {
 
         StuClassInfoDto stuClassInfoDtos = stuClassInfoService.getSyllabusInfo(lectureYear, lectureName, studentID);
         List<StuClassInfoDto> stuLectureSchedules = stuClassInfoService.getLectureSchedule(lectureYear, lectureName, studentID);
+
         model.addAttribute("stuClassInfoDtos", stuClassInfoDtos);
         model.addAttribute("stuLectureSchedules", stuLectureSchedules);
 
