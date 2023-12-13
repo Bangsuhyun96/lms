@@ -15,4 +15,9 @@ public class EnrollDto {
     private String subjectName; // 과목이름
     private Date startDate; // 시작일자
     private Date endDate; // 종료일자
+
+    // --------------------//
+
+    private int count; // 인원수
+
 }
