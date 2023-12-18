@@ -70,14 +70,14 @@
                             document.querySelector(".bg").addEventListener("click", close);
 
                         </script>
-                        <td><button type="submit" onclick="confirmApply('${item.curriculumName}')">신청</button></td>
+                        <td><button type="submit" onclick="confirmApply('${item.curriculumName}', '${item.curriculumId}')">신청</button></td>
                         <script>
-                            function confirmApply(curriculumName){
+                            function confirmApply(curriculumName, curriculumId){
                                 var isConfirmed = confirm(curriculumName + " 을(를) 신청하시겠습니까?");
 
                                 if(isConfirmed) {
                                     var param = {
-                                        curriculumId : $("#curriculumId").val()
+                                        curriculumId
                                     }
                                     // ajax 통신
                                     $.ajax({
@@ -127,7 +127,7 @@
                     <td><fmt:formatDate value="${enrolmented.startDate}" pattern="yyyy/MM/dd"/> ~ <fmt:formatDate value="${enrolmented.endDate}" pattern="yyyy/MM/dd"/></td>
                     <td>${enrolmented.count}명</td>
                     <td><button class="openBtn2">상세보기</button></td>
-                    <div class="modal hidden">
+                    <div class="modal1 hidden">
                         <div class="bg2"></div>
                         <div class="modalBox">
                             <div id="modalTitle">학습과목 (교수명)</div>
@@ -144,11 +144,11 @@
                     <script>
 
                         const open = () => {
-                            document.querySelector(".modal").classList.remove("hidden");
+                            document.querySelector(".modal1").classList.remove("hidden");
                         }
 
                         const close = () => {
-                            document.querySelector(".modal").classList.add("hidden");
+                            document.querySelector(".modal1").classList.add("hidden");
                         }
 
                         document.querySelector(".openBtn2").addEventListener("click", open);

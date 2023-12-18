@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class EnrollServiceImpl implements EnrollService{
+public class EnrollServiceImpl implements EnrollService {
 
     @Autowired // Mapper와 연결
     private EnrollMapper enrollMapper;
 
     @Override
-    public List<EnrollDto> enrollAll(){
+    public List<EnrollDto> enrollAll() {
         return enrollMapper.enrollAll();
     }
 
@@ -25,28 +25,30 @@ public class EnrollServiceImpl implements EnrollService{
     }
 
     @Override
-    public EnrollDto enrolmented(int studentId){
+    public EnrollDto enrolmented(int studentId) {
         return enrollMapper.enrolmented(studentId);
     }
 
     @Override
-    public void insertSub(Map<String, Object> paramMap){
+    public void insertSub(Map<String, Object> paramMap) {
         enrollMapper.insertSub(paramMap);
     }
 
     @Override
-    public boolean checkIfAlreadyEnrolled(int studentId){
+    public boolean checkIfAlreadyEnrolled(int studentId) {
         return enrollMapper.enrolmented(studentId) != null;
     }
 
     @Override
-    public void deleteCurriculum(Map<String, Object> paramMap){
+    public void deleteCurriculum(Map<String, Object> paramMap) {
         enrollMapper.deleteCurriculum(paramMap);
     }
 
     // 신청인원수 업데이트
     @Override
-    public void countUpdate(int curriculumId){
+    public void countUpdate(int curriculumId) {
         enrollMapper.countUpdate(curriculumId);
     }
+
 }
+
