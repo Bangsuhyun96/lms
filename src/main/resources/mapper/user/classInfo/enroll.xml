@@ -76,4 +76,17 @@
             WHERE la.LECTURE_ID = li.LECTURE_ID AND li.CURRICULUM_ID = #{curriculumId}
             );
     </update>
+
+<!--    &lt;!&ndash; 수강신청한 과목 상세보기 &ndash;&gt;-->
+<!--    <select id="enrolSubAProf" resultType="com.lms.classInfo.dto.EnrollDto" parameterType="int">-->
+<!--        SELECT-->
+<!--            c.curriculum_name,-->
+<!--            p.name,-->
+<!--            s.subject_name-->
+<!--        FROM lecture_info li-->
+<!--                 JOIN curriculum c ON li.curriculum_id = c.curriculum_id-->
+<!--                 JOIN prof p ON li.instructor_no = p.prof_id-->
+<!--                 JOIN subject s ON li.subject_id = s.subject_id-->
+<!--        WHERE li.CURRICULUM_ID = #{curriculumId}-->
+<!--    </select>-->
 </mapper>

@@ -25,4 +25,5 @@ public interface EnrollService {
 
     // count 업데이트
     void countUpdate(int curriculumId);
+
 }

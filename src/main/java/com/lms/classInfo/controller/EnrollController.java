@@ -49,6 +49,8 @@ public class EnrollController {
         UserDto userDto = (UserDto) session.getAttribute("login");
         int studentID = userDto.getStudentId();
 
+        System.out.println("curriculumId = " + curriculumId);
+
         if (enrollService.checkIfAlreadyEnrolled(studentID)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("이미 수강한 과목이 있습니다. 하나의 과정만 수강 가능합니다.");
         }
