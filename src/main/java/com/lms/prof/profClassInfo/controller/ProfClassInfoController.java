@@ -99,7 +99,7 @@ public class ProfClassInfoController {
         System.out.println("lectureId: " + lectureId);
         System.out.println("contentsList: " + contentsList);
 
-        profClassInfoService.insertLectureContents(params2);
+//        profClassInfoService.insertLectureContents(params2);
 
 
 

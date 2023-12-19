@@ -21,6 +21,7 @@ public class StuController {
     public String selectYear(Model model, HttpSession session) {
         UserDto userDto = (UserDto) session.getAttribute("login");
         int studentID = userDto.getStudentId();
+        System.out.println("studentID : " + studentID);
 
         List<StuClassInfoDto> stuClassInfoYearDto = stuClassInfoService.lectureYearAll(studentID);
         List<StuClassInfoDto> stuClassInfoSubjectDto = stuClassInfoService.lectureSubjectAll(studentID);

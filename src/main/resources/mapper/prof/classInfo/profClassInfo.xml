@@ -6,10 +6,11 @@
 
     <!-- 나의 강의실 년도 띄우기 -->
     <select id="lectureYearAll" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
-        SELECT li.lecture_year
+        SELECT DISTINCT li.lecture_year
         FROM lecture_info li
                  JOIN prof p ON li.instructor_no = p.prof_id
-        WHERE p.prof_id = #{profId};
+        WHERE p.prof_id = #{profId}
+        ORDER BY li.LECTURE_ID ASC;
     </select>
 
     <!-- 나의 강의실 수강 과목 띄우기 -->
@@ -17,7 +18,8 @@
         SELECT li.lecture_year, li.LECTURE_NAME, li.LECTURE_ID
         FROM lecture_info li
                  JOIN prof p ON li.instructor_no = p.prof_id
-        WHERE p.prof_id = #{profId};
+        WHERE p.prof_id = #{profId}
+        ORDER BY li.LECTURE_NAME ASC;
     </select>
 
     <!-- 강좌 정보 : 년도, 과정명 -->
@@ -59,10 +61,10 @@
 
     <!-- 강좌 계획 -->
     <select id="getSyllabusPlan" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
-        SELECT
-            li.LECTURE_ID,
+        SELECT DISTINCT
+            li.lecture_id AS LECTURE_ID,
             li.lecture_name,
-            li.LECTURE_CONTENT AS subjectContent,
+            li.lecture_content AS subjectContent,
             p.name AS profName,
             p.phone_no AS tel,
             p.email,
@@ -70,19 +72,15 @@
             lt.lecture_time,
             lt.classroom
         FROM
-            prof p
+            lecture_info li
                 JOIN
-            lecture_info li ON p.prof_id = li.instructor_no
-                JOIN
-            lecture_apply la ON li.lecture_id = la.lecture_id
-                JOIN
-            student s ON la.student_id = s.student_id
+            prof p ON li.instructor_no = p.prof_id
                 JOIN
             lecture_time lt ON li.lecture_id = lt.lecture_id
         WHERE
             p.prof_id = #{profId}
-          AND li.lecture_year = #{lectureYear}
-          AND li.lecture_name = #{lectureName};
+        AND li.lecture_year = #{lectureYear}
+        AND li.lecture_name = #{lectureName};
     </select>
 
     <!-- 주차 계획 -->
@@ -131,15 +129,15 @@
 
 <!--    </insert>-->
 
-    <update id="insertLectureContents" parameterType="java.util.Map">
-        <foreach collection="contentsList" index="index" item="item" separator=" ">
-            UPDATE lecture_schedule ls
-            JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id
-            SET ls.lecture_contents = #{contentsList[index]}
-            WHERE clw.lecture_week = #{index + 1}
-            AND ls.lecture_id = #{lectureId}
-        </foreach>
-    </update>
+<!--    <update id="insertLectureContents" parameterType="java.util.Map">-->
+<!--        <foreach collection="contentsList" index="index" item="item" separator=" ">-->
+<!--            UPDATE lecture_schedule ls-->
+<!--            JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id-->
+<!--            SET ls.lecture_contents = #{contentsList[index]}-->
+<!--            WHERE clw.lecture_week = #{index + 1}-->
+<!--            AND ls.lecture_id = #{lectureId}-->
+<!--        </foreach>-->
+<!--    </update>-->
 
 
 
