@@ -35,5 +35,6 @@ public class ProfClassInfoDto {
     // lecture_schedule
     private String lectureContents; // 주차별 교과목 상세 설명
     private int lectureScheduleId;
+    private int weekId;
 
 }

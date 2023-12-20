@@ -36,6 +36,7 @@
                     <c:forEach var="item" items="${profClassInfoSubjectDto}">
                         <div class="result">
                             <p hidden="hidden">${item.lectureYear}</p>
+<%--                            <input type="hidden" name="lectureId" value="${item.lectureId}" />--%>
                             <p class="yearResult"><a href="#" class="show_btn">${item.lectureName}</a></p>
                         </div>
 
@@ -45,7 +46,7 @@
                                 <input type="hidden" name="lectureName" value="${item.lectureName}" />
                                 <button type="submit">강의계획서</button>
                             </form>
-                            <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
+                            <button type="submit" onclick="location.href='/prof/attendance'">출결</button>
                             <button type="submit" onclick="location.href='/classinfo/assignment'">시험</button>
                         </div>
 

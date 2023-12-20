@@ -15,10 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -70,8 +67,9 @@ public class ProfClassInfoController {
     @RequestMapping("/prof/insertPlan")
     public String insertPlan(int lectureId,
                              @RequestParam(required = false) Integer lectureScheduleId,
+                             @RequestParam List<String> lectureContents,
+                             @RequestParam List<Integer> weekIds,
                              String subjectContent,
-                             String lectureContents,
                              RedirectAttributes redirectAttributes,
                              HttpSession session) {
 
@@ -80,31 +78,12 @@ public class ProfClassInfoController {
         params.put("subjectContent", subjectContent);
         profClassInfoService.insertSubjectPlan(params);
 
+        for(int i = 0; i < lectureContents.size(); i++){
+            String content = lectureContents.get(i);
+            int weekId = weekIds.get(i);
 
-        Map<String, Object> params2 = new HashMap<>();
-//        params2.put("lectureId", lectureId);
-//        params2.put("lectureScheduleId", lectureScheduleId);
-//        params2.put("lectureContents", lectureContents);
-
-//        params2.put("lectureContents", lectureContents);
-//        profClassInfoService.insertLectureContents(params2);
-
-        List<String> contentsList = Arrays.asList(lectureContents.split("\s,\s"));
-        // 리스트 출력
-
-
-        params2.put("lectureId", lectureId);
-        params2.put("contentsList", contentsList);
-
-        System.out.println("lectureId: " + lectureId);
-        System.out.println("contentsList: " + contentsList);
-
-        profClassInfoService.insertLectureContents(params2);
-
-
-
-//        System.out.println("param2 : " + params2);
-//        System.out.println("lectureContents : " + lectureContents);
+            profClassInfoService.insertLectureContents(content, weekId);
+        }
 
         // 세션에서 lectureYear와 lectureName 값을 가져오기
         String lectureYear = (String) session.getAttribute("lectureYear");

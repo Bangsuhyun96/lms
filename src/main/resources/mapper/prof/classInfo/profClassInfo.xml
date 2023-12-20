@@ -6,7 +6,7 @@
 
     <!-- 나의 강의실 년도 띄우기 -->
     <select id="lectureYearAll" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
-        SELECT li.lecture_year
+        SELECT distinct li.lecture_year
         FROM lecture_info li
                  JOIN prof p ON li.instructor_no = p.prof_id
         WHERE p.prof_id = #{profId};
@@ -59,7 +59,7 @@
 
     <!-- 강좌 계획 -->
     <select id="getSyllabusPlan" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
-        SELECT
+        SELECT distinct
             li.LECTURE_ID,
             li.lecture_name,
             li.LECTURE_CONTENT AS subjectContent,
@@ -87,7 +87,7 @@
 
     <!-- 주차 계획 -->
     <select id="getWeeklyPlan" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
-        SELECT ls.lecture_contents, ls.LECTURE_SCHEDULE_ID as lectureScheduleId, clw.lecture_week
+        SELECT ls.lecture_contents, ls.LECTURE_SCHEDULE_ID as lectureScheduleId, clw.lecture_week, ls.WEEK_ID
         FROM lecture_schedule ls
                  JOIN
             curriculum_lecture_week clw ON ls.week_id = clw.week_id
@@ -131,16 +131,11 @@
 
 <!--    </insert>-->
 
-    <update id="insertLectureContents" parameterType="java.util.Map">
-        <foreach collection="contentsList" index="index" item="item" separator=" ">
+    <update id="insertLectureContents">
             UPDATE lecture_schedule ls
-            JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id
-            SET ls.lecture_contents = #{contentsList[index]}
-            WHERE clw.lecture_week = #{index + 1}
-            AND ls.lecture_id = #{lectureId}
-        </foreach>
+            SET ls.lecture_contents = #{content}
+            WHERE ls.week_id = #{weekId}
     </update>
-
 
 
 
