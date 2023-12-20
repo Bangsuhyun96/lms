@@ -27,7 +27,7 @@
         </div>
 
         <div class="myclass_title margin_top50 border_bottom2">
-            <p id = "course_title">전체년도 담당 교과목</p>
+            <p id = "course_title">전체년도 수강 과목</p>
         </div>
 
         <div class="enroll_wrap">

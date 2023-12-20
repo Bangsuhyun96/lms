@@ -129,16 +129,11 @@
 
 <!--    </insert>-->
 
-<!--    <update id="insertLectureContents" parameterType="java.util.Map">-->
-<!--        <foreach collection="contentsList" index="index" item="item" separator=" ">-->
-<!--            UPDATE lecture_schedule ls-->
-<!--            JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id-->
-<!--            SET ls.lecture_contents = #{contentsList[index]}-->
-<!--            WHERE clw.lecture_week = #{index + 1}-->
-<!--            AND ls.lecture_id = #{lectureId}-->
-<!--        </foreach>-->
-<!--    </update>-->
-
+    <update id="insertLectureContents">
+            UPDATE lecture_schedule ls
+            SET ls.lecture_contents = #{content}
+            WHERE ls.week_id = #{weekId}
+    </update>
 
 
 

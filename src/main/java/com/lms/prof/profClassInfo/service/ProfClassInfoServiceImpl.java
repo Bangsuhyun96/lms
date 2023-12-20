@@ -58,15 +58,14 @@ public class ProfClassInfoServiceImpl implements ProfClassInfoService{
     }
 
     // 강좌 계획 주차별 교과목 상세 설명 추가
-//    @Override
-//    public int insertLectureContents(Map<String, Object> params){
-////        if (params == null) {
-////            params = new HashMap<>();
-////        }
-//
-//        // 나머지 코드는 그대로 유지
-////        profClassInfoMapper.insertLectureContents(params);
-//        return profClassInfoMapper.insertLectureContents(params);
-//    }
+    @Override
+    public int insertLectureContents(String content, int weekId){
+//        if (params == null) {
+//            params = new HashMap<>();
+//        }
+
+        // 나머지 코드는 그대로 유지
+        return profClassInfoMapper.insertLectureContents(content, weekId);
+    }
 
 }
