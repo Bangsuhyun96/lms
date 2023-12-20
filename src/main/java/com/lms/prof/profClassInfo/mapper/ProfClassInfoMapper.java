@@ -33,6 +33,6 @@ public interface ProfClassInfoMapper {
     public int insertSubjectPlan(Map<String, Object> params);
 
     // 강좌 계획 주차별 교과목 상세 설명 추가
-    public int insertLectureContents(Map<String, Object> params);
-
+    public int insertLectureContents(@Param("content") String content,
+                                     @Param("weekId") int weekId);
 }

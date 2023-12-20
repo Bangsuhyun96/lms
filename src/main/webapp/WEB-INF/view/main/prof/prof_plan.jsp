@@ -91,6 +91,7 @@
                             <td>
 <%--                                <input value="${item.lectureContents}" name="lectureContents[${item.lectureWeek - 1}]" id="lectureContents">--%>
                                 <input value="${item.lectureContents}" name="lectureContents" id="lectureContents">
+                                <input type="hidden" name="weekIds" value="${item.weekId}" />
                             </td>
                         </tr>
                     </c:forEach>
@@ -101,9 +102,6 @@
 
             <div class="lectoer_plan_pagebtn">
                 <input type="hidden" name="lectureId" value="${profClassInfoPlanDto.lectureId}" />
-                <c:forEach var="item" items="${profClassInfoWeeklyPlanDto}">
-                    <input name="lectureScheduleId" value="${item.lectureScheduleId}" />
-                </c:forEach>
                 <button type="submit">저장</button>
             </div>
 
