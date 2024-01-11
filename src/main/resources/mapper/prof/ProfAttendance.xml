@@ -29,4 +29,83 @@
             JOIN curriculum c ON li.CURRICULUM_ID = c.CURRICULUM_ID
             WHERE li.LECTURE_ID = #{lectureId}
     </select>
+
+    <!-- weekInfo 주차, 날짜, 인원수, 출석률 정보 -->
+    <select id="weekInfo" resultType="com.lms.prof.prof_attendance.dto.ProfAttendanceDto" parameterType="int">
+        SELECT distinct clw.lecture_week,
+                        ls.lecture_date,
+                        la.count,
+                        s.name,
+                        s.email
+            FROM lecture_schedule ls
+            JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id
+            JOIN lecture_apply la ON ls.lecture_id = la.lecture_id
+            JOIN student s ON la.STUDENT_ID = s.STUDENT_ID
+        WHERE ls.lecture_id = #{lectureId}
+    </select>
+
+    <!-- 선택한 날짜의 주차, 날짜, 인원수, 출석률 정보 -->
+    <select id="pickedInfo" resultType="com.lms.prof.prof_attendance.dto.ProfAttendanceDto">
+        SELECT distinct clw.lecture_week, ls.lecture_date, la.count, ls.WEEK_ID
+            FROM lecture_schedule ls
+         JOIN curriculum_lecture_week clw ON ls.week_id = clw.week_id
+         JOIN lecture_apply la ON ls.lecture_id = la.lecture_id
+        WHERE ls.LECTURE_ID = #{lectureId} AND
+              ls.LECTURE_DATE = #{pickDate}
+    </select>
+
+    <!-- 수강 학생들 목록 -->
+    <select id="stuInfo" resultType="com.lms.prof.prof_attendance.dto.ProfAttendanceDto" parameterType="int">
+        SELECT distinct s.name,
+                        s.email,
+                        s.STUDENT_ID
+        FROM lecture_schedule ls
+                 JOIN lecture_apply la ON ls.lecture_id = la.lecture_id
+                 JOIN student s ON la.STUDENT_ID = s.STUDENT_ID
+        WHERE ls.lecture_id = #{lectureId}
+    </select>
+
+    <!-- 학생 출결 상태 저장 -->
+    <insert id="saveAttendance" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO attendance_status (division, lecture_id, student_id, week_id)
+        VALUES (#{status}, #{lectureId}, #{studentId}, #{weekId})
+            ON DUPLICATE KEY UPDATE
+                                 division = VALUES(division);
+    </insert>
+
+    <!-- lecture_apply 일부 update -->
+    <update id="lectureApplyUp" parameterType="int">
+        UPDATE lecture_apply la
+        SET la.ATTENDANCE_DAYS = (select count(*)
+                                  from attendance_status
+                                  where division = '출석' and student_id = #{studentId}),
+            la.ABSENCE_DAYS = (select count(*)
+                               from attendance_status
+                               where division = '결석' and student_id = #{studentId}),
+            la.TARDINESS_DAYS = (select count(*)
+                                 from attendance_status
+                                 where division = '지각' and student_id = #{studentId}),
+            ATTENDANCE = (select count(*) * 1.0
+                          from attendance_status
+                          where division = '출석' and student_id = #{studentId}) / (select count(*)
+                                from attendance_status
+                                where student_id = #{studentId})
+        WHERE la.lecture_id = #{lectureId} AND STUDENT_ID = #{studentId}
+    </update>
+
+    <!-- 학생, 주차 별 출결 여부와 출석률 출력 -->
+    <select id="todayAttendance" resultType="com.lms.prof.prof_attendance.dto.ProfAttendanceDto" parameterType="int">
+SELECT s.name, s.email, division, attendance * 100 AS attendance
+FROM attendance_status `as`
+         JOIN student s ON as.STUDENT_ID = s.STUDENT_ID
+         JOIN lecture_apply la ON s.STUDENT_ID = la.STUDENT_ID
+         WHERE as.LECTURE_ID = #{lectureId}
+         AND as.WEEK_ID = #{weekId}
+         and ATTENDANCE is not null
+    GROUP BY name, email, division, ATTENDANCE;
+    </select>
+
+
+
+
 </mapper>
