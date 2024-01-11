@@ -1,5 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/prof/prof_assignment_view.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
@@ -18,14 +19,20 @@
           <th>번호</th>
           <th>학생명</th>
           <th>제출일시</th>
-          <th>점수</th>
         </tr>
+        <c:forEach items="${getStuList}" var="item">
         <tr>
-          <td>2023-S0057</td>
-          <td><a href="/prof/assignment/grade">홍길동</a></td>
-          <td>2023-10-05 23:59</td>
-          <td>80/100</td>
+          <td>${item.submissionId}</td>
+          <td>
+            <a href="/prof/assignment/grade?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&profId=${item.profId}&assignmentId=${item.assignmentId}&submissionId=${item.submissionId}&studentId=${item.studentId}">
+                ${item.name}
+            </a>
+          </td>
+          <td>
+            <fmt:formatDate value="${item.submissionDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+          </td>
         </tr>
+        </c:forEach>
         </tbody>
       </table>
     </div>

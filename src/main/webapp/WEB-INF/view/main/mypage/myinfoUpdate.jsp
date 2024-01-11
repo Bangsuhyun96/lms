@@ -16,11 +16,7 @@
             <form action="/mypage/myinfo/updated" method="post" enctype="multipart/form-data">
                 <div class="myinfo_info">
                     <div class="myinfo_img">
-                        <c:if test="${empty studentInfo.profileImg}">
-                            <img src=""
-                        </c:if>
-                        <img src="<%= request.getContextPath() %>/resources/image/${userImg.memberImg}">
-                        <button type="submit">선택하기</button>
+                        <input type="file" name="file">
                     </div>
                     <div class="myinfo_table">
                         <table>

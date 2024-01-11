@@ -26,7 +26,7 @@
         </div>
 
         <div class="myclass_title margin_top50 border_bottom2">
-            <p id="course_title">전체년도 수강 과목</p>
+            <p id="course_title">전체년도 수강 교과목</p>
         </div>
 
         <div class="enroll_wrap">
@@ -35,7 +35,7 @@
                     <c:forEach items="${stuClassInfoSubjectDto}" var="item">
                         <div class="result">
                             <p hidden="hidden">${item.lectureYear}</p>
-                            <p class="yearResult"><a href="#" class="show_btn">${item.lectureName}</a></p>
+                            <p class="yearResult"><a href="#" class="show_btn">${item.lectureName} (${item.lectureYear})</a></p>
                         </div>
 
                         <div class="myclass_enroll_btn">
@@ -45,7 +45,13 @@
                                 <button type="submit">강의계획서</button>
                             </form>
                             <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-                            <button type="submit" onclick="location.href='/classinfo/assignment'">시험</button>
+<%--                            <button type="submit" onclick="location.href='/classinfo/assignment'">시험</button>--%>
+                            <form id="getStuAssignmentsInfo" action="/classinfo/assignment" method="get">
+                                <input type="hidden" name="lectureYear" value="${item.lectureYear}" />
+                                <input type="hidden" name="lectureName" value="${item.lectureName}" />
+                                <button type="submit" onclick="location.href='/classinfo/assignment'">과제</button>
+                            </form>
+
                         </div>
 
                     </c:forEach>

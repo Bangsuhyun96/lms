@@ -4,6 +4,13 @@
 
 
 <mapper namespace="com.lms.prof.prof_attendance.mapper.ProfAttendMapper">
+<!--    <select id="lectureYearAll" resultType="com.lms.prof.prof_attendance.dto.ProfAttendanceDto">-->
+<!--        SELECT DISTINCT li.lecture_year-->
+<!--        FROM lecture_info li-->
+<!--                 JOIN prof p ON li.instructor_no = p.prof_id-->
+<!--        WHERE p.prof_id = #{profId};-->
+<!--    </select>-->
+
     <select id="lectureAll" resultType="com.lms.prof.prof_attendance.dto.ProfAttendanceDto">
         SELECT li.lecture_name, li.LECTURE_YEAR, li.LECTURE_ID
         FROM lecture_info li

@@ -32,5 +32,5 @@ function filterTable() {
     var courseTitleElement = document.getElementById("course_title");
 
     // 선택된 년도를 과정명에 표시
-    courseTitleElement.innerText = selectedYear + "년도 수강 과목";
+    courseTitleElement.innerText = selectedYear + "년도 담당 교과목";
 }

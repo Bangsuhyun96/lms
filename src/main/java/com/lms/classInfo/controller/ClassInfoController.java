@@ -13,15 +13,15 @@ public class ClassInfoController {
         return "main/class_info/attendance";
     }
 
-    @GetMapping("assignment")
-    public String assignment(){
-        return "/main/class_info/assignment";
-    }
+//    @GetMapping("assignment")
+//    public String assignment(){
+//        return "/main/class_info/assignment";
+//    }
 
-    @GetMapping("assignmentadd")
-    public String assignmentAdd(){
-        return "/main/class_info/assignment_add";
-    }
+//    @GetMapping("assignmentadd")
+//    public String assignmentAdd(){
+//        return "/main/class_info/assignment_add";
+//    }
 
     @GetMapping("assignmentview")
     public String assignmentView(){

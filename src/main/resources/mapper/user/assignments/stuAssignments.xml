@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.user.assignments.mapper.StuAssignmentsMapper">
+    <!-- 강좌 정보 : 년도, 과정명 -->
+    <select id="getSyllabusInfo" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+        SELECT
+            li.lecture_name,
+            li.lecture_year,
+            c.curriculum_name
+        FROM
+            student s
+                JOIN
+            lecture_apply la ON s.student_id = la.student_id
+                JOIN
+            lecture_info li ON la.lecture_id = li.lecture_id
+                JOIN
+            curriculum c ON li.curriculum_id = c.curriculum_id
+        WHERE
+            s.STUDENT_ID = #{studentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 강좌 정보 : 날짜 -->
+    <select id="getSyllabusDateInfo" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+        SELECT
+            clw.lecture_week,
+            clw.start_date,
+            clw.end_date
+        FROM
+            curriculum_lecture_week clw
+                JOIN
+            curriculum c ON clw.curriculum_id = c.curriculum_id
+                JOIN
+            lecture_info li ON c.curriculum_id = li.curriculum_id
+                JOIN
+            lecture_apply la ON li.LECTURE_ID = la.LECTURE_ID
+                JOIN
+            student s ON s.STUDENT_ID = la.STUDENT_ID
+        WHERE
+            s.STUDENT_ID = #{studentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 과제 정보 리스트 출력 -->
+    <select id="getAssignmentsInfo" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+        SELECT
+            a.ASSIGNMENT_ID,
+            a.ASSIGNMENT_NAME,
+            a.STATUS,
+            a.START_DATE,
+            a.END_DATE,
+            s.STUDENT_ID,
+            li.LECTURE_ID,
+            li.LECTURE_YEAR,
+            li.LECTURE_NAME,
+            a.ASSIGNMENT_ID
+        FROM
+            student s
+                JOIN
+            lecture_apply la ON la.STUDENT_ID = s.STUDENT_ID
+                JOIN
+            lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+                JOIN
+            assignments a ON a.LECTURE_ID = li.LECTURE_ID
+        WHERE
+            s.student_id = #{studentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 과제 하나 보기 -->
+    <select id="getAssignmentsDetail" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+        SELECT
+            a.ASSIGNMENT_ID,
+            a.ASSIGNMENT_NAME,
+            a.description,
+            a.STATUS,
+            a.START_DATE,
+            a.END_DATE,
+            a.FILEPATH,
+            a.FILENAME,
+            s.STUDENT_ID,
+            li.LECTURE_ID,
+            li.LECTURE_YEAR,
+            li.LECTURE_NAME,
+            a.ASSIGNMENT_ID
+        FROM
+            student s
+                JOIN
+            lecture_apply la ON la.STUDENT_ID = s.STUDENT_ID
+                JOIN
+            lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+                JOIN
+            assignments a ON a.LECTURE_ID = li.LECTURE_ID
+        WHERE
+            s.student_id = #{studentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName}
+          AND a.ASSIGNMENT_ID = #{assignmentId};
+    </select>
+
+
+    <!--    <select id="insertAssignments" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">-->
+    <!--        INSERT INTO assignments_submission(ASSIGNMENT_ID, LECTURE_ID, STUDENT_ID, FILENAME, FILEPATH, SUBMISSION_DATE)-->
+    <!--        VALUES (#{assignmentId}, #{lectureId}, #{studentId}, #{fileName}, #{filePath}, now())-->
+    <!--    </select>-->
+
+    <!-- 제출한 파일 존재 여부 -->
+    <select id="checkAssignmentSubmission" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM assignments_submission
+        WHERE ASSIGNMENT_ID = #{assignmentId} AND LECTURE_ID = #{lectureId} AND STUDENT_ID = #{studentId}
+    </select>
+
+    <!-- 과제 파일 제출하기 -->
+    <insert id="insertAssignmentSubmission" parameterType="map">
+        INSERT INTO assignments_submission(ASSIGNMENT_ID, LECTURE_ID, STUDENT_ID, FILENAME, FILEPATH, SUBMISSION_DATE)
+        VALUES (#{assignmentId}, #{lectureId}, #{studentId}, #{fileName}, #{filePath}, NOW())
+    </insert>
+
+    <!-- 과제 파일 수정하기 -->
+    <update id="updateAssignmentSubmission" parameterType="map">
+        UPDATE assignments_submission
+        SET FILENAME = #{fileName}, FILEPATH = #{filePath}, SUBMISSION_DATE = NOW()
+        WHERE ASSIGNMENT_ID = #{assignmentId} AND LECTURE_ID = #{lectureId} AND STUDENT_ID = #{studentId}
+    </update>
+
+    <!-- id 얻어오기(과제 제출하기) -->
+    <select id="getId" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+        SELECT
+            s.STUDENT_ID, li.LECTURE_ID, li.LECTURE_YEAR, li.LECTURE_NAME, a.ASSIGNMENT_ID
+        FROM
+            student s
+        JOIN
+            lecture_apply la ON la.STUDENT_ID = s.STUDENT_ID
+        JOIN
+            lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+        JOIN
+            assignments a ON a.LECTURE_ID = li.LECTURE_ID
+        WHERE
+            s.student_id = #{studentId}
+          AND a.ASSIGNMENT_ID = #{assignmentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 제출한 과제보기 -->
+    <select id="submitAssignments" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+--         SELECT assignments_submission.FILENAME
+--         FROM student s
+--         JOIN
+--             lecture_apply la ON s.STUDENT_ID = la.STUDENT_ID
+--         JOIN
+--             assignments_submission ON la.LECTURE_ID = assignments_submission.LECTURE_ID
+--         JOIN
+--             lecture_info li ON la.LECTURE_ID = li.LECTURE_ID
+--         WHERE
+--             s.student_id = #{studentId}
+--           AND assignments_submission.ASSIGNMENT_ID = #{assignmentId}
+--           AND li.lecture_year = #{lectureYear}
+--           AND li.lecture_name = #{lectureName};
+
+            SELECT assignments_submission.FILENAME
+            FROM assignments_submission
+                     JOIN
+                 lecture_info li ON assignments_submission.LECTURE_ID = li.LECTURE_ID
+            WHERE
+                student_id = #{studentId}
+              AND assignments_submission.ASSIGNMENT_ID = #{assignmentId}
+              AND li.lecture_year = #{lectureYear}
+              AND li.lecture_name = #{lectureName};
+    </select>
+
+    <!-- 피드백 보기 -->
+    <select id="getComments" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
+        SELECT assignments_submission.EVALUATION_COMMENTS
+        FROM assignments_submission
+                 JOIN
+             lecture_info li ON assignments_submission.LECTURE_ID = li.LECTURE_ID
+        WHERE
+            student_id = #{studentId}
+          AND assignments_submission.ASSIGNMENT_ID = #{assignmentId}
+          AND li.lecture_year = #{lectureYear}
+          AND li.lecture_name = #{lectureName};
+    </select>
+
+</mapper>

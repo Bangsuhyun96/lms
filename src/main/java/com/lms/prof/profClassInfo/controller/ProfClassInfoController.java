@@ -66,7 +66,6 @@ public class ProfClassInfoController {
     // 강좌 계획 추가(수정)
     @RequestMapping("/prof/insertPlan")
     public String insertPlan(int lectureId,
-                             @RequestParam(required = false) Integer lectureScheduleId,
                              @RequestParam List<String> lectureContents,
                              @RequestParam List<Integer> weekIds,
                              String subjectContent,
@@ -95,42 +94,5 @@ public class ProfClassInfoController {
 
         return "redirect:/prof/plan";
     }
-
-//    @RequestMapping("/prof/insertPlan")
-//    public String insertPlan(int lectureId,
-//                             @RequestParam(required = false) Integer[] lectureScheduleId,
-//                             String subjectContent,
-//                             String[] lectureContents,
-//                             RedirectAttributes redirectAttributes,
-//                             HttpSession session) {
-//
-//        Map<String, Object> params = new HashMap<>();
-//        params.put("lectureId", lectureId);
-//        params.put("subjectContent", subjectContent);
-//        profClassInfoService.insertSubjectPlan(params);
-//
-////        if (lectureScheduleId != null && lectureContents != null) {
-////            for (int i = 0; i < Math.min(lectureScheduleId.length, lectureContents.length); i++) {
-////                Map<String, Object> params2 = new HashMap<>();
-////                params2.put("lectureId", lectureId);
-////                params2.put("lectureScheduleId", lectureScheduleId[i]);
-////                params2.put("lectureContents", lectureContents[i]);
-////                profClassInfoService.insertLectureContents(params2);
-////                System.out.println("param2 : " + params2);
-////            }
-////        }
-//
-//        // 세션에서 lectureYear와 lectureName 값을 가져오기
-//        String lectureYear = (String) session.getAttribute("lectureYear");
-//        String lectureName = (String) session.getAttribute("lectureName");
-//
-//        // 리다이렉트 시에 파라미터로 값을 전달
-//        redirectAttributes.addAttribute("lectureYear", lectureYear);
-//        redirectAttributes.addAttribute("lectureName", lectureName);
-//
-//        return "redirect:/prof/plan";
-//    }
-
-
 
 }

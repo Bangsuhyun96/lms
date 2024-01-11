@@ -13,5 +13,6 @@ public class UserinfoDto {
     private String addressDetail; // 상세주소
     private String phoneNo; // 연락처
     private String zipCode; // 우편번호
-    private String profileImg; // 프로필사진
+    private String fileName; // 파일명
+    private String filePath; // 파일경로
 }
