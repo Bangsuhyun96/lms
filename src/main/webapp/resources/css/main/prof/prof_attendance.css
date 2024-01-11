@@ -6,7 +6,7 @@
 .syllabus_title p, .syllabus_title2 p, .prof_attendance_title3 p{font-size: 1.4rem; font-weight: 600; height: 60px; line-height: 60px; padding: 0 15px; position: relative;}
 .prof_attendance_title4 p{font-size: 1rem; font-weight: 600; height: 30px; line-height: 30px; padding: 0 15px; position: relative;}
 .syllabus_title p::before, .syllabus_title2 p::before, .prof_attendance_title3 p::before{content: '';position: absolute;top: calc(50% - 15px);left: 0;width: 0; height: 50%; border-left: 3px solid #2F3135;}
-.prof_attendance_title3{position: relative; display: flex; margin: 0px 20px; border-bottom: 2px solid #2a2a2a;}
+.prof_attendance_title3{position: relative; width: 60%; display:flex; border-bottom: 2px solid #2a2a2a; margin: auto;}
 .prof_attendance_title4{margin: 30px 0 0 0; text-align: center; position: relative;}
 .prof_attendance_title4_arrow_left{position: absolute; left: 437px; top: 17px; width: 20px; height: 20px; border-bottom: 3px solid #2a2a2a; border-left: 3px solid #2a2a2a; transform: rotate(45deg);}
 .prof_attendance_title4_arrow_right{position: absolute; right: 437px; top: 17px; width: 20px; height: 20px; border-bottom: 3px solid #2a2a2a; border-left: 3px solid #2a2a2a; transform: rotate(225deg);}
@@ -18,12 +18,14 @@
 .syllabus_contents .syllabus_contents_1 p{font-size: 1.2rem; padding: 0 40px; width: 70px;}
 .syllabus_contents .syllabus_contents_1 input{width: 400px; height: 40px; background: #e8e8e8; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 20px; color:#a1a1a1;}
 
-.prof_attendance_wrap{position: relative; display: flex; justify-content: space-evenly; width: 1400px; border-bottom: 1px solid #2a2a2a; margin: 0 20px; flex-wrap: wrap; height: 400px; overflow-y: scroll;}
-.prof_attendance_user{display: flex; width: 1200px; margin: 24px 0;}
-.prof_attendance_user_info{display: flex; align-items: center;}
-.prof_attendance_wrap img{width: 94px;}
+.prof_attendance_wrap{position: relative; display: flex; justify-content: space-evenly; width: 60%; border-bottom: 1px solid #2a2a2a; margin: auto; flex-wrap: wrap; height: auto; min-height: 150px; overflow-y: scroll; background-color: rgba(216, 216, 216, 0.29)
+}
+.prof_attendance_user{width: 100%; height: 26px; margin-top: 20px;}
+.prof_attendance_user_info{display: flex;}
+.prof_attendance_user_info p:first-child{width: 20%; font-weight: bold; text-align: center;}
+.prof_attendance_user_info p:nth-child(2){width: 40%; text-align: center;}
 .prof_attendance_wrap button{width: 50px;}
-.prof_attendance_wrap p{padding: 0 12px; line-height: 26px; margin: 0 44px; font-size: 1.1rem;}
+/*.prof_attendance_wrap p{width: 100%; line-height: 26px; font-size: 1.1rem;}*/
 
 .prof_attendance_wrap::-webkit-scrollbar {width: 6px; height: 6px;}
 .prof_attendance_wrap::-webkit-scrollbar-thumb {border-radius: 50px; background-color: #646464;}
@@ -49,3 +51,48 @@
 
 .lectoer_plan_pagebtn{ display: flex; margin: 12px 0 0 12px;}
 button{width: 90px; height: 30px; background: #fff; font-size: 0.95rem; color:#2a2a2a; border: 1px solid #c2c2c2; border-radius: 3px; box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.2); cursor: pointer; margin: 0 0 0 8px;}
+
+.hasDatepicker{width: 50%;}
+.ui-datepicker-trigger{width: 25px; height: 25px;}
+
+.save{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: 8px;
+}
+.green{
+    background-color: green;
+    color: white;
+}
+.red{
+    background-color: red;
+    color: white;
+}
+.grey{
+    background-color: grey;
+}
+
+/* 출결 상태 동그라미 */
+.greenCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: green;
+}
+
+.greyCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: grey;
+}
+
+.redCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: red;
+}
