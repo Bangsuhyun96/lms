@@ -1,8 +1,10 @@
 package com.lms.prof.profClassInfo.dto;
 
+import com.lms.prof.assignments.dto.AssignmentsDto;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class ProfClassInfoDto {
@@ -37,4 +39,5 @@ public class ProfClassInfoDto {
     private int lectureScheduleId;
     private int weekId;
 
+    private List<AssignmentsDto> assignmentsDtoList;
 }

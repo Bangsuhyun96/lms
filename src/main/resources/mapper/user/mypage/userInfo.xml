@@ -4,6 +4,7 @@
 <mapper namespace="com.lms.user.mapper.UserInfoMapper">
     <select id="userinfo" resultType="com.lms.user.dto.UserinfoDto">
         SELECT
+            s.STUDENT_ID,
             s.name,
             s.birth_date,
             s.gender,
@@ -11,7 +12,9 @@
             s.address_detail,
             s.email,
             s.phone_no,
-            s.ZIP_CODE
+            s.ZIP_CODE,
+            s.FILEPATH,
+            s.FILENAME
             FROM student s
         WHERE s.student_id = #{studentId}
     </select>
@@ -24,7 +27,9 @@
             s.ZIP_CODE = #{zipCode},
             s.ADDRESS = #{address},
             s.ADDRESS_DETAIL = #{addressDetail},
-            s.PHONE_NO = #{phoneNo}
+            s.PHONE_NO = #{phoneNo},
+            s.FILENAME = #{fileName},
+            s.FILEPATH = #{filePath}
         WHERE s.STUDENT_ID = #{studentID}
     </update>
 </mapper>

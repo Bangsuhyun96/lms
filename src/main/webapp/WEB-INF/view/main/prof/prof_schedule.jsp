@@ -45,8 +45,13 @@
                                 <input type="hidden" name="lectureName" value="${item.lectureName}" />
                                 <button type="submit">강의계획서</button>
                             </form>
-                            <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-                            <button type="submit" onclick="location.href='/classinfo/assignment'">시험</button>
+                            <button type="submit" onclick="location.href='/prof/attendance'">출결</button>
+
+                            <form id="getAssignmentsInfo" action="/prof/assignment" method="get">
+                                <input type="hidden" name="lectureYear" value="${item.lectureYear}" />
+                                <input type="hidden" name="lectureName" value="${item.lectureName}" />
+                                <button type="submit" onclick="location.href='/prof/assignment'">과제</button>
+                            </form>
                         </div>
 
                     </c:forEach>

@@ -13,8 +13,14 @@
         </div>
         <div class="myinfo_info">
             <div class="myinfo_img">
-                <img src="<%= request.getContextPath() %>/resources/image/pro.jpg" alt="">
-
+                <c:choose>
+                    <c:when test="${empty studentInfo.filePath or studentInfo.filePath eq null}">
+                        <img src="<%= request.getContextPath() %>/resources/image/user.png" alt="default user image">
+                    </c:when>
+                    <c:otherwise>
+                        <img src="${studentInfo.filePath}" alt="user image"/>
+                    </c:otherwise>
+                </c:choose>
             </div>
             <div class="myinfo_table">
                 <table>

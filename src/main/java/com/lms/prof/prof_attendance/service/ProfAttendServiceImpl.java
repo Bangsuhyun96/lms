@@ -14,6 +14,11 @@ public class ProfAttendServiceImpl implements ProfAttendService{
 
     private final ProfAttendMapper profAttendMapper;
 
+//    @Override
+//    public List<ProfAttendanceDto> lectureYearAll(int studentId){
+//        return profAttendMapper.lectureYearAll(studentId);
+//    }
+
     @Override
     public List<ProfAttendanceDto> lectureAll(int profId){
         return profAttendMapper.lectureAll(profId);

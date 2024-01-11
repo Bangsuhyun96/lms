@@ -51,7 +51,7 @@
                     <c:set var="count" value="${count + 1}" />
                 </c:forEach>
 <%--                검색결과 : <c:out value="${count}"/>건--%>
-                검색결과 : <span id="searchResultCount"><c:out value="${count}"/></span>건
+                검색결과 : 5건
             </p>
         </div>
 

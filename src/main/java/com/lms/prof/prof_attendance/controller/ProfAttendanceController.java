@@ -24,36 +24,6 @@ public class ProfAttendanceController {
 
     public final ProfAttendService profAttendService;
 
-
-//    @GetMapping("/prof/schedule")
-//    public String profSchedule(HttpSession session, Model model){
-//        UserDto prof = (UserDto) session.getAttribute("login");
-//        int profId = prof.getProfId();
-//        System.out.println("prof.getProfId() = " + prof.getProfId());
-//        List<ProfAttendanceDto> profAttendanceDtos = profAttendService.lectureAll(profId);
-//        model.addAttribute("profDto", profAttendanceDtos);
-//
-//        return "main/prof/prof_schedule";
-//    }
-//
-//    @GetMapping("/prof/schedule")
-//    public String profScheduleSelect(HttpSession session, Model model,  HttpServletRequest request){
-//        UserDto prof = (UserDto) session.getAttribute("login");
-//        int profId = prof.getProfId();
-//        String year = request.getParameter("year");
-//       System.out.println("year : "+ year);
-//        if(year == null || year == ""){
-//            List<ProfAttendanceDto> profAttendanceDtos = profAttendService.lectureAll(profId);
-//            model.addAttribute("profDto", profAttendanceDtos);
-//        } else if(year != null && year != ""){
-//            List<ProfAttendanceDto> profAttendanceDtos = profAttendService.lectureSelect(profId, year);
-//            model.addAttribute("profDto", profAttendanceDtos);
-//        }
-//
-//        return "main/prof/prof_schedule";
-//    }
-
-
     @GetMapping("/prof/attendance")
     public String profAttendance(@RequestParam("lectureId") int lectureId, Model model){
 

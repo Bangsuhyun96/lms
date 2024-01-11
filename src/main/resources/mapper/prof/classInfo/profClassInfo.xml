@@ -85,7 +85,7 @@
 
     <!-- 주차 계획 -->
     <select id="getWeeklyPlan" resultType="com.lms.prof.profClassInfo.dto.ProfClassInfoDto">
-        SELECT ls.lecture_contents, ls.LECTURE_SCHEDULE_ID as lectureScheduleId, clw.lecture_week
+        SELECT ls.lecture_contents, ls.LECTURE_SCHEDULE_ID as lectureScheduleId, clw.lecture_week, ls.WEEK_ID
         FROM lecture_schedule ls
                  JOIN
             curriculum_lecture_week clw ON ls.week_id = clw.week_id
@@ -105,29 +105,6 @@
             LECTURE_CONTENT = #{subjectContent}
         WHERE LECTURE_ID = #{lectureId};
     </update>
-
-    <!-- 강좌 계획 주차별 교과목 상세 설명 추가 -->
-<!--    <update id="insertLectureContents" parameterType="java.util.Map">-->
-<!--        UPDATE lecture_schedule-->
-<!--        SET-->
-<!--            LECTURE_CONTENTS = #{lectureContents}-->
-<!--        WHERE LECTURE_SCHEDULE_ID = #{lectureScheduleId};-->
-
-<!--&lt;!&ndash;        <foreach collection="params" item="param" separator=";">&ndash;&gt;-->
-<!--&lt;!&ndash;            UPDATE lecture_schedule&ndash;&gt;-->
-<!--&lt;!&ndash;            SET LECTURE_CONTENTS = #{param.lectureContents}&ndash;&gt;-->
-<!--&lt;!&ndash;            WHERE LECTURE_SCHEDULE_ID = #{param.lectureScheduleId}&ndash;&gt;-->
-<!--&lt;!&ndash;        </foreach>&ndash;&gt;-->
-<!--    </update>-->
-
-<!--    <insert id="insertLectureContents" parameterType="java.util.Map">-->
-<!--        INSERT INTO lecture_schedule (lecture_contents, week_id)-->
-<!--        VALUES-->
-<!--        <foreach collection="contentsList" item="content" index="index" separator=",">-->
-<!--            (#{content}, (SELECT week_id FROM curriculum_lecture_week WHERE lecture_week = #{index + 1}))-->
-<!--        </foreach>-->
-
-<!--    </insert>-->
 
     <update id="insertLectureContents">
             UPDATE lecture_schedule ls

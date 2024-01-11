@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class StuController {
+public class StuClassInfoController {
     public final StuClassInfoService stuClassInfoService;
 
     // 나의 강의실 년도 및 수강 과목 띄우기

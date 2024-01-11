@@ -9,6 +9,8 @@ import java.util.List;
 @Mapper
 public interface ProfAttendMapper {
 
+//    List<ProfAttendanceDto> lectureYearAll(int studentId);
+
     List<ProfAttendanceDto> lectureAll(@Param("profId") int profId);
 
     List<ProfAttendanceDto> lectureSelect(@Param("profId") int profId, @Param("year") String year);

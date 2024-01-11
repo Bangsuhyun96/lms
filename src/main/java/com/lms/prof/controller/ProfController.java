@@ -36,24 +36,24 @@ public class ProfController {
     public String profWeekPlan(){ return "main/prof/prof_weekplan"; }
 
     /////////////////////////////////////////////////////////////////
-    @GetMapping("/assignment")
-    public String profAssignment(){
-        return "main/prof/prof_assignment";
-    }
+//    @GetMapping("/assignment")
+//    public String profAssignment(){
+//        return "main/prof/prof_assignment";
+//    }
 
-    @GetMapping("/assignment/add")
-    public String profAssignmentAdd(){
-        return "main/prof/prof_assignment_add";
-    }
+//    @GetMapping("/assignment/add")
+//    public String profAssignmentAdd(){
+//        return "main/prof/prof_assignment_add";
+//    }
 
-    @GetMapping("/assignment/view")
-    public String profAssignmentView(){
-        return "main/prof/prof_assignment_view";
-    }
+//    @GetMapping("/assignment/view")
+//    public String profAssignmentView(){
+//        return "main/prof/prof_assignment_view";
+//    }
 
-    @GetMapping("/assignment/grade")
-    public String profAssignmentGrade(){
-        return "main/prof/prof_assignment_grade";
-    }
+//    @GetMapping("/assignment/grade")
+//    public String profAssignmentGrade(){
+//        return "main/prof/prof_assignment_grade";
+//    }
 
 }

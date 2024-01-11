@@ -1,5 +1,9 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.ZoneId" %>
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/prof/prof_assignment.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
@@ -14,55 +18,76 @@
         <div class="syllabus_contents">
             <div class="syllabus_contents_1">
                 <p>년도</p>
-                <input type="text" value="2023" disabled>
-            </div>
-            <div class="syllabus_contents_1">
-                <p>학기</p>
-                <input type="text" value="1학기" disabled>
+                <input type="text" value="${param.lectureYear}" disabled>
             </div>
             <div class="syllabus_contents_1">
                 <p>과정명</p>
-                <input type="text" value="정규과정" disabled>
+                <input type="text" value="${assignmentsInfoDto[0].curriculumName}" disabled>
             </div>
             <div class="syllabus_contents_1">
-                <p>과목명</p>
-                <input type="text" value="알고리즘 ( 강의코드 ex) 00087427 )" disabled>
+                <p>시작일</p>
+                <fmt:formatDate value="${assignmentsInfoDateDto[0].startDate}" pattern="yyyy-MM-dd" var="formattedStartDate" />
+                <input type="text" value="${formattedStartDate}" disabled>
+            </div>
+            <!-- 마지막 종료일 들고오기 -->
+            <c:set var="count" value="0" />
+            <c:forEach var="item" items="${assignmentsInfoDateDto}">
+                <tr>
+                    <c:set var="count" value="${count + 1}" />
+                </tr>
+            </c:forEach>
+            <div class="syllabus_contents_1">
+                <p>종료일</p>
+                <fmt:formatDate value="${assignmentsInfoDateDto[count-1].endDate}" pattern="yyyy-MM-dd" var="formattedEndDate" />
+                <input type="text" value="${formattedEndDate}" disabled>
             </div>
         </div>
-        <div class="syllabus_title2">
-            <p>과제 정보</p>
-            <button type="submit" onclick="location.href='/prof/assignment/add'">과제 출제</button>
-        </div>
-        <div class="syllabus_table">
+
+        <form id="insertAssignments" name="insertAssignments" method="get" action="/prof/assignment/addForm">
+            <div class="syllabus_title2">
+                <p>과제 정보</p>
+                <button type="submit">과제 출제</button>
+            <c:forEach var="item" items="${idList}">
+                <input type="hidden" name="lectureYear" value="${item.lectureYear}" />
+                <input type="hidden" name="lectureName" value="${item.lectureName}" />
+                <input type="hidden" name="lectureId" value="${item.lectureId}" />
+                <input type="hidden" name="lectorId" value="${item.profId}" />
+            </c:forEach>
+            </div>
+        </form>
+            <div class="syllabus_table">
             <table>
                 <tbody>
                     <tr>
                         <th>과제번호</th>
                         <th>과제명</th>
                         <th>진행상태</th>
-                        <th>점수</th>
-                        <th>배점</th>
                         <th>제출시작일</th>
                         <th>제출마감일</th>
                     </tr>
-                    <tr>
-                        <td>2023-S0056</td>
-                        <td><a href="/prof/assignment/view">알고리즘의 이해</a></td>
-                        <td>진행중 / 종료</td>
-                        <td>비공개</td>
-                        <td>10</td>
-                        <td>2023-10-04 09:00</td>
-                        <td>2023-10-05 00:00</td>
-                    </tr>
-                    <tr>
-                        <td>2023-S0056</td>
-                        <td>알고리즘의 이해</td>
-                        <td>진행중 / 종료</td>
-                        <td>비공개</td>
-                        <td>10</td>
-                        <td>2023-10-04 09:00</td>
-                        <td>2023-10-05 00:00</td>
-                    </tr>
+                    <c:forEach items="${assignmentsDtoList}" var="item">
+                        <tr>
+                            <td>${item.assignmentId}</td>
+                            <td>
+                                <a href="/prof/assignment/view?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&profId=${item.profId}&assignmentId=${item.assignmentId}">${item.assignmentName}</a></a>
+                            </td>
+                            <td>
+                                <!-- 현재 날짜 -->
+                                <c:set var="now" value="<%= Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()) %>" />
+                                <!-- 현재 날짜와 제출마감일이 같으면 종료 -->
+                                <c:choose>
+                                    <c:when test="${item.endDate lt now}">
+                                        종료
+                                    </c:when>
+                                    <c:otherwise>
+                                        진행중
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td><fmt:formatDate value="${item.startDate}" pattern="yyyy-MM-dd"/></td>
+                            <td><fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd"/></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

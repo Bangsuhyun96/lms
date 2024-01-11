@@ -8,8 +8,8 @@
 .syllabus_contents{position: relative; display: flex; justify-content: space-evenly; width: 100%; border-bottom: 1px solid #2a2a2a; flex-wrap: wrap;}
 .syllabus_contents_1{display: flex; margin: 24px 0 0 0; align-items: center; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid;}
 .syllabus_contents_1 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}
-.syllabus_contents_1 input{width: 1000px; height: 40px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 10px; color:#a1a1a1;}
-.syllabus_contents_1 input:focus{border: #222;}
+.syllabus_contents_1 textarea{width: 1000px; height: 40px; background: #fff; border: 1px solid #a1a1a1; border-radius: 10px; font-size: 1.2rem; padding: 0 10px; color:#a1a1a1;}
+.syllabus_contents_1 textarea:focus{border: #222;}
 
 .syllabus_contents_2{display: flex; margin: 24px 0 0 0; width: 100%; padding: 0 0 15px 0; border-bottom: #c2c2c2 1px solid;}
 .syllabus_contents_2 p{font-size: 1.2rem; padding: 0 40px 0 0; width: 160px;}

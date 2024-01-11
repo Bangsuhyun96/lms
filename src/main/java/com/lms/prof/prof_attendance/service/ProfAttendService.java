@@ -5,6 +5,9 @@ import com.lms.prof.prof_attendance.dto.ProfAttendanceDto;
 import java.util.List;
 
 public interface ProfAttendService {
+
+//    List<ProfAttendanceDto> lectureYearAll(int studentId);
+
     List<ProfAttendanceDto> lectureAll(int profId);
 
     List<ProfAttendanceDto> lectureSelect(int profId, String year);
