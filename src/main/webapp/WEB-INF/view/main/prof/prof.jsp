@@ -14,24 +14,20 @@
         <div class="main_sub_wrap">
             <div class="main_assignment">
                 <div class="main_assignment_contents">
-                    <h2>과제제출현황</h2>
+                    <h2>과제 제출 현황</h2>
                     <div class="main_assignment_contents_scroll">
-                        <div class="assignment_1">
-                            <a href="#"><p>과제명1</p></a>
-                            <a href="#">제출 인원 : 12명</a>
-                        </div>
-                        <div class="assignment_2">
-                            <a href="#"><p>과제명2</p></a>
-                            <a href="#">제출 인원 : 11명</a>
-                        </div>
-                        <div class="assignment_3">
-                            <a href="#"><p>과제명3</p></a>
-                            <a href="#">제출 인원 : 13명</a>
-                        </div>
+                        <c:forEach var="item" items="${assignmentListDto}">
+                            <div class="assignment_1">
+                                <a href="#">
+                                    <p>${item.assignmentName}</p>
+                                </a>
+                                <a href="#">제출 인원 : ${item.submissionCount}명</a>
+                            </div>
+                        </c:forEach>
                     </div>
-
                 </div>
             </div>
+
             <div class="main_announcement">
                 <div class="main_announcement_contents">
                     <h2>공지사항</h2>

@@ -19,7 +19,10 @@ public class StuAssignmentsDto {
     private Date startDate;
     private Date endDate;
 
+    // prof
     private int profId;
+
+    // student
     private int studentId;
 
     // assignments
@@ -35,6 +38,7 @@ public class StuAssignmentsDto {
     private String filePath; // 저장된 파일 경로
 
     // assignments_submission
+    private int submissionId;
     private int submissionCount;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date submissionDate;

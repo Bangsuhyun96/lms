@@ -57,7 +57,8 @@
             li.LECTURE_ID,
             li.LECTURE_YEAR,
             li.LECTURE_NAME,
-            a.ASSIGNMENT_ID
+            a.ASSIGNMENT_ID,
+            p.PROF_ID
         FROM
             student s
                 JOIN
@@ -66,6 +67,8 @@
             lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
                 JOIN
             assignments a ON a.LECTURE_ID = li.LECTURE_ID
+                JOIN
+            prof p ON p.PROF_ID = li.INSTRUCTOR_NO
         WHERE
             s.student_id = #{studentId}
           AND li.lecture_year = #{lectureYear}
@@ -103,12 +106,6 @@
           AND a.ASSIGNMENT_ID = #{assignmentId};
     </select>
 
-
-    <!--    <select id="insertAssignments" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">-->
-    <!--        INSERT INTO assignments_submission(ASSIGNMENT_ID, LECTURE_ID, STUDENT_ID, FILENAME, FILEPATH, SUBMISSION_DATE)-->
-    <!--        VALUES (#{assignmentId}, #{lectureId}, #{studentId}, #{fileName}, #{filePath}, now())-->
-    <!--    </select>-->
-
     <!-- 제출한 파일 존재 여부 -->
     <select id="checkAssignmentSubmission" parameterType="map" resultType="int">
         SELECT COUNT(*)
@@ -132,7 +129,7 @@
     <!-- id 얻어오기(과제 제출하기) -->
     <select id="getId" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
         SELECT
-            s.STUDENT_ID, li.LECTURE_ID, li.LECTURE_YEAR, li.LECTURE_NAME, a.ASSIGNMENT_ID
+            s.STUDENT_ID, li.LECTURE_ID, li.LECTURE_YEAR, li.LECTURE_NAME, a.ASSIGNMENT_ID, p.PROF_ID
         FROM
             student s
         JOIN
@@ -141,6 +138,8 @@
             lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
         JOIN
             assignments a ON a.LECTURE_ID = li.LECTURE_ID
+        JOIN
+            prof p ON p.PROF_ID = li.INSTRUCTOR_NO
         WHERE
             s.student_id = #{studentId}
           AND a.ASSIGNMENT_ID = #{assignmentId}
@@ -150,20 +149,6 @@
 
     <!-- 제출한 과제보기 -->
     <select id="submitAssignments" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">
---         SELECT assignments_submission.FILENAME
---         FROM student s
---         JOIN
---             lecture_apply la ON s.STUDENT_ID = la.STUDENT_ID
---         JOIN
---             assignments_submission ON la.LECTURE_ID = assignments_submission.LECTURE_ID
---         JOIN
---             lecture_info li ON la.LECTURE_ID = li.LECTURE_ID
---         WHERE
---             s.student_id = #{studentId}
---           AND assignments_submission.ASSIGNMENT_ID = #{assignmentId}
---           AND li.lecture_year = #{lectureYear}
---           AND li.lecture_name = #{lectureName};
-
             SELECT assignments_submission.FILENAME
             FROM assignments_submission
                      JOIN
@@ -187,5 +172,33 @@
           AND li.lecture_year = #{lectureYear}
           AND li.lecture_name = #{lectureName};
     </select>
+
+<!--    <select id="selectCount" resultType="com.lms.user.assignments.dto.StuAssignmentsDto">-->
+<!--        SELECT COUNT(DISTINCT asub.FILEPATH)-->
+<!--        FROM assignments_submission asub-->
+<!--             JOIN assignments a ON a.ASSIGNMENT_ID = asub.ASSIGNMENT_ID-->
+<!--             JOIN lecture_apply la ON la.LECTURE_ID = asub.LECTURE_ID-->
+<!--             JOIN lecture_info li ON li.LECTURE_ID = la.LECTURE_ID-->
+<!--             JOIN prof p ON p.PROF_ID = li.INSTRUCTOR_NO-->
+<!--        WHERE p.PROF_ID = #{profId}-->
+<!--          AND a.ASSIGNMENT_ID = #{assignmentId};-->
+<!--    </select>-->
+
+    <update id="updateSubmissionCount" parameterType="map">
+        UPDATE assignments
+        SET submission_count = (
+            SELECT COUNT(DISTINCT asub.FILEPATH)
+            FROM assignments_submission asub
+                     JOIN assignments a ON a.ASSIGNMENT_ID = asub.ASSIGNMENT_ID
+                     JOIN lecture_apply la ON la.LECTURE_ID = asub.LECTURE_ID
+                     JOIN lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+                     JOIN prof p ON p.PROF_ID = li.INSTRUCTOR_NO
+            WHERE p.PROF_ID = #{profId}
+              AND a.ASSIGNMENT_ID = #{assignmentId}
+        )
+        WHERE ASSIGNMENT_ID = #{assignmentId};
+    </update>
+
+
 
 </mapper>

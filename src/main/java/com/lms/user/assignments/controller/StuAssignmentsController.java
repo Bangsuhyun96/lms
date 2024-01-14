@@ -181,9 +181,19 @@ public class StuAssignmentsController {
                                     @RequestParam("lectureId") int lectureId,
                                     @RequestParam("studentId") int studentId,
                                     @RequestParam("file") MultipartFile file,
+                                    @RequestParam("profId") int profId,
                                     @ModelAttribute StuAssignmentsDto assignmentsDto,
                                     RedirectAttributes redirectAttributes,
                                     HttpSession session) throws Exception{
+
+        // 세션에서 lectureYear와 lectureName 값을 가져오기
+        String lectureYear = (String) session.getAttribute("lectureYear");
+        String lectureName = (String) session.getAttribute("lectureName");
+
+        // 리다이렉트 시에 파라미터로 값을 전달
+        redirectAttributes.addAttribute("lectureYear", lectureYear);
+        redirectAttributes.addAttribute("lectureName", lectureName);
+
         // 파일 업로드 폴더 경로
         String uploadFolderPath = System.getProperty("user.dir") + "/src/main/webapp/resources/files/";
 
@@ -213,12 +223,21 @@ public class StuAssignmentsController {
 //            }
         }
 
+        // 파일을 제출하기 위한 파라미터
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("assignmentId", assignmentId);
         parameters.put("lectureId", lectureId);
         parameters.put("studentId", studentId);
         parameters.put("fileName", assignmentsDto.getFileName());
         parameters.put("filePath", assignmentsDto.getFilePath());
+        parameters.put("profId", profId);
+
+        // 과제 등록시 인원 수를 증가시키키 위한 파라미터
+        Map<String, Object> parameters2 = new HashMap<>();
+        parameters2.put("studentId", studentId);
+        parameters2.put("assignmentId", assignmentId);
+        parameters2.put("profId", profId);
+        stuAssignmentsService.updateSubmissionCount(parameters);
 
         // 파일 존재 여부를 위한 count
         int rowCount = stuAssignmentsService.checkAssignmentSubmission(parameters);
@@ -227,20 +246,14 @@ public class StuAssignmentsController {
         if (rowCount > 0) {
             // 수정하기
             stuAssignmentsService.updateAssignmentSubmission(parameters);
+            stuAssignmentsService.updateSubmissionCount(parameters2);
         } else {
-            // 추가하기
+            // 추가하기 및 인원 수 증가
             stuAssignmentsService.insertAssignmentSubmission(parameters);
+            stuAssignmentsService.updateSubmissionCount(parameters2);
         }
 
-//        stuAssignmentsService.insertAssignments(assignmentId, lectureId, studentId, assignmentsDto.getFileName(), assignmentsDto.getFilePath());
 
-        // 세션에서 lectureYear와 lectureName 값을 가져오기
-        String lectureYear = (String) session.getAttribute("lectureYear");
-        String lectureName = (String) session.getAttribute("lectureName");
-
-        // 리다이렉트 시에 파라미터로 값을 전달
-        redirectAttributes.addAttribute("lectureYear", lectureYear);
-        redirectAttributes.addAttribute("lectureName", lectureName);
 
         return "redirect:/classinfo/assignment";
 

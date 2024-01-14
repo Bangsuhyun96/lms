@@ -35,7 +35,16 @@
             </div>
             <div class="header_info">
                 <div class="header_info_left">
-                    <a href="" class="user_img"><i class="fa-solid fa-user"></i></a>
+                    <div class="user_img">
+                    <c:choose>
+                        <c:when test="${empty login.filePath or login.filePath eq null}">
+                            <img src="<%= request.getContextPath() %>/resources/image/user.png" alt="default user image">
+                        </c:when>
+                        <c:otherwise>
+                            <img src="${login.filePath}" alt="user image"/>
+                        </c:otherwise>
+                    </c:choose>
+                    </div>
                     <a href=""><p>${login.name}</p></a>
                 </div>
                 <div class="header_info_right">

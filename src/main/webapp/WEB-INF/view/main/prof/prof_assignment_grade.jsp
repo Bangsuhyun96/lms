@@ -16,7 +16,6 @@
             </div>
         </div>
         <div class="syllabus_contents">
-<%--            <c:forEach items="${getStuList}" var="item">--%>
             <div class="syllabus_contents_1">
                 <p>과제명</p>
                 <input type="text" value="${getStuList.assignmentName}" disabled>
@@ -31,37 +30,30 @@
             </div>
             <div class="prof_assignment_add_contents_5">
                 <p>자료파일</p>
-<%--                <input type="text" value="${item.fileName}" disabled>--%>
                 <div id="stuAssignmentsDownload">
-                    <a href="/prof/assignment/stuAssignmentsDownload?fileName=${getStuList.fileName}">${getStuList.fileName}</a>
+                    <a href="/prof/assignment/stuAssignmentsDownload?fileName=${getStuList.fileName}">
+                        ${getStuList.fileName}
+                    </a>
                 </div>
             </div>
-<%--            </c:forEach>--%>
         </div>
 
         <div class="prof_assignment_grade_title3">
-            <p>과제 채점</p>
+            <p>피드백 작성</p>
         </div>
         <form id="insertComments" name="insertComments" method="post" action="/prof/assignment/comments">
+            <input type="hidden" name="lectureYear" value="${getStuList.lectureYear}" />
+            <input type="hidden" name="lectureName" value="${getStuList.lectureName}" />
+            <input type="hidden" name="lectureId" value="${getStuList.lectureId}" />
+            <input type="hidden" name="profId" value="${getStuList.profId}" />
+            <input type="hidden" name="assignmentId" value="${getStuList.assignmentId}" />
+            <input type="hidden" name="studentId" value="${getStuList.studentId}" />
+
             <div class="prof_assignment_grade_contents_1">
-<%--                <c:forEach var="item" varStatus="status" items="${getStuList}">--%>
-                    <textarea name="evaluationComments" id="evaluationComments">${getStuList.evaluationComments}</textarea>
-<%--                </c:forEach>--%>
+                <textarea name="evaluationComments" id="evaluationComments">${getStuList.evaluationComments}</textarea>
                 <button type="submit">저장</button>
             </div>
-
-<%--            <c:forEach var="item" items="${idListFormDto}">--%>
-                <input type="hidden" name="lectureYear" value="${getStuList.lectureYear}" />
-                <input type="hidden" name="lectureName" value="${getStuList.lectureName}" />
-                <input type="hidden" name="lectureId" value="${getStuList.lectureId}" />
-                <input type="hidden" name="profId" value="${getStuList.profId}" />
-                <input type="hidden" name="assignmentId" value="${getStuList.assignmentId}" />
-                <input name="studentId" value="${getStuList.studentId}" />
-
-<%--            </c:forEach>--%>
         </form>
-
-
     </div>
 </div>
 <%@ include file="/WEB-INF/view/main/common/footer.jsp" %>

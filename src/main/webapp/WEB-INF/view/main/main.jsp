@@ -78,32 +78,27 @@
         <div class="main_sub_wrap">
             <div class="main_assignment">
                 <div class="main_assignment_contents">
-                    <h2>과제제출현황</h2>
+                    <h2>과제 제출 현황</h2>
                     <div class="main_assignment_contents_scroll">
-                        <div class="assignment_1">
-                            <a href="#"><p>과제명1</p></a>
-                            <button>제출완료</button>
-                        </div>
-                        <div class="assignment_2">
-                            <a href="#"><p>과제명2</p></a>
-                            <button>제출가능</button>
-                        </div>
-                        <div class="assignment_3">
-                            <a href="#"><p>과제명3</p></a>
-                            <button>미제출</button>
-                        </div>
-                        <div class="assignment_2">
-                            <a href="#"><p>과제명4</p></a>
-                            <button>제출가능</button>
-                        </div>
-                        <div class="assignment_1">
-                            <a href="#"><p>과제명5</p></a>
-                            <button>제출완료</button>
-                        </div>
+                        <c:forEach var="item" items="${assignmentListDto}">
+                            <div class="assignment_1">
+                                <a href="/classinfo/assignmentaddForm?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&studentId=${item.studentId}&assignmentId=${item.assignmentId}">
+                                        ${item.assignmentName}
+                                </a>
+                                <c:choose>
+                                    <c:when test="${empty item.filePath}">
+                                        <button id="notSubBtn">미제출</button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button id="subBtn">제출완료</button>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </c:forEach>
                     </div>
-
                 </div>
             </div>
+
             <div class="main_announcement">
                 <div class="main_announcement_contents">
                     <h2>공지사항</h2>

@@ -64,7 +64,7 @@
                                 ${item.assignmentId}
                         </td>
                         <td>
-                            <a href="/classinfo/assignmentaddForm?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&studentId=${item.studentId}&assignmentId=${item.assignmentId}">${item.assignmentName}</a>
+                            <a href="/classinfo/assignmentaddForm?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&studentId=${item.studentId}&assignmentId=${item.assignmentId}&profId=${item.profId}">${item.assignmentName}</a>
                         </td>
                         <td>
                             <!-- 현재 날짜 -->

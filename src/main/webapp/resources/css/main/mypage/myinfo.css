@@ -5,7 +5,7 @@
 
 .myinfo_info{display:flex; justify-content: center; min-height: 500px; align-items: center;}
 .myinfo_img{display: flex; flex-direction: column; margin: 0 40px 0 0; }
-.myinfo_img img{width: 322px; height: 322px; margin: auto; margin-top: 20px; border-radius: 50%; border :2px solid black;}
+.myinfo_img img{width: 322px; height: 322px; margin: auto; margin-top: 20px; border-radius: 50%;}
 .myinfo_img>div{margin: 12px auto 0; }
 .myinfo_img button{margin: auto; margin-top: 10px; background: #fefefe; border: 1px solid #646464; border-radius: 3px; height: 26px; font-size:0.8rem; width: 80px; cursor: pointer;}
 .myinfo_img button:hover{background: #e8efe5;}

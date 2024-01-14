@@ -11,10 +11,10 @@
     <div class="syllabus_wrap">
         <form id="insertAssignments" name="insertAssignments" method="post" action="/prof/assignment/add" enctype="multipart/form-data">
             <c:forEach var="item" items="${idListFormDto}">
-                <input  name="lectureYear" value="${item.lectureYear}" />
-                <input  name="lectureName" value="${item.lectureName}" />
-                <input  name="lectureId" value="${item.lectureId}" />
-                <input  name="lectorId" value="${item.profId}" />
+                <input type="hidden" name="lectureYear" value="${item.lectureYear}" />
+                <input type="hidden" name="lectureName" value="${item.lectureName}" />
+                <input type="hidden" name="lectureId" value="${item.lectureId}" />
+                <input type="hidden" name="lectorId" value="${item.profId}" />
             </c:forEach>
             <div class="syllabus_title2">
                 <p>과제 출제</p>

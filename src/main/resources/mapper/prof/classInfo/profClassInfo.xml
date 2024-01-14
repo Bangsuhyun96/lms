@@ -10,7 +10,7 @@
         FROM lecture_info li
                  JOIN prof p ON li.instructor_no = p.prof_id
         WHERE p.prof_id = #{profId}
-        ORDER BY li.LECTURE_ID ASC;
+        ORDER BY li.lecture_year ASC;
     </select>
 
     <!-- 나의 강의실 수강 과목 띄우기 -->
@@ -106,6 +106,7 @@
         WHERE LECTURE_ID = #{lectureId};
     </update>
 
+    <!-- 강좌 주차별 수업 내용 추가(수정) -->
     <update id="insertLectureContents">
             UPDATE lecture_schedule ls
             SET ls.lecture_contents = #{content}
