@@ -55,6 +55,7 @@
                                 <input type="hidden" name="lectureYear" value="${item.lectureYear}" />
                                 <input type="hidden" name="lectureName" value="${item.lectureName}" />
                                 <button type="submit" onclick="location.href='/prof/assignment'">과제</button>
+                            </form>
                         </div>
 
                     </c:forEach>

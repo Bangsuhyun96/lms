@@ -64,6 +64,12 @@ public class AssignmentsServiceImpl implements AssignmentsService{
 
     }
 
+    // id 얻어오기(제출한 학생 리스트 보기)
+    @Override
+    public List<AssignmentsDto> getId2(String lectureYear, String lectureName, int profId){
+        return assignmentsMapper.getId2(lectureYear, lectureName, profId);
+    }
+
     // 과제 추가하기
     @Override
     public void insertComments(int profId,
@@ -74,11 +80,7 @@ public class AssignmentsServiceImpl implements AssignmentsService{
         assignmentsMapper.insertComments(profId, lectureId, assignmentId, evaluationComments, studentId);
     }
 
-    @Override
-    public List<AssignmentsDto> getId2(String lectureYear, String lectureName, int profId){
-        return assignmentsMapper.getId2(lectureYear, lectureName, profId);
-    }
-
+    // 제출한 학생 상세 보기
     @Override
     public AssignmentsDto getComments(String lectureYear,
                                String lectureName,
@@ -88,6 +90,5 @@ public class AssignmentsServiceImpl implements AssignmentsService{
                                int studentId){
         return assignmentsMapper.getComments(lectureYear, lectureName, profId, lectureId, assignmentId, studentId);
     }
-
 
 }

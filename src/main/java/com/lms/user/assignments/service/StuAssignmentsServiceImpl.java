@@ -3,6 +3,7 @@ package com.lms.user.assignments.service;
 import com.lms.user.assignments.dto.StuAssignmentsDto;
 import com.lms.user.assignments.mapper.StuAssignmentsMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -39,12 +40,6 @@ public class StuAssignmentsServiceImpl implements StuAssignmentsService {
         return stuAssignmentsMapper.getAssignmentsDetail(lectureYear, lectureName, studentId, assignmentId);
     }
 
-    // 과제 제출하기(수정)
-//    @Override
-//    public void insertAssignments(int assignmentId, int lectureId, int studentId, String fileName, String filePath){
-//        stuAssignmentsMapper.insertAssignments(assignmentId, lectureId, studentId, fileName, filePath);
-//    }
-
     // 제출한 파일 존재 여부
     @Override
     public int checkAssignmentSubmission(Map<String, Object> parameters) {
@@ -61,6 +56,12 @@ public class StuAssignmentsServiceImpl implements StuAssignmentsService {
     @Override
     public void updateAssignmentSubmission(Map<String, Object> parameters){
         stuAssignmentsMapper.updateAssignmentSubmission(parameters);
+    }
+
+    // 과제 제출 시 인원 수 증가시키기
+    @Override
+    public void updateSubmissionCount(Map<String, Object> parameters) {
+        stuAssignmentsMapper.updateSubmissionCount(parameters);
     }
 
     // id 얻어오기(과제 제출하기)

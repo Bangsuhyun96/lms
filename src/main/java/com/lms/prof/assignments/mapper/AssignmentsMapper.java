@@ -45,6 +45,11 @@ public interface AssignmentsMapper {
                                    @Param("lectureId") int lectureId,
                                    @Param("assignmentId") int assignmentId);
 
+    // id 얻어오기(제출한 학생 리스트 보기)
+    List<AssignmentsDto> getId2(@Param("lectureYear") String lectureYear,
+                                @Param("lectureName") String lectureName,
+                                @Param("profId") int profId);
+
     // 피드백 추가하기
     void insertComments(@Param("profId") int profId,
                         @Param("lectureId") int lectureId,
@@ -52,11 +57,7 @@ public interface AssignmentsMapper {
                         @Param("evaluationComments") String evaluationComments,
                         @Param("studentId") int studentId);
 
-
-    List<AssignmentsDto> getId2(@Param("lectureYear") String lectureYear,
-                               @Param("lectureName") String lectureName,
-                               @Param("profId") int profId);
-
+    // 제출한 학생 상세 보기
     AssignmentsDto getComments(@Param("lectureYear") String lectureYear,
                                @Param("lectureName") String lectureName,
                                @Param("profId") int profId,

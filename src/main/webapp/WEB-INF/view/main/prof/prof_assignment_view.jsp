@@ -29,7 +29,7 @@
             </a>
           </td>
           <td>
-            <fmt:formatDate value="${item.submissionDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+            <fmt:formatDate value="${item.submissionDate}" pattern="yyyy-MM-dd"/>
           </td>
         </tr>
         </c:forEach>

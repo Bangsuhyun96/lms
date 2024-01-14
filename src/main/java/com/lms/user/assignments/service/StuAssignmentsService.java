@@ -21,9 +21,6 @@ public interface StuAssignmentsService {
     // 과제 하나 보기
     StuAssignmentsDto getAssignmentsDetail(String lectureYear, String lectureName, int studentId, int assignmentId);
 
-    // 과제 제출하기(수정)
-//    public void insertAssignments(int assignmentId, int lectureId, int studentId, String fileName, String filePath);
-
     // 제출한 파일 존재 여부
     int checkAssignmentSubmission(Map<String, Object> parameters);
 
@@ -33,6 +30,9 @@ public interface StuAssignmentsService {
     // 과제 파일 수정하기
     void insertAssignmentSubmission(Map<String, Object> parameters);
 
+    // 과제 제출 시 인원 수 증가시키기
+    public void updateSubmissionCount(Map<String, Object> parameters);
+
     // id 얻어오기(과제 제출하기)
     List<StuAssignmentsDto> getId(String lectureYear, String lectureName, int assignmentId, int lectureId, int studentId);
 
@@ -41,4 +41,5 @@ public interface StuAssignmentsService {
 
     // 피드백 보기
     StuAssignmentsDto getCommetns(String lectureYear, String lectureName, int studentId, int assignmentId);
+
 }

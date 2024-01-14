@@ -7,14 +7,16 @@
 .main_left .main_sub_wrap .main_assignment .main_assignment_contents{width: 100%; height: 100%; background: #e8efe5; border-radius: 20px; position: relative; display: flex; flex-direction: column;}
 .main_left .main_sub_wrap .main_assignment .main_assignment_contents h2{font-size: 1.4rem; padding: 20px;}
 .main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1{display: flex; background: #fff; padding: 20px; margin: 10px 20px; justify-content: space-between; align-items: center; border-radius: 5px;}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1 button{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #149000; color: #fff;}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1 a{width: calc(100% - 70px);}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_2{display: flex; background: #fff; padding: 20px; margin: 10px 20px; justify-content: space-between; align-items: center; border-radius: 5px;}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_2 button{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #0038ff; color: #fff;}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_2 a{width: calc(100% - 70px);}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_3{display: flex; background: #fff; padding: 20px; margin: 10px 20px; justify-content: space-between; align-items: center; border-radius: 5px;}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_3 button{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #d10000; color: #fff;}
-.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_3 a{width: calc(100% - 70px);}
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1 button{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #149000; color: #fff;}*/
+.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1 #subBtn{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #149000; color: #fff;}
+.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1 #notSubBtn{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #d10000; color: #fff;}
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_1 a{width: calc(100% - 70px);}*/
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_2{display: flex; background: #fff; padding: 20px; margin: 10px 20px; justify-content: space-between; align-items: center; border-radius: 5px;}*/
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_2 button{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #0038ff; color: #fff;}*/
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_2 a{width: calc(100% - 70px);}*/
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_3{display: flex; background: #fff; padding: 20px; margin: 10px 20px; justify-content: space-between; align-items: center; border-radius: 5px;}*/
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_3 button{width: 70px; height: 30px; border-radius: 5px; border: none; font-size: 0.8rem; background: #d10000; color: #fff;}*/
+/*.main_left .main_sub_wrap .main_assignment .main_assignment_contents .assignment_3 a{width: calc(100% - 70px);}*/
 .main_left .main_sub_wrap .main_announcement{width: 400px; height: 400px; padding: 0 20px 20px 0;}
 .main_left .main_sub_wrap .main_announcement .main_announcement_contents h2{font-size: 1.4rem; padding: 20px;}
 .main_left .main_sub_wrap .main_announcement .main_announcement_contents{width: 100%; height: 100%; background: #e8efe5; border-radius: 20px; position: relative; display: flex; flex-direction: column;}
