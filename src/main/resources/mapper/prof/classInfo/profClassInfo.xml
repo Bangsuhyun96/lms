@@ -106,6 +106,7 @@
         WHERE LECTURE_ID = #{lectureId};
     </update>
 
+    <!-- 강좌 주차별 수업 내용 추가(수정) -->
     <update id="insertLectureContents">
             UPDATE lecture_schedule ls
             SET ls.lecture_contents = #{content}

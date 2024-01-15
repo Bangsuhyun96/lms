@@ -33,6 +33,9 @@ public class UserDto {
     private String accountBank;
     private int lectureFee;
 
+    private String fileName;
+    private String filePath;
+
     public void setBirthDate(String birthDate) {
         // 문자열을 LocalDate로 변환
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

@@ -61,7 +61,7 @@ public class AssignmentsController {
 
         List<AssignmentsDto> idListFormDto = assignmentsService.getId(lectureYear, lectureName, lectorId);
         model.addAttribute("idListFormDto", idListFormDto);
-        System.out.println("lectureYear : " + lectureYear.indexOf(0));
+//        System.out.println("lectureYear : " + lectureYear.indexOf(0));
         return "main/prof/prof_assignment_add";
 
     }
@@ -237,18 +237,5 @@ public class AssignmentsController {
         return "redirect:/prof/assignment";
         
     }
-
-//    // 과제 제출 수정 폼으로 가기
-//    @RequestMapping("/prof/assignment/updateForm")
-//    public String updateAssignmentsForm(@RequestParam("lectureYear") String lectureYear,
-//                                        @RequestParam("lectureName") String lectureName,
-//                                        @RequestParam("lectureId") int lectureId,
-//                                        @RequestParam("lectorId") int lectorId,
-//                                        Model model){
-//        List<AssignmentsDto> idListFormDto = assignmentsService.getId(lectureYear, lectureName, lectorId);
-//        model.addAttribute("idListFormDto", idListFormDto);
-//
-//        return "main/prof/prof_assignment_add";
-//    }
 
 }
