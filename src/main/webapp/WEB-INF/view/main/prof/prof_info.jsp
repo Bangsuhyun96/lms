@@ -1,5 +1,6 @@
 <%@ page contentType = "text/html; charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="<%=request.getContextPath()%>/resources/css/main/prof/prof_info.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="kor">
@@ -22,20 +23,21 @@
             <div class="myinfo_table">
                 <table>
                     <tbody>
-                    <tr><th><p>성명</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>생년월일</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>성별</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>이메일</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>주소</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>연락처</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>계좌번호</p></th><td><input type="text" maxlength="50" disabled></td></tr>
-                    <tr><th><p>예금주</p></th><td><input type="text" maxlength="50" disabled></td></tr>
+                    <tr><th><p>성명</p></th><td><input type="text" value="${profInfo.name}" maxlength="50" disabled></td></tr>
+                    <fmt:formatDate value="${profInfo.birthDate}" pattern="yyyy-MM-dd" var="formattedDate" />
+                    <tr><th><p>생년월일</p></th><td><input type="text" value="${formattedDate}" maxlength="50" disabled></td></tr>
+                    <tr><th><p>성별</p></th><td><input type="text" value="${profInfo.gender}" maxlength="50" disabled></td></tr>
+                    <tr><th><p>이메일</p></th><td><input type="text" value="${profInfo.email}" maxlength="50" disabled></td></tr>
+                    <tr><th><p>주소</p></th><td><input type="text" value="${profInfo.address}, ${profInfo.addressDetail}" maxlength="50" disabled></td></tr>
+                    <tr><th><p>연락처</p></th><td><input type="text" value="${profInfo.phoneNo}" maxlength="50" disabled></td></tr>
+                    <tr><th><p>계좌번호</p></th><td><input type="text" value="${profInfo.account}" maxlength="50" disabled></td></tr>
+                    <tr><th><p>예금주명</p></th><td><input type="text" value="${profInfo.accountName}" maxlength="50" disabled></td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="myinfo_modify">
-            <button>수정하기</button>
+            <button type="submit" onclick="location.href='/prof/info/update'" >수정하기</button>
         </div>
     </div>
 </div>

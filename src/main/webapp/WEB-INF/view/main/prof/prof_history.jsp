@@ -16,52 +16,18 @@
                 <tbody>
                 <tr>
                     <th>강의년도</th>
-                    <th>전공/교양</th>
-                    <th>학점</th>
                     <th>개설강좌명</th>
+                    <th>강의시수</th>
+                    <th>과정명</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>41</td>
-                    <td>3</td>
-                </tr>
+                <c:forEach var="item" items="${profH}">
+                    <tr>
+                        <td>${item.lectureYear}</td>
+                        <td>${item.lectureName}</td>
+                        <td>${item.hours}시간</td>
+                        <td>${item.curriculumName}</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>

@@ -44,10 +44,12 @@
                                 <input type="hidden" name="lectureName" value="${item.lectureName}" />
                                 <button type="submit">강의계획서</button>
                             </form>
-                            <button type="submit" onclick="location.href='/classinfo/attendance'">출결</button>
-<%--                            <button type="submit" onclick="location.href='/classinfo/assignment'">시험</button>--%>
+                            <form id="getAttendanceInfo" action="/classinfo/attendance" method="get">
+                                <input type="hidden" name="lectureId" value="${item.lectureId}" />
+                                <button type="submit">출결</button>
+                            </form>
                             <form id="getStuAssignmentsInfo" action="/classinfo/assignment" method="get">
-                                <input type="hidden" name="lectureYear" value="${item.lectureYear}" />
+                                <input type="hidden" name="lectureId" value="${item.lectureYear}" />
                                 <input type="hidden" name="lectureName" value="${item.lectureName}" />
                                 <button type="submit" onclick="location.href='/classinfo/assignment'">과제</button>
                             </form>
