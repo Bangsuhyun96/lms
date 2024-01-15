@@ -10,6 +10,7 @@
                         li.LECTURE_YEAR,
                         li.LECTURE_NAME,
                         li.LECTURE_ID,
+                        li.LECTURE_NAME,
                         a.ASSIGNMENT_ID,
                         a.ASSIGNMENT_NAME,
                         a.FILEPATH,

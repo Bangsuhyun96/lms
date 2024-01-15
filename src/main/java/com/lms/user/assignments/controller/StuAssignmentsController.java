@@ -62,6 +62,9 @@ public class StuAssignmentsController {
         UserDto userDto = (UserDto) session.getAttribute("login");
         int studentID = userDto.getStudentId();
 
+        session.setAttribute("lectureYear", lectureYear);
+        session.setAttribute("lectureName", lectureName);
+
         StuAssignmentsDto assignmentsDetail = stuAssignmentsService.getAssignmentsDetail(lectureYear, lectureName, studentId, assignmentId);
         List<StuAssignmentsDto> idListFormDto = stuAssignmentsService.getId(lectureYear, lectureName, assignmentId, lectureId, studentId);
         List<StuAssignmentsDto> submitListDto = stuAssignmentsService.submitAssignments(lectureYear, lectureName, studentID, assignmentId);
