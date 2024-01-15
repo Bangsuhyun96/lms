@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.prof.profInfo.mapper.ProfInfoMapper">
+    <select id="profInfo" resultType="com.lms.prof.profInfo.dto.ProfInfoDto" parameterType="int">
+        SELECT p.name,
+               p.birth_date,
+               p.gender,
+               p.email,
+               p.address,
+               p.phone_no,
+               p.account,
+               p.account_name,
+               p.ADDRESS_DETAIL,
+               p.ZIP_CODE
+            FROM prof p
+        where p.prof_id = #{profId}
+    </select>
+
+    <update id="profInfoUpdate" parameterType="map">
+        UPDATE prof p
+        SET
+            p.ZIP_CODE = #{zipCode},
+            p.ADDRESS_DETAIL = #{addressDetail},
+            p.ADDRESS = #{address},
+            p.PHONE_NO = #{phoneNo},
+            p.EMAIL = #{email},
+            p.GENDER = #{gender},
+            p.NAME = #{name},
+            p.ACCOUNT = #{account},
+            p.ACCOUNT_NAME = #{accountName}
+        WHERE p.prof_id = #{profId}
+    </update>
+
+    <!-- 강의 이력 출력 -->
+    <select id="profHistory" resultType="com.lms.prof.profInfo.dto.ProfInfoDto" parameterType="int">
+        SELECT li.LECTURE_YEAR,
+               li.HOURS,
+               li.LECTURE_NAME,
+               c.CURRICULUM_NAME
+        FROM lecture_info li
+        JOIN curriculum c ON li.CURRICULUM_ID = c.CURRICULUM_ID
+        WHERE li.INSTRUCTOR_NO = #{profId}
+    </select>
+</mapper>

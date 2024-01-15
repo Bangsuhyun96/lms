@@ -10,7 +10,7 @@
         FROM lecture_info li
                  JOIN prof p ON li.instructor_no = p.prof_id
         WHERE p.prof_id = #{profId}
-        ORDER BY li.lecture_year ASC;
+        ORDER BY li.LECTURE_YEAR ASC;
     </select>
 
     <!-- 나의 강의실 수강 과목 띄우기 -->

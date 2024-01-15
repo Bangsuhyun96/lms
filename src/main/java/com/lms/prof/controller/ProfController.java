@@ -13,15 +13,16 @@ public class ProfController {
 //        return "main/prof/prof";
 //    }
 
-    @GetMapping("/info")
-    public String profInfo(){
-        return "main/prof/prof_info";
-    }
+//    @GetMapping("/info")
+//    public String profInfo(){
+//
+//        return "main/prof/prof_info";
+//    }
 
-    @GetMapping("/history")
-    public String profHistory(){
-        return "main/prof/prof_history";
-    }
+//    @GetMapping("/history")
+//    public String profHistory(){
+//        return "main/prof/prof_history";
+//    }
 
     @GetMapping("/fee")
     public String profFee(){
@@ -29,31 +30,7 @@ public class ProfController {
     }
 
 
-//    @GetMapping("/plan")
-//    public String profPlan(){ return "main/prof/prof_plan"; }
-
     @GetMapping("/weekplan")
     public String profWeekPlan(){ return "main/prof/prof_weekplan"; }
-
-    /////////////////////////////////////////////////////////////////
-//    @GetMapping("/assignment")
-//    public String profAssignment(){
-//        return "main/prof/prof_assignment";
-//    }
-
-//    @GetMapping("/assignment/add")
-//    public String profAssignmentAdd(){
-//        return "main/prof/prof_assignment_add";
-//    }
-
-//    @GetMapping("/assignment/view")
-//    public String profAssignmentView(){
-//        return "main/prof/prof_assignment_view";
-//    }
-
-//    @GetMapping("/assignment/grade")
-//    public String profAssignmentGrade(){
-//        return "main/prof/prof_assignment_grade";
-//    }
 
 }

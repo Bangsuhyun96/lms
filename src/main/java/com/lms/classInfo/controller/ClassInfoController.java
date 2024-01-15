@@ -8,19 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/classinfo")
 public class ClassInfoController {
 
-    @GetMapping("attendance")
-    public String attendance(){
-        return "main/class_info/attendance";
-    }
-
-//    @GetMapping("assignment")
-//    public String assignment(){
-//        return "/main/class_info/assignment";
-//    }
-
-//    @GetMapping("assignmentadd")
-//    public String assignmentAdd(){
-//        return "/main/class_info/assignment_add";
+//    @GetMapping("attendance")
+//    public String attendance(){
+//        return "main/class_info/attendance";
 //    }
 
     @GetMapping("assignmentview")

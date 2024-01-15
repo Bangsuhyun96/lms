@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.classInfo.mapper.AttendanceMapper">
+    <select id="lectureInfo" resultType="com.lms.classInfo.dto.AttendanceDto" parameterType="int">
+        SELECT li.lecture_year, c.curriculum_name, li.lecture_name, p.name
+        FROM lecture_info li
+        JOIN curriculum c ON li.curriculum_id = c.curriculum_id
+        JOIN prof p ON li.instructor_no = p.prof_id
+        WHERE lecture_id = #{lectureId}
+    </select>
+
+    <select id="attendInfo" resultType="com.lms.classInfo.dto.AttendanceDto">
+        SELECT clw.LECTURE_WEEK, ls.lecture_date, COALESCE(asta.division, '') AS division
+        FROM curriculum_lecture_week clw
+                 JOIN lecture_schedule ls ON clw.week_id = ls.week_id
+                 LEFT JOIN attendance_status asta ON ls.week_id = asta.week_id AND asta.student_id = #{studentId}
+        WHERE ls.lecture_id = #{lectureId};
+    </select>
+</mapper>
