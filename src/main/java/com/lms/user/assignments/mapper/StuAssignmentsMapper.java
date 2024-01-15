@@ -23,13 +23,6 @@ public interface StuAssignmentsMapper {
     // 과제 하나 보기
     StuAssignmentsDto getAssignmentsDetail(@Param("lectureYear") String lectureYear, @Param("lectureName") String lectureName, @Param("studentId") int studentId, @Param("assignmentId") int assignmentId);
 
-    // 과제 제출하기(수정)
-//    public void insertAssignments(@Param("assignmentId") int assignmentId,
-//                                  @Param("lectureId") int lectureId,
-//                                  @Param("studentId") int studentId,
-//                                  @Param("fileName") String fileName,
-//                                  @Param("filePath") String filePath);
-
     // 제출한 파일 존재 여부
     int checkAssignmentSubmission(Map<String, Object> parameters);
 
@@ -39,6 +32,8 @@ public interface StuAssignmentsMapper {
     // 과제 파일 수정하기
     void updateAssignmentSubmission(Map<String, Object> parameters);
 
+    // 과제 제출 시 인원 수 증가시키기
+    public void updateSubmissionCount(Map<String, Object> parameters);
 
     // id 얻어오기(과제 제출하기)
     List<StuAssignmentsDto> getId(@Param("lectureYear") String lectureYear,
@@ -59,4 +54,4 @@ public interface StuAssignmentsMapper {
                                   @Param("studentId") int studentId,
                                   @Param("assignmentId") int assignmentId);
 
-}
+    }

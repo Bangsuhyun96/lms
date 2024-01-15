@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lms.main.prof.mapper.ProfMainMapper">
+
+    <!-- 과제 제출 현황 -->
+    <select id="getAssignmentList" resultType="com.lms.main.prof.dto.ProfMainDto">
+        SELECT DISTINCT
+                        li.LECTURE_YEAR,
+                        li.LECTURE_NAME,
+                        li.LECTURE_ID,
+                        li.LECTURE_NAME,
+                        a.ASSIGNMENT_ID,
+                        a.ASSIGNMENT_NAME,
+                        a.FILEPATH,
+                        a.SUBMISSION_COUNT,
+                        p.PROF_ID
+        FROM assignments a
+                 JOIN
+             lecture_apply la ON la.LECTURE_ID = a.LECTURE_ID
+                 JOIN
+             lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+                 JOIN
+             prof p ON p.PROF_ID = a.LECTOR_ID
+        WHERE p.PROF_ID = #{profId}
+                  AND YEAR(a.end_date) = YEAR(CURDATE());
+    </select>
+
+<!--    <select id="selectCount" resultType="com.lms.main.prof.dto.ProfMainDto">-->
+<!--        SELECT COUNT(DISTINCT asub.FILEPATH)-->
+<!--        FROM assignments_submission asub-->
+<!--                 JOIN assignments a ON a.ASSIGNMENT_ID = asub.ASSIGNMENT_ID-->
+<!--                 JOIN lecture_apply la ON la.LECTURE_ID = asub.LECTURE_ID-->
+<!--                 JOIN lecture_info li ON li.LECTURE_ID = la.LECTURE_ID-->
+<!--                 JOIN prof p ON p.PROF_ID = li.INSTRUCTOR_NO-->
+<!--        WHERE p.PROF_ID = #{profId}-->
+<!--          AND a.ASSIGNMENT_ID = #{assignmentId};-->
+<!--    </select>-->
+
+</mapper>

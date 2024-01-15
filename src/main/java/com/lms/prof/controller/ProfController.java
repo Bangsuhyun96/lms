@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/prof")
 public class ProfController {
 
-    @GetMapping
-    public String prof(){
-        return "main/prof/prof";
-    }
+//    @GetMapping
+//    public String prof(){
+//        return "main/prof/prof";
+//    }
 
 //    @GetMapping("/info")
 //    public String profInfo(){

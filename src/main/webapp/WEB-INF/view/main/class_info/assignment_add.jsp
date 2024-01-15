@@ -42,11 +42,11 @@
                     </tr>
                     <tr>
                         <th>게시일</th>
-                        <td><fmt:formatDate value="${assignmentsDetail.startDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                        <td><fmt:formatDate value="${assignmentsDetail.startDate}" pattern="yyyy-MM-dd"/></td>
                     </tr>
                     <tr>
                         <th>마감일</th>
-                        <td><fmt:formatDate value="${assignmentsDetail.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                        <td><fmt:formatDate value="${assignmentsDetail.endDate}" pattern="yyyy-MM-dd"/></td>
                     </tr>
                     <c:if test="${assignmentsDetail.fileName ne null}">
                         <tr>
@@ -70,6 +70,7 @@
                 <input type="hidden" name="lectureId" value="${item.lectureId}" />
                 <input type="hidden" name="studentId" value="${item.studentId}" />
                 <input type="hidden" name="assignmentId" value="${item.assignmentId}">
+                <input type="hidden" name="profId" value="${item.profId}">
             </c:forEach>
             <div class="assignmentadd_btn_wrap">
                 <p>제출목록</p>
@@ -82,16 +83,13 @@
                     <input type="file" name="file" id="file">
                 </div>
             </div>
-<%--        <div class="assignmentadd_textarea2">--%>
-<%--            <textarea name="" id="" cols="30" rows="10" placeholder=""></textarea>--%>
-<%--        </div>--%>
             <div class="assignmentadd_submit">
                 <button type="submit" id="submitBtn">등록</button>
             </div>
         </form>
 
         <div class="syllabus_title2">
-            <p>피드백</p>
+            <p>피드백 보기</p>
         </div>
         <div class="lectoer_plan_table3">
             <textarea name="comments" id="comments" disabled>${commentsDto.evaluationComments}</textarea>
