@@ -6,23 +6,27 @@
 
     <!-- 과제 제출 현황 -->
     <select id="getAssignmentList" resultType="com.lms.main.student.dto.StuMainDto">
-            SELECT DISTINCT li.LECTURE_YEAR,
-                            li.LECTURE_NAME,
-                            li.LECTURE_ID,
-                            a.ASSIGNMENT_ID,
-                            a.ASSIGNMENT_NAME,
-                            s.STUDENT_ID,
-                            asub.FILEPATH
-            FROM lecture_apply la
+        SELECT DISTINCT
+            li.LECTURE_YEAR,
+            li.LECTURE_NAME,
+            li.LECTURE_ID,
+            a.ASSIGNMENT_ID,
+            a.ASSIGNMENT_NAME,
+            s.STUDENT_ID,
+            asub.FILEPATH
+        FROM
+            lecture_apply la
                 JOIN
-                    lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+            lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
                 JOIN
-                    assignments a ON a.LECTURE_ID = la.LECTURE_ID
+            assignments a ON a.LECTURE_ID = la.LECTURE_ID
                 JOIN
-                    student s ON s.STUDENT_ID = la.STUDENT_ID
+            student s ON s.STUDENT_ID = la.STUDENT_ID
                 LEFT JOIN
-                assignments_submission asub ON asub.ASSIGNMENT_ID = a.ASSIGNMENT_ID
-            WHERE s.STUDENT_ID = #{studentId}
+            assignments_submission asub ON asub.ASSIGNMENT_ID = a.ASSIGNMENT_ID
+                AND asub.STUDENT_ID = s.STUDENT_ID
+        WHERE
+                    s.STUDENT_ID = #{studentId}
                 AND YEAR(a.end_date) = YEAR(CURDATE());
     </select>
 

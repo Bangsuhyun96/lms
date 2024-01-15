@@ -83,7 +83,7 @@
                         <c:forEach var="item" items="${assignmentListDto}">
                             <div class="assignment_1">
                                 <a href="/classinfo/assignmentaddForm?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&studentId=${item.studentId}&assignmentId=${item.assignmentId}">
-                                        ${item.assignmentName}
+                                        ${item.lectureName}(${item.lectureYear}) - ${item.assignmentName}
                                 </a>
                                 <c:choose>
                                     <c:when test="${empty item.filePath}">

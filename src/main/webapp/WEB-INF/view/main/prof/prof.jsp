@@ -18,10 +18,12 @@
                     <div class="main_assignment_contents_scroll">
                         <c:forEach var="item" items="${assignmentListDto}">
                             <div class="assignment_1">
-                                <a href="#">
-                                    <p>${item.assignmentName}</p>
+                                <a href="/prof/assignment/view?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&profId=${item.profId}&assignmentId=${item.assignmentId}">
+                                    <p>${item.lectureName}(${item.lectureYear}) - ${item.assignmentName}</p>
                                 </a>
-                                <a href="#">제출 인원 : ${item.submissionCount}명</a>
+                                <a href="/prof/assignment/view?lectureYear=${item.lectureYear}&lectureName=${item.lectureName}&lectureId=${item.lectureId}&profId=${item.profId}&assignmentId=${item.assignmentId}">
+                                    제출 인원 : ${item.submissionCount}명
+                                </a>
                             </div>
                         </c:forEach>
                     </div>

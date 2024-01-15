@@ -61,7 +61,7 @@ public class AssignmentsController {
 
         List<AssignmentsDto> idListFormDto = assignmentsService.getId(lectureYear, lectureName, lectorId);
         model.addAttribute("idListFormDto", idListFormDto);
-        System.out.println("lectureYear : " + lectureYear.indexOf(0));
+//        System.out.println("lectureYear : " + lectureYear.indexOf(0));
         return "main/prof/prof_assignment_add";
 
     }
