@@ -185,18 +185,20 @@
 <!--    </select>-->
 
     <update id="updateSubmissionCount" parameterType="map">
-        UPDATE assignments
-        SET submission_count = (
-            SELECT COUNT(DISTINCT asub.FILEPATH)
+        UPDATE assignments AS ass
+            JOIN (
+            SELECT a.ASSIGNMENT_ID, COUNT(DISTINCT asub.FILEPATH) AS submission_count
             FROM assignments_submission asub
-                     JOIN assignments a ON a.ASSIGNMENT_ID = asub.ASSIGNMENT_ID
-                     JOIN lecture_apply la ON la.LECTURE_ID = asub.LECTURE_ID
-                     JOIN lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
-                     JOIN prof p ON p.PROF_ID = li.INSTRUCTOR_NO
+            JOIN assignments a ON a.ASSIGNMENT_ID = asub.ASSIGNMENT_ID
+            JOIN lecture_apply la ON la.LECTURE_ID = asub.LECTURE_ID
+            JOIN lecture_info li ON li.LECTURE_ID = la.LECTURE_ID
+            JOIN prof p ON p.PROF_ID = li.INSTRUCTOR_NO
             WHERE p.PROF_ID = #{profId}
-              AND a.ASSIGNMENT_ID = #{assignmentId}
-        )
-        WHERE ASSIGNMENT_ID = #{assignmentId};
+            AND a.ASSIGNMENT_ID = #{assignmentId}
+            GROUP BY a.ASSIGNMENT_ID
+            ) AS subquery
+        ON ass.ASSIGNMENT_ID = subquery.ASSIGNMENT_ID
+            SET ass.submission_count = subquery.submission_count;
     </update>
 
 

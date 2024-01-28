@@ -122,7 +122,100 @@
             <div class="main_schedule_contents">
                 <p>강의 시간표</p>
                 <div class="schedule">
-                    <table></table>
+                    <table class="tg" style="table-layout: fixed; width: 380px">
+                        <colgroup>
+                            <col style="width: 10%">
+                            <col style="width: 18%">
+                            <col style="width: 18%">
+                            <col style="width: 18%">
+                            <col style="width: 18%">
+                            <col style="width: 18%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th class="tg-0lax"></th>
+                            <th class="tg-0lax">월</th>
+                            <th class="tg-0lax">화</th>
+                            <th class="tg-0lax">수</th>
+                            <th class="tg-0lax">목</th>
+                            <th class="tg-0lax">금</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="tg-0lax">9</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">10</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">11</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">12</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">1</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">2</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">3</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">4</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax">5</td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                            <td class="tg-0lax"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
