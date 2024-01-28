@@ -33,7 +33,12 @@
 .main_right .main_schedule{width: 400px; height: 820px; padding: 20px;}
 .main_right .main_schedule .main_schedule_contents{width: 100%; height: 100%; background: #fff; border-radius: 20px; position: relative; display: flex; flex-direction: column; border: 1px solid #9b9b9b;}
 .main_right .main_schedule .main_schedule_contents p{font-size: 1.4rem; padding: 20px;}
-.schedule{position: relative;}
+.schedule{
+    width: 95%;
+    position: relative;
+    margin: auto;
+    height: 90%;
+}
 
 @media(max-width: 1280px){
     .body_wrap{flex-wrap: wrap;}
@@ -54,3 +59,11 @@
 .fc-direction-ltr .fc-toolbar>*>:not(:first-child) {transform: translateY(10px); }
 .fc .fc-button-primary:disabled {background: #d8d8d8}
 .fc .fc-toolbar.fc-header-toolbar {margin-bottom: 0 !important; padding-bottom: 1.5em; border-top-left-radius: 20px;  border-top-right-radius: 20px; background: #e8f5e9;}
+
+/*강의 시간표*/
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0; width: 100%; height: 100%;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+    font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+    font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
