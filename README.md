@@ -56,12 +56,12 @@
 
 <h3 style="border-boottom: 0; color: #5F5F5F;">1. 관리자 페이지</h3>
 
-#### ✔ 로그인 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(로그인)" >상세보기</a>
+#### ✔ 로그인 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(관리자&회원-‐-로그인)" >상세보기</a>
 
 - 관리자가 회원가입을 진행
 - 로그인 시 관리자, 회원(강사 or 학생) 페이지로 리다이렉트
 
-#### ✔ 전체적인 강좌 관리 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(강좌관리)" >상세보기</a>
+#### ✔ 전체적인 강좌 관리 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(관리자-‐-전체적인-강좌-관리)" >상세보기</a>
 
 - 교육과정 및 교과목 관리
 - 강의 주차 관리
@@ -71,10 +71,10 @@
 
 <h3 style="border-boottom: 0; color: #5F5F5F;">2. 회원 페이지</h3>
 
-#### ✔ 나의정보 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(나의정보)" >상세보기</a>
+#### ✔ 나의정보 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(회원-‐-나의정보)" >상세보기</a>
 - 자신의 정보 조회 및 수정
 
-#### ✔ 수업정보 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(수업정보)" >상세보기</a>
+#### ✔ 수업정보 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(회원-‐--수업정보)" >상세보기</a>
 
 - 나의 강의실
   - 강의 현황
@@ -84,7 +84,7 @@
     
 - 수강신청
 
-#### ✔ 커뮤니티 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(커뮤니티)" >상세보기</a>
+#### ✔ 커뮤니티 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(회원-‐-커뮤니티)" >상세보기</a>
 
 - 공지사항
 - 자유 게시판
