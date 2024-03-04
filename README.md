@@ -7,6 +7,14 @@
 <!--     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 스프링 부트 + Mybatis 학습 관리 솔루션 코딩 </div>  -->
 </div>
 
+<h2> 🎤 프로젝트 소개</h2>
+
+- 학생 및 강사들이 교육과정 정보를 손쉽게 접근하고 이해할 수 있다.
+- LMS를 통해 수강신청, 출결, 과제와 같은 다양한 기능을 편리하게 활용할 수 있다.
+- 커뮤니티를 통한 정보를 공유할 수 있다.
+
+<br>
+
 <h2> 🛠 기술 스택 </h2>
 
 - Frontend : HTML5, CSS3, JavaScript, Jquery, Ajax
