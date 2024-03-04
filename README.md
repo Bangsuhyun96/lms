@@ -1,101 +1,140 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=📕학습%20관리%20솔루션%20사이트%20&animation=&fontColor=222222&fontSize=33" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:b8cfff,100:61ff73&height=120&text=📕아카데미%20학습%20관리%20솔루션%20웹사이트%20&animation=&fontColor=222222&fontSize=33" />
 </div>    
+
 <div style="text-align: left;"> 
-<!--     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📕학습 관리 솔루션 사이트 </h2>   -->
+<!--     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📕 아카데미 학습 관리 솔루션 웹사이트 </h2>   -->
 <!--     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #282d33;"> 스프링 부트 + Mybatis 학습 관리 솔루션 코딩 </div>  -->
 </div>
-<div style="text-align: left;">
-    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🛠️ 기술 스택 </h2> <br>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Frontend<br>
-        <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-        <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-        <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-        <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
-        <img src="https://img.shields.io/badge/Ajax-007396?style=for-the-badge&logo=Ajax&logoColor=white">
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Backend<br>
-        <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white"> 
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Database<br>
-        <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
-<!--           <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white"> -->
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Server<br>
-        <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=for-the-badge&logo=Apache Tomcat&logoColor=black">
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Development Tools<br>
-        <img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
-        <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Framework<br>
-        <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white">
-<!--             <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"> -->
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Version control<br>
-        <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
-        <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white">
-    </div>
-    <div style="margin: ; text-align: left;" "text-align: left;">
-        # Communication<br>
-        <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
-    </div>
+
+<h2> 🛠 기술 스택 </h2>
+
+- Frontend : HTML5, CSS3, JavaScript, Jquery, Ajax
+- Backend : Java 17
+- Database : MariaDB
+- Server : Apache Tomcat, Gradle
+- Development Tools : IntelliJ, VisualStudioCode
+- Framework : Spring Boot 2.7
+- Version Control : Git, GitHub
+- Communication : Notion, Discord
+
+<br>
+
+<div style="text-align: left;"> 
+    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🕓 프로젝트 기간 </h2> 
+    
+    ✔ 2023.09.23. ~ 2023.10.21.
+    
+    ✔ 2023.11.20. ~ 2023.12.22.
 </div>
+
+<br>
+
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🔎 멤버 구성 및 역할 분담 </h2> 
     
-    **😺팀장 방수현** : 프론트 전체, 강의주차 정보 관리, 수업 일정 정보 관리
+    😺 팀장 방수현 : 관리자 페이지 - 강의주차 정보 관리, 수업 일정 정보 관리 / 프론트
     
-    **😺팀원 김훈규** : 과제 관리
+    😺 팀원 김훈규 : 관리자 페이지 - 과제 관리
     
-    **😺팀원 서지환** : 로그인, 회원 관리
+    😺 팀원 서지환 : 관리자 페이지/회원 페이지 - 로그인, 회원 관리
     
-    **😺팀원 조영서** : 강의출강 관리, 개설강좌정보 관리, 게시판
+    😺 팀원 조영서 : 관리자 페이지 - 강의출강 관리, 개설강좌정보 관리 / 회원 페이지 - 마이페이지, 수강신청 및 출석, 강의이력, 게시판
     
-    **😺팀원 심민아** : 교육과정 관리, 교과목 관리, 게시판
+    😺 팀원 심민아 : 관리자 페이지 - 교육과정 관리, 교과목 관리 / 회원 페이지 - 수강 및 강의 이력, 강의 계획서 관리, 과제 관리, 게시판
 </div>
-<div style="text-align: left;"> 
-    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 💻 화면 구성 </h2>
-    <img width="30%" src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
-    <img width="30%" src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
-    <img width="30%" src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
-    <img width="30%" src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
-    <img width="30%" src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
-    <img width="30%" src="https://github.com/Bangsuhyun96/lms/assets/82694273/58107341-6160-4777-aec2-fb2752033402.jpg">
-</div>
+
+<br>
+
+<h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 💻 메인 화면 </h2>
+<img src="https://github.com/Bangsuhyun96/lms/assets/142382007/cd168c10-447e-4da5-b937-39a1670219bf" width="60%"/>
+
+<br><br>
+
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 💡 주요 기능 </h2>
 
-### 회원가입 및 로그인
-    - 관리자가 회원가입을 진행한다.
-    - 로그인 시 관리자, 학생, 강사 회원별 페이지로 리다이렉트한다.
-    
-### 강의 시간표
-    - 학생 또는 강사 회원별 개설된 강의를 시간표로 조회할 수 있다.
-    
-### 수강 관리
-    - 전체 성적 조회, 학기별 수강한 모든 이력을 조회할 수 있다.
+<h3 style="border-boottom: 0; color: #5F5F5F;">1. 관리자 페이지</h3>
 
-### 과제 관리
-    - 수강 혹은 강의중인 강의의 과제 리스트를 조회할 수 있다.
+#### ✔ 로그인 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(로그인)" >상세보기</a>
+
+- 관리자가 회원가입을 진행
+- 로그인 시 관리자, 회원(강사 or 학생) 페이지로 리다이렉트
+
+#### ✔ 전체적인 강좌 관리 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(강좌관리)" >상세보기</a>
+
+- 교육과정 및 교과목 관리
+- 강의 주차 관리
+- 수업 일정 관리
+- 개설 강좌 관리
+- 강의 출강 관리
+
+<h3 style="border-boottom: 0; color: #5F5F5F;">2. 회원 페이지</h3>
+
+#### ✔ 나의정보 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(나의정보)" >상세보기</a>
+- 자신의 정보 조회 및 수정
+
+#### ✔ 수업정보 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(수업정보)" >상세보기</a>
+
+- 나의 강의실
+  - 강의 현황
+  - 강의 계획서
+  - 출결
+  - 과제
+    
+- 수강신청
+
+#### ✔ 커뮤니티 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(커뮤니티)" >상세보기</a>
+
+- 공지사항
+- 자유 게시판
+- QnA
     
 </div>
+
+<br>
+
+<h2> 🗝 트러블 슈팅 </h2>
+
+- [과제 관리 이슈](https://github.com/Bangsuhyun96/lms/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85(%EA%B3%BC%EC%A0%9C) "과제 관리 이슈")
+
+<br>
+
 <div style="text-align: left;"> 
-    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📗 프로젝트 회고 </h2>
+    <h2> 📗 프로젝트 회고 </h2>
     
-    ## 😼 Keep
+#### 😺 방수현
+    
+LMS 프로젝트에서는 초기에 기능 구현에 많은 시간을 투자하도록 개발 계획을 세웠으나 프로젝트를 완성하지 못했습니다.<br>
+이것은 조사 및 설계 단계의 중요성을 인지하지 못한 결과였습니다.<br>
+DB 테이블 구조를 계속해서 변경해야 했던 부분에 있어 어려움을 겪었는데 DB 설계가 전체 프로젝트에 큰 영향을 미친다는 것을 깨달았습니다.<br>
+이번 프로젝트를 통해 얻은 경험으로 우선 순위를 재정리하고 계속해서 학습해 나갈 것입니다.
 
-    ## 😹 Problem
+#### 😺 김훈규
 
-    ## 😾 Try
+DB 테이블 기획 및 설계 과정에서 시간이 소요되었지만, 이로 인해 더 나은 이해와 팀원 간의 의사소통이 가능한 시간을 가졌습니다.<br>
+시간이 걸리더라도, 기획 및 설계 단계에서의 시간을 통해 우리 팀은 더 나은 팀워크와 문제 해결 능력을 발전시킬 수 있는 계기가 되어 개인 역량까지도 향상될 수 있었습니다.<br>
+
+#### 😺 서지환
+프로젝트를 시작할 때는 쉽게 할 수 있다 생각했지만 자바스크립트와 SQL에 어려움을 많이 겪었습니다.<br> 
+그래도 팀원들과 많은 소통을 통해 어려움을 극복할 수 있었습니다.<br> 
+기능 구현만이 중요하다고 생각했지만 화면설계, DB설계, 요구사항명세와 같은 기능구현 전 작업도 중요하다는걸 알았습니다.<br>
+DB설계에 대해 배울 수 있어 좋은 시간이였습니다.
+
+#### 😺 조영서
+
+#### 😺 심민아
+처음으로 20개 이상의 테이블을 구성하면서 테이블간의 관계를 이해하는데 어려움을 겪었습니다.<br>
+이로 인해 SQL문을 통해 원하는 데이터를 가져오기가 어려웠고,<br>
+개발을 하면서도 테이블 간의 관계를 또다시 이해해야하는 상황이 반복되었습니다.<br>
+이러한 경험을 통해 테이블 간의 관계에 대한 전반적인 이해가 없다면 원활한 개발이 어렵다는 것을 느낄 수 있었고,<br>
+최초 DB 설계의 중요성을 깨달을 수 있었습니다.<br>
+그리고 마무리하지 못한 프로젝트를 추가 개발에 참여하는 팀원이 부족한 상황에서도 성공적으로 프로젝트를 마무리를 할 수 있어서<br> 
+더욱 뿌듯했던 경험이었고, 팀원과의 협력이 중요하다는 것을 다시 한번 더 느낄 수 있었던 프로젝트였습니다.
 </div>
+
+<br>
+
 <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🧑‍💻 문의 </h2>
     <div style="text-align: left;">
@@ -103,3 +142,4 @@
         <a href="https://open.kakao.com/o/smvWVhQf"><img src="https://img.shields.io/badge/KakaoTalk-FFCD00?style=for-the-badge&logoColor=black&logo=KakaoTalk"></a>
     </div>
 </div>    
+
