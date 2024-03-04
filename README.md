@@ -56,7 +56,7 @@
 
 <h3 style="border-boottom: 0; color: #5F5F5F;">1. 관리자 페이지</h3>
 
-#### ✔ 로그인 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(관리자&회원-‐-로그인)" >상세보기</a>
+#### ✔ 회원가입 및 로그인 - <a href="https://github.com/Bangsuhyun96/lms/wiki/주요-기능-소개(관리자&회원-‐-로그인)" >상세보기</a>
 
 - 관리자가 회원가입을 진행
 - 로그인 시 관리자, 회원(강사 or 학생) 페이지로 리다이렉트
